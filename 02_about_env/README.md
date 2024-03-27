@@ -45,5 +45,5 @@ Hi6 TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.
 |`Hi6 Main` - `Pickit Processor`| 192.168.1.100 |
 |`Hi6 TP` - `Pickit Processor`| 192.168.2.100 |
 
-pick-it 카메라가 동작을 하는지 확인하고 싶은 경우 하기 픽잇 공식 문서를 참조하십시오.  
+pick-it 카메라 설정은 하기 픽잇 공식 문서를 참조하십시오.  
 링크 : [pickit web interface document](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)
