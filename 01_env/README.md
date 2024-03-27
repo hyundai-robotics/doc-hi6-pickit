@@ -1,13 +1,13 @@
-﻿# 2. 환경 구성
+﻿# 1. 환경 구성
 
 해당 페이지는 pick-it 플러그인을 실행하는데 필요한 HW 및 SW 구성을 설명합니다.
 
-## 2.1 하드웨어 구성
+## 1.1 하드웨어 구성
 
 플러그인 동작에 필요한 주요 부품은 다음과 같습니다.  
 `Hi6 COM`, `Hi6 TP`, `pick-it 프로세서`, `pick-it 카메라`,`HUB`  
 
-연결은 다음과 같이 이루어집니다.
+예시)
 
 <img src="../_assets/04_hardware_net.png" width="45%">
 
@@ -15,7 +15,7 @@
 <br>
 
 
-## 2.2 플러그인 설치
+## 1.2 플러그인 설치
 
 USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
 상세 과정은 다음과 같습니다.
@@ -33,17 +33,20 @@ USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
 <br>
 
 
-## 2.3 네트워크 통신
+## 1.3 네트워크 통신
 
 Hi6 Main 과 pick-it 프로세서는 이더넷 통신 방식을 사용합니다.  
 Hi6 Main 과 pick-it 프로세서의 ip 서브넷 마스크는 1대역 입니다.   
 Hi6 TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.  
+그 외 상세 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
+
 
 |속성|내용|
 |:----|:----|
-|`통신 방식`| `Ethernet` (TCP/IP) |
-|`Hi6 Main` - `Pickit Processor`| 192.168.1.100 |
-|`Hi6 TP` - `Pickit Processor`| 192.168.2.100 |
+|`연결 유형`| `TCP/IP 소켓` |
+|`포트`| 5001(TCP) |
+|`바이트 순서`| 네트워크 순서 (big endian) |
 
-pick-it 카메라 설정은 하기 픽잇 공식 문서를 참조하십시오.  
+
+pick-it 카메라 설정은 하기 pick-it 공식 문서를 참조하십시오.  
 링크 : [pickit web interface document](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)
