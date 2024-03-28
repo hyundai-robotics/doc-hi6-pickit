@@ -40,7 +40,7 @@
 
 |<br>함수명|&nps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>기능|<br>인자|
 |:---|:---|:---|
-|`is_running`|픽잇 프로세서에 `CHECK_MODE`명령을 보냅니다.<br>정상 웅답으로 `ROBOT_MODE`를 답합니다. |`1st`: timeout (= 제한시간) <br>`2nd`: addr_on_timeout (= 타임아웃 시 분기 주소)|
+|`is_running`|픽잇 프로세서에 `CHECK_MODE`명령을 보냅니다.<br>정상 응답으로 `ROBOT_MODE`를 답합니다. |`1st`: timeout (= 제한시간) <br>`2nd`: addr_on_timeout (= 타임아웃 시 분기 주소)|
 |`find_cal_plate`|픽잇 프로세서에 `FIND_CALIB_PLATE` 명령을 보냅니다.<br> 정상 응답으로 `FIND_CALIB_PLATE_OK`를 답합니다.|`1st`: timeout<br>`2nd`: addr_on_timeout|
 |`config_cal`|픽잇 프로세서에 `CONFIGURE_CALIB` 명령을 보냅니다.<br>정상 응답으로 `CONFIGURE_CALIB_OK`를 답합니다.|`1st`: method(= 캘리브레이션 방법) <br> &rightarrow; 단일포즈: 0, 다중포즈: 1<br>`2nd`: camera_mount(= 카메라 위치)<br>&rightarrow; 로봇에 부착: 1, 그 외: 0 <br>`3rd`: timeout<br>`4th`: addr_on_timeout<br>|
 |`compute_cal`|픽잇 프로세서에 `COMPUTE_CALIB` 명령을 보냅니다.<br>정상 응답으로 `COMPUTE_CALIB_OK`를 답합니다.|`1st`: timeout<br>`2nd`: addr_on_timeout|
