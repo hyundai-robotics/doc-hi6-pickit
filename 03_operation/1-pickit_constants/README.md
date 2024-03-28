@@ -50,13 +50,13 @@
 
 <br>
 
-### 3.1.2 pick-it 모드 상수
+### 3.1.2 pick-it 프로세서 상태 상수
 
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
 
-|모드|값|
+|pick-it 프로세서 상태|값|
 |:---|:---|
-|`UNDEFINED`|-1|
+|`UNDEFINED`| -1|
 |`ROBOT_MODE`|0|
 |`CALIBRATION MODE`|1|
 |`IDLE`|2|
