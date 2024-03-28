@@ -60,13 +60,13 @@ job 파일에서 상기 함수들의 리턴 값을 변수로 반환 받는 경�
 
 |리턴 값|설명|
 |:---|:---|
-|`-1`| `error` socket is not valid.                  |
-|`-2`| `error` socket is not connected.              |
-|`-3`| `error` data to request is none.              |
-|`-4`| `error` xhost is timeout.                     |
-|`-5`| `error` responsed data is not proper to parse.|
-|`-6`| `error` socket recv error.                    |
-|`-7`| `error` exception for waiting receiving data. |
-|`-8`| `error` exception for trying request.         |
-| `0`| `exec_mode` or `waiting` response.            |
-| `1`| `success` for execution.                      |
+|`-1`| `error` 소켓이 유효하지 않습니다.                 |
+|`-2`| `error` 소켓이 연결되지 않았습니다.               |
+|`-3`| `error` 요청하려는 데이터가 없습니다.             |
+|`-4`| `error` xhost 가 timeout 이 되었습니다.         |
+|`-5`| `error` 응답한 데이터가 파싱하기 적합하지 않습니다. |
+|`-6`| `error` 소켓 recv 에러입니다.                   |
+|`-7`| `error` 데이터를 recv 하는 도중 에러가 발생했습니다.|
+|`-8`| `error` 요청을 시도하다 에러가 발생했습니다.       |
+| `0`| xhost 모드가 `exec_mode` 이거나 응답을 기다리고 있습니다.|
+| `1`| `success` 실행에 성공하였습니다.|
