@@ -1,7 +1,7 @@
 ﻿## 2.2 설정 화면  
 
 
-<img src = "../../_assets/03_setup_ui.png" width="60%">  
+<img src="../../_assets/03_setup_ui.png" height=330hv>  
 
 `Fig d` 설정 화면 UI
 

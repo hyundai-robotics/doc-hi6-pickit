@@ -5,4 +5,4 @@
 
 예시)
 
-<img src="../../_assets/04_hardware_net.png" width="45%">
+<img src="../../_assets/04_hardware_net.png" height=310hv>

@@ -13,14 +13,14 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 
 동일한 동작을 반복하면 확대된 창이 축소 됩니다.  
 
-<img src = "../../_assets/00_panel_select.png" width="60%">  
+<img src="../../_assets/00_panel_select.png" height=320hv>
 
 `Fig a` 패널 선택 메뉴 화면
 
-<img src = "../../_assets/01_panel.png" width="60%">  
+<img src="../../_assets/01_panel.png" height=320hv>
 
 `Fig b` 창 분할 시 출력되는 화면
 
-<img src = "../../_assets/02_expanded.png" width="60%">  
+<img src="../../_assets/02_expanded.png" height=320hv>
 
 `Fig c` 분할된 화면을 확대했을 때의 화면

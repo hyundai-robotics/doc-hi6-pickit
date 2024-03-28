@@ -3,7 +3,7 @@
 현재 페이지는 pick-it 프로세서에 요청하는 명령어와 응답 내용에 대한 것입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
 
-<img src = "../../_assets/02_expanded.png" width="60%">  
+<img src="../../_assets/02_expanded.png" height=350hv> 
 
 `Fig a` 모니터링 용 창분할 화면을 확대한 경우
 
