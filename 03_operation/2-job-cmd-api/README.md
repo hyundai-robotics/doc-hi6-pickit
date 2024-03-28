@@ -9,7 +9,7 @@
 `Fig a` pick-it 플러그인 용 `get_result()` 함수 호출 중인 장면
 
 
-<br>
+<br><br>
 
 ### 3.2.1 pick-it 로봇 명령어 사용
 
@@ -30,7 +30,7 @@
 
     `Fig d` pick-it 플러그인 용 명령어 호출 화면
 
-<br>
+<br><br>
 
 ### 3.2.2 pick-it 로봇 명령어 리스트
 

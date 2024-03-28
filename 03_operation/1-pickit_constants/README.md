@@ -19,7 +19,7 @@
 |`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
 |`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
   
-<br>
+<br><br>
 
 ### 3.1.1 pick-it 명령어 상수
 
@@ -48,7 +48,7 @@
 |`BUILD_BACKGROUND`|60|
 |`GET_PICK_POINT_DATA`|70|
 
-<br>
+<br><br>
 
 ### 3.1.2 pick-it 프로세서 상태 상수
 
@@ -61,7 +61,7 @@
 |`CALIBRATION MODE`|1|
 |`IDLE`|2|
 
-<br>
+<br><br>
 
 ### 3.1.3 pick-it 응답 상수
 
