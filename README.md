@@ -1,4 +1,4 @@
-﻿# Hi6 pick-it plugin Manual
+﻿# Hi6 Pick-it Plugin Manual
 
 {% hint style="warning" %}
 The information provided in this product manual is the property of Hyundai Robotics.

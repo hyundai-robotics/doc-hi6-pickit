@@ -1,4 +1,4 @@
-﻿## 3.2. pick-it robot language function
+﻿## 3.2. Pick-it robot language function
 
 The current page explains the functions of the job file for the pick-it plugin.  
 As shown in `Figure a`, functional operation and status monitoring of the job file are possible at the same time.

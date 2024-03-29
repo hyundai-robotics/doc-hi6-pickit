@@ -10,5 +10,5 @@
   * [2.2 Setup Window](02_preview/2-setup/README.md)
 * [3. Plugin details](03_operation/README.md)
   * [3.1. Constants used in the Pick-it processor](03_operation/1-pickit_constants/README.md)
-  * [3.2. pick-it robot language function](03_operation/2-job-cmd-api/README.md)
+  * [3.2. Pick-it robot language function](03_operation/2-job-cmd-api/README.md)
   

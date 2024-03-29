@@ -1,7 +1,7 @@
 ﻿## 1.3 Network Configuration
 
 Hi6 Main and pick-it processors use Ethernet communication method.   
-The IP subnet mask of Hi6 Main and Pick-it processors is 1 band.   
+The IP subnet mask of Hi6 Main and pick-it processors is 1 band.   
 The IP subnet mask of Hi6 TP and pick-it camera is two-band.    
 For further details, please refer to the [pick-it official document](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
 
