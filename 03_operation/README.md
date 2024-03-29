@@ -1,11 +1,12 @@
-﻿# 3. 플러그인 관련
+﻿# 3. Plugin details  
 
-해당 섹션에서는 pick-it 플러그인에 적용된 내용들을 다룹니다.  
-pick-it 프로세서에 요청을 보내는 명령어와 관련 에러코드를 확인할 수 있습니다.  
-추가로 플러그인에 적용되는 로봇 언어 함수들이 확인 가능합니다.  
-pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된 pick-it 공식문서 링크로 확인 가능합니다.
+This section covers content applied to the pick-it plugin.  
+You can check the command that sends a request to the pick-it processor and the related error code.    
+Additionally, you can check the robot language functions applied to the plugin.    
+Detailed information related to the pick-it processor can be found through  
+the link to the pick-it official document provided on each page.  
 
-  - [3.1. pick-it 프로세서에서 사용되는 상수](./1-pickit_constants/README.md)
-  - [3.2. pick-it 로봇 언어 함수](./2-job-cmd-api/README.md)
+  - [3.1. Constants used in the Pick-it processor](./1-pickit_constants/README.md)
+  - [3.2. pick-it robot language function](./2-job-cmd-api/README.md)
 
 

@@ -1,32 +1,32 @@
-﻿## 3.1. pick-it 프로세서에서 사용되는 상수
+﻿## 3.1. Constants used in the Pick-it processor
 
-현재 페이지는 pick-it 프로세서에 요청하는 명령어와 응답 내용에 대한 것입니다.  
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
+The current page is about the `commands` and `responses` requested to the pick-it processor.  
+For more information, see [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
 
 <img src="../../_assets/02_expanded.png" height=350hv> 
 
-`Fig a` 모니터링 용 창분할 화면을 확대한 경우
+`Fig a` Zoomed pick-it monitoring panel
 
 <br>
 
-|속성|방향|내용|
+|Property| Direction | Content|
 |:---|:---|:---|
-|`Command`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
-|`Connection`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
-|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [pick-it 공식 문서 참조](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
-|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
-|`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
-|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
+|`Command`|Hi6 com &rightarrow; pick-it processor| Indicates a request command. |
+|`Connection`|Hi6 com &leftrightarrow; pick-it processor| Indicates the communication connection status between Hi6 com and pick-it processor. |
+|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [Refer to pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`Status`|Hi6 com &leftarrow; pick-it processor| Indicates a response to a request. |
+|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
+|`Pick ID`|Hi6 com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
+|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
   
 <br>
 
-### 3.1.1 pick-it 명령어 상수
+### 3.1.1 pick-it command constants
 
-다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+The following are instruction constants used when making requests to the pick-it processor.  
+For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
 
-|명령어|값|
+|Command|Value|
 |:---|:---|
 |`NO_COMMAND`|-1|
 |`CHECK_MODE`|0|
@@ -50,11 +50,11 @@
 
 <br>
 
-### 3.1.2 pick-it 프로세서 상태 상수
+### 3.1.2 pick-it processor mode constants
 
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
 
-|pick-it 프로세서 상태|값|
+|Pick-it mode|Value|
 |:---|:---|
 |`UNDEFINED`| -1|
 |`ROBOT_MODE`|0|
@@ -63,11 +63,11 @@
 
 <br>
 
-### 3.1.3 pick-it 응답 상수
+### 3.1.3 pick-it response constants
 
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
 
-|응답|값|
+|Pick-it response|Value|
 |:---|:---|
 |`ROBOT_MODE`                 |  0|
 |`IDLE_MODE`                  |  1|

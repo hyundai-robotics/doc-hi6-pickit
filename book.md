@@ -1,140 +1,142 @@
-﻿# Hi6 픽잇 플러그인 설명서
+﻿# Hi6 pick-it plugin Manual
 
 {% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
+The information provided in this product manual is the property of Hyundai Robotics.
 
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
+It cannot be reproduced or redistributed in part or whole without written consent from Hyundai Robotics, and it cannot be provided to third parties or used for other purposes.
 
-
-
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
+The manual can change without prior notification.
 
 
 **Copyright ⓒ 2024 by HD Hyundai Robotics**
-{% endhint %}# 1. 환경 구성
+{% endhint %}# 1. Environment Configuration
 
-해당 페이지는 pick-it 플러그인을 실행하는데 필요한 HW 및 SW 구성을 설명합니다.
+This page describes the HW and SW configuration required to run the pick-it plugin.
 
-- [1.1 하드웨어 구성](./1-hw/README.md)
-- [1.2 플러그인 설치](./2-sw_install/README.md)
-- [1.3 네트워크 통신](./3-network/README.md)## 1.1 하드웨어 구성
+- [1.1 H/W Configuration](./1-hw/README.md)
+- [1.2 Installation](./2-sw_install/README.md)
+- [1.3 Network Configuration](./3-network/README.md)## 1.1 H/W Configuration
 
-플러그인 동작에 필요한 주요 부품은 다음과 같습니다.  
-`Hi6 COM`, `Hi6 TP`, `pick-it 프로세서`, `pick-it 카메라`,`HUB`  
+The main parts required for plug-in operation are as follows:  
+`Hi6 COM`, `Hi6 TP`, `pick-it processor`, `pick-it camera`,`HUB`  
 
-예시)
+ex)
 
-<img src="../../_assets/04_hardware_net.png" width="45%">## 1.2 플러그인 설치
+<img src="../../_assets/04_hardware_net.png" height=310hv>## 1.2 Installation
 
-USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
-상세 과정은 다음과 같습니다.
+Proceed with installing the plugin through the TP screen using USB.  
+The detailed process is as follows.
 
-|Step|내용|
+|Step|Contents|
 |---: |:---|
-| `1` | pick-it 플러그인 프로그램을 USB 에 저장합니다.  |
-| `2` | USB 를 TP에 연결합니다. |
-| `3` | `서비스` > `5: 파일 관리` > `USB` > `pickit 폴더` > `복사` |
-| `4` | `MAIN` > `apps` > `붙여넣기` |
-| `5` | `제어기 재부팅` |
-| `6` | `시스템` > `5: 응용 파라미터` > `픽잇` |
-## 1.3 네트워크 통신
+| `1` | Save the pick-it plug-in program to USB. |
+| `2` | Connect USB to TP. |
+| `3` | `Service` > `5: File manager` > `USB` > `pickit` folder > `copy` |
+| `4` | `MAIN` folder > `apps` folder > `paste` |
+| `5` | Reboot Hi6 COM |
+| `6` | `system` > `4: Application parameter` > `25: pickit` |
+## 1.3 Network Configuration
 
-Hi6 Main 과 pick-it 프로세서는 이더넷 통신 방식을 사용합니다.  
-Hi6 Main 과 pick-it 프로세서의 ip 서브넷 마스크는 1대역 입니다.   
-Hi6 TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.  
-그 외 상세 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
+Hi6 Main and pick-it processors use Ethernet communication method.   
+The IP subnet mask of Hi6 Main and Pick-it processors is 1 band.   
+The IP subnet mask of Hi6 TP and pick-it camera is two-band.    
+For further details, please refer to the [pick-it official document](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
 
 
-|속성|내용|
+|Property|Contents|
 |:----|:----|
-|`연결 유형`| `TCP/IP 소켓` |
-|`포트`| 5001(TCP) |
-|`바이트 순서`| 네트워크 순서 (big endian) |
+|`Connection Type`| `TCP/IP Socket` |
+|`Port`| 5001(TCP) |
+|`Byte Order`| Network Order (big endian) |
 
 
-pick-it 카메라 설정은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)를 참조하십시오.  # 2. 미리보기
+For pick-it camera setup, you can use the pick-it web interface.  
+Please refer to [pick-it’s official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).# 2. Preview
 
-해당 페이지에서는 pick-it 플러그인을 실행할 때 볼 수 있는 대표적인 2가지 UI를 살펴봅니다.  
+On this page, we will look at two representative UIs that can be seen when using the pick-it plugin.  
 
-- [2.1 창 분할 모니터링 화면](./1-panel/README.md)
-- [2.2 설정 화면](./2-setup/README.md)## 2.1 창 분할 모니터링 화면
+- [2.1 Monitoring Panel](./1-panel/README.md)
+- [2.2 Setup Window](./2-setup/README.md)## 2.1 Monitoring Panel
 
-기존 TP UI 기능과 호환되므로, 창 분할 화면, 확대 기능 등을 활용할 수 있습니다.  
-pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분할 화면을 통해 확인할 수 있습니다.  
-`Request to Pickit` 창에서는 pick-it 프로세서에 요청되는 명령어와 특성 값이 확인됩니다.  
-`Response from Pickit` 창에서는 돌아오는 응답 상태와 추가 정보들이 확인됩니다.  
+It is compatible with existing TP UI features, so you can utilize window split screen, zoom functions, etc.  
+You can check the results of the pick-it robot language function operation in real time through the monitoring panel.  
+In the `Request to Pickit`  field confirms the command and attribute values requested by the Pickit processor.  
+In the `Response from Pickit` field, you can check the status of the response and additional information.
 
-창 분할 방법은 다음과 같습니다.  
-- `창조정` 클릭 > `분할` 클릭 > 우측 분할 창 클릭 > `창조정` 클릭 > `선택` 클릭 > 스크롤 후 `픽잇 모니터링` 더블 클릭  
+Here's how to split a window:  
+- `pane layout` > `split` > Click on the split panel on the right. > `pane layout` > `select` > Scroll down and click on `pickit monitoring`.
 
-분할된 창을 확대하는 방법은 다음과 같습니다.  
-- `픽잇 모니터링 창`이 활성화(클릭된 상태)가 된 것을 확인 > `shift + esc` 버튼 클릭  
+Here's how to zoom a monitoring panel:  
+- Click the `pickit monitoring panel` > Click `shift + esc`  
 
-동일한 동작을 반복하면 확대된 창이 축소 됩니다.  
+Repeating the same operation will shrink the zoomed window.  
 
-<img src = "../../_assets/00_panel_select.png" width="60%">  
+<img src="../../_assets/00_panel_select.png" height=320hv>
 
-`Fig a` 패널 선택 메뉴 화면
+`Fig a` Selecting pick-it monitoring panel
 
-<img src = "../../_assets/01_panel.png" width="60%">  
+<img src="../../_assets/01_panel.png" height=320hv>
 
-`Fig b` 창 분할 시 출력되는 화면
+`Fig b` pick-it monitoring panel
 
-<img src = "../../_assets/02_expanded.png" width="60%">  
+<img src="../../_assets/02_expanded.png" height=320hv>
 
-`Fig c` 분할된 화면을 확대했을 때의 화면## 2.2 설정 화면  
+`Fig c` zoomed monitoring panel## 2.2 Setup Window
 
+The procedure to enter the plugin settings screen is as follows.
 
-<img src = "../../_assets/03_setup_ui.png" width="60%">  
+- `System` > `4: Application parameter` > `25: pickit` > 
 
-`Fig d` 설정 화면 UI
+<img src="../../_assets/03_setup_ui.png" height=330hv>  
 
-
-설정화면에서는 다음 추가 작업들을 할 수 있습니다.  
-1. pick-it 프로세서 연결에 사용된 `ip` 와 `port`를 입력하고 연결 시 소켓 `타임아웃` 값을 입력 및 변경할 수 있습니다.
-2. `Reconnect` 버튼을 통해, 연결이 끊겼거나, `ip`, `port`가 변경됐을 때 재연결을 할 수 있습니다.
-3. `1.1 창 분할 모니터링 화면` 에서 확인되는 수치들을 동일하게 확인할 수 있습니다.
-4. `확인` 버튼을 통해 현재 `ip`, `port` 정보를 제어기에 저장합니다.  # 3. 플러그인 관련
-
-해당 섹션에서는 pick-it 플러그인에 적용된 내용들을 다룹니다.  
-pick-it 프로세서에 요청을 보내는 명령어와 관련 에러코드를 확인할 수 있습니다.  
-추가로 플러그인에 적용되는 로봇 언어 함수들이 확인 가능합니다.  
-pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된 pick-it 공식문서 링크로 확인 가능합니다.
-
-  - [3.1. pick-it 프로세서에서 사용되는 상수](./1-pickit_constants/README.md)
-  - [3.2. pick-it 로봇 언어 함수](./2-job-cmd-api/README.md)
+`Fig d` Setup UI
 
 
-## 3.1. pick-it 프로세서에서 사용되는 상수
+You can perform the following additional tasks on the settings screen:  
+1. You can enter the `ip` and `port` used when connecting to the pick-it processor, and enter and change the socket `timeout` value when connecting.  
+2. The `Reconnect` button allows you to reconnect if the connection is lost or the `ip` or `port` has changed.
+3. You can check the same values as seen in `2.1 Monitoring Panel`.
+4. Click the `OK` button to save the current `ip` and `port` information to the controller.# 3. Plugin details  
 
-현재 페이지는 pick-it 프로세서에 요청하는 명령어와 응답 내용에 대한 것입니다.  
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
+This section covers content applied to the pick-it plugin.  
+You can check the command that sends a request to the pick-it processor and the related error code.    
+Additionally, you can check the robot language functions applied to the plugin.    
+Detailed information related to the pick-it processor can be found through  
+the link to the pick-it official document provided on each page.  
 
-<img src = "../../_assets/02_expanded.png" width="60%">  
+  - [3.1. Constants used in the Pick-it processor](./1-pickit_constants/README.md)
+  - [3.2. pick-it robot language function](./2-job-cmd-api/README.md)
 
-`Fig a` 모니터링 용 창분할 화면을 확대한 경우
+
+## 3.1. Constants used in the Pick-it processor
+
+The current page is about the `commands` and `responses` requested to the pick-it processor.  
+For more information, see [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
+
+<img src="../../_assets/02_expanded.png" height=350hv> 
+
+`Fig a` Zoomed pick-it monitoring panel
 
 <br>
 
-|속성|방향|내용|
+|Property| Direction | Content|
 |:---|:---|:---|
-|`Command`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
-|`Connection`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
-|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [pick-it 공식 문서 참조](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
-|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
-|`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
-|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
+|`Command`|Hi6 com &rightarrow; pick-it processor| Indicates a request command. |
+|`Connection`|Hi6 com &leftrightarrow; pick-it processor| Indicates the communication connection status between Hi6 com and pick-it processor. |
+|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [Refer to pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`Status`|Hi6 com &leftarrow; pick-it processor| Indicates a response to a request. |
+|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
+|`Pick ID`|Hi6 com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
+|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
   
 <br>
 
-### 3.1.1 pick-it 명령어 상수
+### 3.1.1 pick-it command constants
 
-다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+The following are instruction constants used when making requests to the pick-it processor.  
+For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
 
-|명령어|값|
+|Command|Value|
 |:---|:---|
 |`NO_COMMAND`|-1|
 |`CHECK_MODE`|0|
@@ -158,24 +160,24 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 
 <br>
 
-### 3.1.2 pick-it 모드 상수
+### 3.1.2 pick-it processor mode constants
 
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
 
-|모드|값|
+|Pick-it mode|Value|
 |:---|:---|
-|`UNDEFINED`|-1|
+|`UNDEFINED`| -1|
 |`ROBOT_MODE`|0|
 |`CALIBRATION MODE`|1|
 |`IDLE`|2|
 
 <br>
 
-### 3.1.3 pick-it 응답 상수
+### 3.1.3 pick-it response constants
 
-자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
 
-|응답|값|
+|Pick-it response|Value|
 |:---|:---|
 |`ROBOT_MODE`                 |  0|
 |`IDLE_MODE`                  |  1|
@@ -199,69 +201,77 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 |`GET_PICK_POINT_DATA_FAILED` | 71|
 |`CONNECTED`                  | 98|
 |`DISCONNECTED`               | 99|
-|`UNKNOWN_COMMAND`            |-99|## 3.2. pick-it 로봇 언어 함수
+|`UNKNOWN_COMMAND`            |-99|## 3.2. pick-it robot language function
 
-현재 페이지에서는 Hi6 TP 에서 호출되는 pick-it 플러그인 용 job 파일의 함수들을 설명합니다.  
-
-<img src = "../../_assets/01_panel.png" width="60%">  
-
-`Fig a` pick-it 플러그인 용 `get_result()` 함수 호출 중인 장면
-
-`Fig a` 처럼 job 파일에서 pick-it 플러그인 용 함수들을 동작시키면서 상태 모니터링이 가능합니다.  
-사용자 
-
-<br>
-
-### 3.2.1 pick-it 로봇 명령어 사용
-
-`Fig a` 화면에서 다음 순서로 클릭 기반의 명령어 입력이 가능합니다.  
-
-1. `명령입력` > `f-버튼` 리스트 확인 > `pickit` 클릭  
-<img src = "../../_assets/05_pickit_cmd_1.png" width="60%">   
-
-    `Fig b` pick-it f-버튼
-
-2. 입력하려는 함수 선택  
-<img src = "../../_assets/06_pickit_cmd_2.png" width="60%">  
-    `Fig c` pick-it 플러그인 용 명령어 리스트
-
-3. 함수 선택 시 등록된 인자 값을 설정할 수 있습니다.  
-<img src = "../../_assets/07_pickit_cmd_3.png" width="60%">  
+The current page explains the functions of the job file for the pick-it plugin.  
+As shown in `Figure a`, functional operation and status monitoring of the job file are possible at the same time.
 
 
+<img src="../../_assets/01_panel.png" height=350hv> 
 
-<br>
+`Fig a` Image of the `is_running()` function is executed
 
-### 3.2.2 pick-it 로봇 명령어 리스트
+<br><br>
 
-로봇 언어 함수는 xhost 기반의 nonblocking 통신 방식이 적용되었습니다.  
-하나의 모듈을 통해 통신 요청이 이루어지므로 반환되는 값이 동일합니다.  
-각 각의 명령어에 대한 응답 상태는 모니터링 창의 `Status` 칸에서 확인 가능합니다.
+### 3.2.1 pick-it f-button commands
 
-|함수명|인자|리턴|
+You can enter the pick-it commands as follows:    
+
+1. Click the `cmd.input` > Check the `f-button` list > Select the `pickit`   
+
+    <img src="../../_assets/05_pickit_cmd_1.png" height=90hv> 
+
+    `Fig b` pick-it f-button
+
+2. Select the command you want to enter  
+
+    <img src="../../_assets/06_pickit_cmd_2.png" height=90hv> 
+
+    `Fig c` commands for the pick-it plugin
+
+3. When you select the command, registered argument values are displayed.
+
+    <img src="../../_assets/07_pickit_cmd_3.png" height=350hv>   
+    
+    `Fig d` When the execute `is_running()` command.
+
+<br><br>
+
+### 3.2.2 pick-it function for the command
+
+A more detailed description of the functions used in the aforementioned pick-it command is as follows.  
+Basically, the robot language functions uses an xhost-based nonblocking communication method.    
+Because a communication request is made through one xhost module, the returned value is the same.    
+But you can check the response status for the each command through the `Status` field in the monitoring window.  
+
+|<br>function|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>operation|<br>arguments|
 |:---|:---|:---|
-|`is_running`|timeout, addr_on_timeout|하기 참조|
-||check pickit processor is running|하기 참조|
-|`find_cal_plate`|timeout, addr_on_timeout|하기 참조|
-|`config_cal`|Calibration method(Single pose: 0, Multi pose: 1), Camera mount(Fixed: 0, On-robot: 1)|하기 참조|
-|`compute_cal`|timeout, addr_on_timeout|하기 참조|
-|`validate_cal`|timeout, addr_on_timeout|하기 참조|
-|`capture_img`|timeout, addr_on_timeout|하기 참조|
-|`find_objs`|retry count(0 ~ 500), timeout, addr_on_timeout|하기 참조|
-|`validate_cal`|timeout, addr_on_timeout|하기 참조|
-|`get_result`|timeout, addr_on_timeout|하기 참조|
-|`get_pick_point_data`|timeout, addr_on_timeout|하기 참조|
-|`configure`|Setup file No(1 ~ 500), Product file No(1 ~ 500), timeout, addr_on_timeout|하기 참조|
+|`is_running`|Send a `CHECK_MODE` command to the pick-it processor.<br>Reply `ROBOT_MODE` as a normal response. |`1st`) timeout (= timelimit to request) <br>`2nd`) addr_on_timeout (= branch address for the timeout)|
+|`find_cal_plate`|Send a `FIND_CALIB_PLATE` command to the pick-it processor.<br>Reply `FIND_CALIB_PLATE_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+|`config_cal`|Send a `CONFIGURE_CALIB` command to the pick-it processor.<br>Reply `CONFIGURE_CALIB_OK` as a normal response.|`1st`) method(for calibaration) <br> &rightarrow; single pose) 0, multiple pose) 1<br>`2nd`) camera_mount(= position)<br>&rightarrow; on robot) 1, etc) 0 <br>`3rd`) timeout<br>`4th`) addr_on_timeout<br>|
+|`compute_cal`|Send a `COMPUTE_CALIB` command to the pick-it processor.<br>Reply `COMPUTE_CALIB_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+|`validate_cal`|Send a `VALIDATE_CALIB` command to the pick-it processor.<br>Reply `VALIDATE_CALIB_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+|`capture_img`|Send a `CAPTURE_IMAGE` command to the pick-it processor.<br>Reply `IMAGE_CAPTURED` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+|`find_objs`|If `retries is 0`, then send `LOOK_FOR_OBJECTS` command.<br>Unless, send `LOOK_FOR_OBJECTS_WITH_RETRIES` command.<br>Reply `IMAGE_CAPTURED` as a normal response.|`1st`) retries(= retry counts)|
+|`process_img`|Send a `PROCESS_IMAGE` command to the pick-it processor.| - |
+|`get_next_obj`|Send a `NEXT_OBJECT` command to the pick-it processor.| - |
+|`configure`|Send a `CONFIGURE` command to the pick-it processor.<br>Reply `CONFIG_OK` as a normal response.|`1st`) setup_id(1 ~ 500)<br>`2nd`) Product file No(1 ~ 500)<br>`3rd`) timeout<br>`4th`) addr_on_timeout|
+|`get_result`|Waiting `OBJECT_FOUND` response from the pick-it processor.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+|`get_pick_point_data`|Send a `GET_PICK_POINT_DATA` command to the pick-it processor.<br>Reply `GET_PICK_POINT_DATA_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
 
-|리턴 값|설명|
-|:---|:---|
-|`-1`| `error` socket is not valid.                  |
-|`-2`| `error` socket is not connected.              |
-|`-3`| `error` data to request is none.              |
-|`-4`| `error` xhost is timeout.                     |
-|`-5`| `error` responsed data is not proper to parse.|
-|`-6`| `error` socket recv error.                    |
-|`-7`| `error` exception for waiting receiving data. |
-|`-8`| `error` exception for trying request.         |
-| `0`| `exec_mode` or `waiting` response.            |
-| `1`| `success` for execution.                      |
+<br>
+
+The return value of the above functions is as follows:  
+
+|Return Value|Status|Description|
+|:---:|:---:|:---|
+|`-1`| `error`| socket is not valid..                 |
+|`-2`| `error`| socket is not connected.               |
+|`-3`| `error`| data to request is none.           |
+|`-4`| `error`| xhost is timeout.         |
+|`-5`| `error`| responsed data is not proper to parse. |
+|`-6`| `error`| socket recv error.                   |
+|`-7`| `error`| exception for waiting receiving data.|
+|`-8`| `error`| exception for trying request.       |
+| `0`| - |`exec_mode` or `waiting` response.|
+| `1`| `success`|execution success.|

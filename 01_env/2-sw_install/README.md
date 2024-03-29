@@ -1,13 +1,13 @@
-﻿## 1.2 플러그인 설치
+﻿## 1.2 Installation
 
-USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
-상세 과정은 다음과 같습니다.
+Proceed with installing the plugin through the TP screen using USB.  
+The detailed process is as follows.
 
-|Step|내용|
+|Step|Contents|
 |---: |:---|
-| `1` | pick-it 플러그인 프로그램을 USB 에 저장합니다.  |
-| `2` | USB 를 TP에 연결합니다. |
-| `3` | `서비스` > `5: 파일 관리` > `USB` > `pickit 폴더` > `복사` |
-| `4` | `MAIN` > `apps` > `붙여넣기` |
-| `5` | `제어기 재부팅` |
-| `6` | `시스템` > `5: 응용 파라미터` > `픽잇` |
+| `1` | Save the pick-it plug-in program to USB. |
+| `2` | Connect USB to TP. |
+| `3` | `Service` > `5: File manager` > `USB` > `pickit` folder > `copy` |
+| `4` | `MAIN` folder > `apps` folder > `paste` |
+| `5` | Reboot Hi6 COM |
+| `6` | `system` > `4: Application parameter` > `25: pickit` |

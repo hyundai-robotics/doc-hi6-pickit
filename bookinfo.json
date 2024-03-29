@@ -1,7 +1,7 @@
 ﻿{
-    "langCode": "ko",
+    "langCode": "en",
     "series": "Hi6 SDK",
-    "title": "Hi6 pick-it 플러그인 설명서",
+    "title": "Hi6 Pick-it Plugin Manual",
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Contents",
     "tocTitleElements": "[ \"h1\", \"h2\"]"

@@ -1,16 +1,17 @@
-﻿## 1.3 네트워크 통신
+﻿## 1.3 Network Configuration
 
-Hi6 Main 과 pick-it 프로세서는 이더넷 통신 방식을 사용합니다.  
-Hi6 Main 과 pick-it 프로세서의 ip 서브넷 마스크는 1대역 입니다.   
-Hi6 TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.  
-그 외 상세 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
+Hi6 Main and pick-it processors use Ethernet communication method.   
+The IP subnet mask of Hi6 Main and Pick-it processors is 1 band.   
+The IP subnet mask of Hi6 TP and pick-it camera is two-band.    
+For further details, please refer to the [pick-it official document](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
 
 
-|속성|내용|
+|Property|Contents|
 |:----|:----|
-|`연결 유형`| `TCP/IP 소켓` |
-|`포트`| 5001(TCP) |
-|`바이트 순서`| 네트워크 순서 (big endian) |
+|`Connection Type`| `TCP/IP Socket` |
+|`Port`| 5001(TCP) |
+|`Byte Order`| Network Order (big endian) |
 
 
-pick-it 카메라 설정은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)를 참조하십시오.  
+For pick-it camera setup, you can use the pick-it web interface.  
+Please refer to [pick-it’s official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).

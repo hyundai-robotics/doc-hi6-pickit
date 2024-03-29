@@ -1,6 +1,6 @@
-﻿# 2. 미리보기
+﻿# 2. Preview
 
-해당 페이지에서는 pick-it 플러그인을 실행할 때 볼 수 있는 대표적인 2가지 UI를 살펴봅니다.  
+On this page, we will look at two representative UIs that can be seen when using the pick-it plugin.  
 
-- [2.1 창 분할 모니터링 화면](./1-panel/README.md)
-- [2.2 설정 화면](./2-setup/README.md)
+- [2.1 Monitoring Panel](./1-panel/README.md)
+- [2.2 Setup Window](./2-setup/README.md)
