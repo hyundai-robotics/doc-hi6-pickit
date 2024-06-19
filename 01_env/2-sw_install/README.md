@@ -1,6 +1,6 @@
 ﻿## 1.2 Installation
 
-> Currently, we provide the plugin only to customers who have received prior approval through consultation.
+> Currently, we provide the plugin only to customers who have received prior approval through consultation.  
 For inquiries: Researcher Donghyeong Lee, HD Hyundai Robotics (donghyeong.lee@hd.com)  
 
 
