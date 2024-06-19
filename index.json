@@ -16,42 +16,42 @@
 	},
 	{
 		"link": "01_env/2-sw_install/README.md",
-		"char_ofs": 603,
-		"byte_ofs": 1041
+		"char_ofs": 604,
+		"byte_ofs": 1042
 	},
 	{
 		"link": "01_env/3-network/README.md",
-		"char_ofs": 917,
-		"byte_ofs": 1563
+		"char_ofs": 1005,
+		"byte_ofs": 1729
 	},
 	{
 		"link": "02_preview/README.md",
-		"char_ofs": 1439,
-		"byte_ofs": 2339
+		"char_ofs": 1527,
+		"byte_ofs": 2505
 	},
 	{
 		"link": "02_preview/1-panel/README.md",
-		"char_ofs": 1586,
-		"byte_ofs": 2594
+		"char_ofs": 1674,
+		"byte_ofs": 2760
 	},
 	{
 		"link": "02_preview/2-setup/README.md",
-		"char_ofs": 2313,
-		"byte_ofs": 3893
+		"char_ofs": 2392,
+		"byte_ofs": 4050
 	},
 	{
 		"link": "03_operation/README.md",
-		"char_ofs": 2687,
-		"byte_ofs": 4576
+		"char_ofs": 2765,
+		"byte_ofs": 4732
 	},
 	{
 		"link": "03_operation/1-pickit_constants/README.md",
-		"char_ofs": 3017,
-		"byte_ofs": 5200
+		"char_ofs": 3095,
+		"byte_ofs": 5356
 	},
 	{
 		"link": "03_operation/2-job-cmd-api/README.md",
-		"char_ofs": 5998,
-		"byte_ofs": 8839
+		"char_ofs": 6105,
+		"byte_ofs": 9040
 	}
 ]
