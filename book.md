@@ -1,4 +1,4 @@
-﻿# Hi6 pick-it plugin Manual
+﻿# Hi6 Pick-it Plugin Manual
 
 {% hint style="warning" %}
 The information provided in this product manual is the property of Hyundai Robotics.
@@ -24,8 +24,13 @@ ex)
 
 <img src="../../_assets/04_hardware_net.png" height=310hv>## 1.2 Installation
 
+> Currently, we provide the plugin only to customers who have received prior approval through consultation.
+For inquiries: Researcher Donghyeong Lee, HD Hyundai Robotics (donghyeong.lee@hd.com)  
+
+
 Proceed with installing the plugin through the TP screen using USB.  
-The detailed process is as follows.
+The detailed process is as follows.  
+
 
 |Step|Contents|
 |---: |:---|
@@ -38,7 +43,7 @@ The detailed process is as follows.
 ## 1.3 Network Configuration
 
 Hi6 Main and pick-it processors use Ethernet communication method.   
-The IP subnet mask of Hi6 Main and Pick-it processors is 1 band.   
+The IP subnet mask of Hi6 Main and pick-it processors is 1 band.   
 The IP subnet mask of Hi6 TP and pick-it camera is two-band.    
 For further details, please refer to the [pick-it official document](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
 
@@ -201,7 +206,7 @@ For more information, please refer to [pick-it official documentation](https://d
 |`GET_PICK_POINT_DATA_FAILED` | 71|
 |`CONNECTED`                  | 98|
 |`DISCONNECTED`               | 99|
-|`UNKNOWN_COMMAND`            |-99|## 3.2. pick-it robot language function
+|`UNKNOWN_COMMAND`            |-99|## 3.2. Pick-it robot language function
 
 The current page explains the functions of the job file for the pick-it plugin.  
 As shown in `Figure a`, functional operation and status monitoring of the job file are possible at the same time.

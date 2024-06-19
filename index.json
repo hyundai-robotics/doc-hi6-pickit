@@ -21,37 +21,37 @@
 	},
 	{
 		"link": "01_env/3-network/README.md",
-		"char_ofs": 1359,
-		"byte_ofs": 1410
+		"char_ofs": 1560,
+		"byte_ofs": 1616
 	},
 	{
 		"link": "02_preview/README.md",
-		"char_ofs": 2104,
-		"byte_ofs": 2176
+		"char_ofs": 2305,
+		"byte_ofs": 2382
 	},
 	{
 		"link": "02_preview/1-panel/README.md",
-		"char_ofs": 2309,
-		"byte_ofs": 2389
+		"char_ofs": 2510,
+		"byte_ofs": 2595
 	},
 	{
 		"link": "02_preview/2-setup/README.md",
-		"char_ofs": 3404,
-		"byte_ofs": 3512
+		"char_ofs": 3605,
+		"byte_ofs": 3718
 	},
 	{
 		"link": "03_operation/README.md",
-		"char_ofs": 4121,
-		"byte_ofs": 4247
+		"char_ofs": 4322,
+		"byte_ofs": 4453
 	},
 	{
 		"link": "03_operation/1-pickit_constants/README.md",
-		"char_ofs": 4693,
-		"byte_ofs": 4834
+		"char_ofs": 4894,
+		"byte_ofs": 5040
 	},
 	{
 		"link": "03_operation/2-job-cmd-api/README.md",
-		"char_ofs": 8268,
-		"byte_ofs": 8505
+		"char_ofs": 8469,
+		"byte_ofs": 8711
 	}
 ]
