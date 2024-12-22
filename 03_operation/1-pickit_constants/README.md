@@ -11,10 +11,10 @@
 
 |속성|방향|내용|
 |:---|:---|:---|
-|`Command`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
-|`Connection`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
-|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [pick-it 공식 문서 참조](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
+|`요청한 명령`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
+|`연결상태`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
+|`페이로드 1`, `페이로드 2`|Hi6 com &leftarrow; pick-it processor| 요청시 전달하는 [pickit 명령 요청 인자.](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`응답`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
 |`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
 |`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
 |`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
@@ -24,6 +24,7 @@
 ### 3.1.1 pick-it 명령어 상수
 
 다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
+상기 표의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
 
 |명령어|값|
@@ -69,26 +70,30 @@
 
 |응답|값|
 |:---|:---|
-|`ROBOT_MODE`                 |  0|
-|`IDLE_MODE`                  |  1|
-|`FIND_CALIB_PLATE_OK`        | 10|
-|`FIND_CALIB_PLATE_FAILED`    | 11|
-|`CONFIGURE_CALIB_OK`         | 12|
-|`CONFIGURE_CALIB_FAILED`     | 13|
-|`COMPUTE_CALIB_OK`           | 14|
-|`COMPUTE_CALIB_FAILED`       | 15|
-|`VALIDATE_CALIB_OK`          | 16|
-|`VALIDATE_CALIB_FAILED`      | 17|
-|`OBJECTS_FOUND`              | 20|
-|`NO_OBJECTS`                 | 21|
-|`NO_IMAGE_CAPTURED`          | 22|
-|`EMPTY_ROI`                  | 23|
-|`IMAGE_CAPTURED`             | 26|
-|`INVALID_LICENSE`            | 27|
-|`CONFIG_OK`                  | 40|
-|`CONFIG_FAILED`              | 41|
-|`GET_PICK_POINT_DATA_OK`     | 70|
-|`GET_PICK_POINT_DATA_FAILED` | 71|
-|`CONNECTED`                  | 98|
-|`DISCONNECTED`               | 99|
-|`UNKNOWN_COMMAND`            |-99|
+|UNKNOWN_COMMAND|-99|
+|ROBOT_MODE|0|
+|IDLE_MODE|1|
+|SHUTDOWN_REQUEST_ACCEPT|5|
+|SHUTDOWN_REQUEST_REJECTED|6|
+|FIND_CALIB_PLATE_OK|10|
+|FIND_CALIB_PLATE_FAILED|11|
+|CONFIGURE_CALIB_OK|12|
+|CONFIGURE_CALIB_FAILED|13|
+|COMPUTE_CALIB_OK|14|
+|COMPUTE_CALIB_FAILED|15|
+|VALIDATE_CALIB_OK|16|
+|VALIDATE_CALIB_FAILED|17|
+|OBJECTS_FOUND|20|
+|NO_OBJECTS|21|
+|NO_IMAGE_CAPTURED|22|
+|EMPTY_ROI|23|
+|IMAGE_CAPTURED|26|
+|INVALID_LICENSE|27|
+|CONFIG_OK|40|
+|CONFIG_FAILED|41|
+|SAVE_SNAPSHOT_OK|50|
+|SAVE_SNAPSHOT_FAILED|51|
+|BUILD_BKG_CLOUD_OK|60|
+|BUILD_BKG_CLOUD_FAILED|61|
+|GET_PICK_POINT_DATA_OK|70|
+|GET_PICK_POINT_DATA_FAILED|71|
