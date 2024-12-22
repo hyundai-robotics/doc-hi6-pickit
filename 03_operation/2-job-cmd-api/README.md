@@ -21,14 +21,21 @@
     `Fig b` pick-it f-버튼 화면
 
 2. 입력하려는 함수 선택  
-<img src="../../_assets/06_pickit_cmd_2.png" height=90hv> 
+<img src="../../_assets/06_pickit_cmd_2.png" height=92hv> 
 
     `Fig c` pick-it 플러그인 용 명령어 리스트 화면
 
 3. 함수 선택 시 등록된 인자 값을 설정할 수 있습니다.  
 <img src="../../_assets/07_pickit_cmd_3.png" height=350hv>   
 
-    `Fig d` pick-it 플러그인 용 명령어 호출 화면
+    `Fig d` pick-it 플러그인 용 명령어 호출 화면  
+
+4. `pickit. var` 이라는 부분을 `var` 로 수정해서 사용합니다.   
+    - `v60.30` 부터는 불필요   
+<img src="../../_assets/07_pickit_cmd_4.png" height=60hv>   
+수정 후   
+<img src="../../_assets/07_pickit_cmd_5.png" height=62.3hv>    
+   
 
 <br><br>
 
