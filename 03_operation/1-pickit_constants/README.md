@@ -24,7 +24,7 @@
 ### 3.1.1 pick-it 명령어 상수
 
 다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
-상기 표의 `요청한 명령`에 표시되는 명령어들입니다.  
+`픽잇으로 요청한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
 
 |명령어|값|
@@ -65,35 +65,35 @@
 <br><br>
 
 ### 3.1.3 pick-it 응답 상수
-
+`픽잇이 응답한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
 
 |응답|값|
 |:---|:---|
-|UNKNOWN_COMMAND|-99|
-|ROBOT_MODE|0|
-|IDLE_MODE|1|
-|SHUTDOWN_REQUEST_ACCEPT|5|
-|SHUTDOWN_REQUEST_REJECTED|6|
-|FIND_CALIB_PLATE_OK|10|
-|FIND_CALIB_PLATE_FAILED|11|
-|CONFIGURE_CALIB_OK|12|
-|CONFIGURE_CALIB_FAILED|13|
-|COMPUTE_CALIB_OK|14|
-|COMPUTE_CALIB_FAILED|15|
-|VALIDATE_CALIB_OK|16|
-|VALIDATE_CALIB_FAILED|17|
-|OBJECTS_FOUND|20|
-|NO_OBJECTS|21|
-|NO_IMAGE_CAPTURED|22|
-|EMPTY_ROI|23|
-|IMAGE_CAPTURED|26|
-|INVALID_LICENSE|27|
-|CONFIG_OK|40|
-|CONFIG_FAILED|41|
-|SAVE_SNAPSHOT_OK|50|
-|SAVE_SNAPSHOT_FAILED|51|
-|BUILD_BKG_CLOUD_OK|60|
-|BUILD_BKG_CLOUD_FAILED|61|
-|GET_PICK_POINT_DATA_OK|70|
-|GET_PICK_POINT_DATA_FAILED|71|
+|`UNKNOWN_COMMAND`|-99|
+|`ROBOT_MODE`|0|
+|`IDLE_MODE`|1|
+|`SHUTDOWN_REQUEST_ACCEPT`|5|
+|`SHUTDOWN_REQUEST_REJECTED`|6|
+|`FIND_CALIB_PLATE_OK`|10|
+|`FIND_CALIB_PLATE_FAILED`|11|
+|`CONFIGURE_CALIB_OK`|12|
+|`CONFIGURE_CALIB_FAILED`|13|
+|`COMPUTE_CALIB_OK`|14|
+|`COMPUTE_CALIB_FAILED`|15|
+|`VALIDATE_CALIB_OK`|16|
+|`VALIDATE_CALIB_FAILED`|17|
+|`OBJECTS_FOUND`|20|
+|`NO_OBJECTS`|21|
+|`NO_IMAGE_CAPTURED`|22|
+|`EMPTY_ROI`|23|
+|`IMAGE_CAPTURED`|26|
+|`INVALID_LICENSE`|27|
+|`CONFIG_OK`|40|
+|`CONFIG_FAILED`|41|
+|`SAVE_SNAPSHOT_OK`|50|
+|`SAVE_SNAPSHOT_FAILED`|51|
+|`BUILD_BKG_CLOUD_OK`|60|
+|`BUILD_BKG_CLOUD_FAILED`|61|
+|`GET_PICK_POINT_DATA_OK`|70|
+|`GET_PICK_POINT_DATA_FAILED`|71|
