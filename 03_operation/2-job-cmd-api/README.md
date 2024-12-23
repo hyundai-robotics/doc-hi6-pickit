@@ -50,7 +50,7 @@ UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시
   - 반환 값 ) 
   `1`: 송신 성공, `-1`: 보내는 데이터에 문제가 있음, `-2`: 소켓이 연결되지 않음, `-3`: 송신 실패
 
-- #2. `get_next_obj`   
+- #2. `get next object`   
   픽잇 프로세서에 `NEXT_OBJECT` 명령을 보냅니다. `get_result()`를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.  
   - 인자 값 ) `timeout`(= 제한시간), `addr_on_timeout`(= 타임아웃 시 분기 주소, ex. 99, error)  
   - 반환 값 ) `1`: 송신 성공, `-1`: 보내는 데이터에 문제가 있음, `-2`: 소켓이 연결되지 않음, `-3`: 송신 실패
@@ -60,37 +60,37 @@ UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시
   - 인자 값 ) `setup_id`(1-500), `product_id`(1-500), `timeout`, `addr_on_timeout`  
   - 반환 값 ) `40`: CONFIG_OK, `41`: CONFIG_FAILED, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청실패
 
-- #4. `is_running`
+- #4. `is running`
   픽잇 프로세서에 `CHECK_MODE`명령을 보냅니다.  
   - 인자 값 ) `timeout`, `addr_on_timeout`  
   - 반환 값 ) `0`: ROBOT_MODE, `1`: IDLE_MODE, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패
 
-- #5. `find_cal_plate`  
+- #5. `find calib plate`  
   픽잇 프로세서에 `FIND_CALIB_PLATE` 명령을 보냅니다. 정상 응답으로 `10(FIND_CALIB_PLATE_OK)`를 답합니다.  
   - 인자 값 ) `timeout`, `addr_on_timeout`  
   - 반환 값 ) `10`: FIND_CALIB_OK, `11`: FIND_CALIB_FAILED, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패
 
-- #6. `config_cal`  
+- #6. `config calibration`  
   픽잇 프로세서에 `CONFIGURE_CALIB` 명령을 보냅니다. 정상 응답으로 `12(CONFIGURE_CALIB_OK)`를 답합니다.  
   - 인자 값 ) `method`(0: 싱글포즈, 1: 멀티포즈), `camera_mount`(1:로봇에 부착, 0: 그 외),`timeout`, `addr_on_timeout`  
   - 반환 값 ) `12`: CONFIGURE_CALIB_OK, `13`: CONFIGURE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패, `-6`: `method` 또는 `camera_mount` 값이 입력되지 않음
 
-- #7. `compute_cal`  
+- #7. `compute calibration`  
   픽잇 프로세서에 `COMPUTE_CALIB` 명령을 보냅니다. 정상 응답으로 `14(COMPUTE_CALIB_OK)`를 답합니다.  
   - 인자 값 ) `timeout`, `addr_on_timeout`  
   - 반환 값 ) `14`: COMPUTE_CALIB_OK, `15`: COMPUTE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
 
-- #8. `validate_cal`  
+- #8. `validate calibration`  
   픽잇 프로세서에 `VALIDATE_CALIB` 명령을 보냅니다. 정상 응답으로 `16(VALIDATE_CALIB_OK)`를 답합니다.  
   - 인자 값 ) `timeout`, `addr_on_timeout`  
   - 반환 값 ) `16`: VALIDATE_CALIB_OK, `17`: VALIDATE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
 
-- #9. `find_objs`  
+- #9. `find objects`  
   retries가 0일 때는 `LOOK_FOR_OBJECTS`를 보내고<br>0 아닐 때는 `LOOK_FOR_OBJECTS_WITH_RETRIES`을 보냅니다. `get_result()`를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.  
   - 인자 값) `retries`(= 반복 횟수)  
   - 반환 값) `1`: 송신 성공, `-1`: 유효하지 않은 테이터 타입, `-2`: 소켓 연결 실패, `3`: 송신 실패  
 
-- #10. `capture_img`  
+- #10. `capture image`  
   픽잇 프로세서에 `CAPTURE_IMAGE` 명령을 보냅니다. 정상 응답으로 `IMAGE_CAPTURED`를 답합니다.  
   - 인자 값) `timeout`, `addr_on_timeout`  
   - 반환 값) `26`: IMAGE_CAPTURED, `22`: NO_IMAGE_CAPTURED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
@@ -101,7 +101,7 @@ UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시
   - 반환 값) `70`: GET_PICK_POINT_DATA_OK, `71`: GET_PICK_POINT_DATA_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
 
 
-- #12. `get_result`  
+- #12. `get result`  
   픽잇 프로세서로부터 `OBJECT_FOUND` 응답을 기다립니다.  
   - 인자 값 ) `timeout`, `addr_on_timeout`  
   - 반환 값 ) `20`: OBJECT_FOUND, `21`: NO_OBJECTS, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
