@@ -106,6 +106,11 @@ UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시
   - 인자 값 ) `timeout`, `addr_on_timeout`  
   - 반환 값 ) `20`: OBJECT_FOUND, `21`: NO_OBJECTS, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
 
+- #13. `save_snapshot`  
+  픽잇 프로세서에 `SAVE_SNAPSHOT` 명령을 보냅니다. 정상 응답으로 `50(SAVE_SNAPSHOT_OK)`를 답합니다.  
+  - 인자 값 ) `subfoler`(1~255), `timeout`, `addr_on_timeout`
+  - 반환 값 ) `50`: SAVE_SNAPSHOT_OK, `51`: SAVE_SNAPSHOT_FAILED, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
+ 
 ---- 
 
 #### 2. hi6 COM 에 요청하는 명령어 리스트 
