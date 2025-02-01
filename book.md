@@ -21,11 +21,21 @@
 - [1.3 네트워크 통신](./3-network/README.md)## 1.1 하드웨어 구성
 
 플러그인 동작에 필요한 주요 부품은 다음과 같습니다.  
-`Hi6 COM`, `Hi6 TP`, `pick-it 프로세서`, `pick-it 카메라`,`HUB`  
+`Hi6 COM`, `Hi6 TP`, `pick-it 프로세서`, `pick-it 카메라`,`허브` 또는 `라우터`  
 
-예시)
+예시1)
 
-<img src="../../_assets/04_hardware_net.png" height=310hv>## 1.2 플러그인 설치
+<img src="../../_assets/04_hardware_net.png" height=310hv>
+
+<br>
+
+예시2)
+1. 라우터로 pick-it 스트리밍 서버와 Hi6 COM LAN2 연결
+   - pick-it 스트리밍 서버(서브넷 192.168.2.1) - 라우터 - Hi6 COM LAN2 (서브넷 192.168.4.1) 
+  
+2. Hi6 COM 에서 포트포워딩 적용
+   - TP > 엔지니어 모드 진입 (R314) > 2: 제어파라미터 > 9: 네트워크 > 3: 포트포워딩
+   - 프로토콜 TCP/UDP 설정 > 외부: LAN2/8070 > 내부: 192.168.2.77/50004 > 적용 > 재부팅 ## 1.2 플러그인 설치
 
 > 현재 사전 협의를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.   
 문의 : HD현대로보틱스 이동형 연구원 (donghyeong.lee@hd.com)
@@ -121,10 +131,10 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 
 |속성|방향|내용|
 |:---|:---|:---|
-|`Command`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
-|`Connection`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
-|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [pick-it 공식 문서 참조](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
+|`요청한 명령`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
+|`연결상태`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
+|`페이로드 1`, `페이로드 2`|Hi6 com &leftarrow; pick-it processor| 요청시 전달하는 [pickit 명령 요청 인자.](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`응답`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
 |`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
 |`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
 |`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
@@ -134,6 +144,7 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 ### 3.1.1 pick-it 명령어 상수
 
 다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
+`픽잇으로 요청한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
 
 |명령어|값|
@@ -174,34 +185,39 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 <br><br>
 
 ### 3.1.3 pick-it 응답 상수
-
+`픽잇이 응답한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
 
 |응답|값|
 |:---|:---|
-|`ROBOT_MODE`                 |  0|
-|`IDLE_MODE`                  |  1|
-|`FIND_CALIB_PLATE_OK`        | 10|
-|`FIND_CALIB_PLATE_FAILED`    | 11|
-|`CONFIGURE_CALIB_OK`         | 12|
-|`CONFIGURE_CALIB_FAILED`     | 13|
-|`COMPUTE_CALIB_OK`           | 14|
-|`COMPUTE_CALIB_FAILED`       | 15|
-|`VALIDATE_CALIB_OK`          | 16|
-|`VALIDATE_CALIB_FAILED`      | 17|
-|`OBJECTS_FOUND`              | 20|
-|`NO_OBJECTS`                 | 21|
-|`NO_IMAGE_CAPTURED`          | 22|
-|`EMPTY_ROI`                  | 23|
-|`IMAGE_CAPTURED`             | 26|
-|`INVALID_LICENSE`            | 27|
-|`CONFIG_OK`                  | 40|
-|`CONFIG_FAILED`              | 41|
-|`GET_PICK_POINT_DATA_OK`     | 70|
-|`GET_PICK_POINT_DATA_FAILED` | 71|
-|`CONNECTED`                  | 98|
-|`DISCONNECTED`               | 99|
-|`UNKNOWN_COMMAND`            |-99|## 3.2. pick-it 로봇 언어 함수
+|`UNKNOWN_COMMAND`|-99|
+|`ROBOT_MODE`|0|
+|`IDLE_MODE`|1|
+|`SHUTDOWN_REQUEST_ACCEPT`|5|
+|`SHUTDOWN_REQUEST_REJECTED`|6|
+|`FIND_CALIB_PLATE_OK`|10|
+|`FIND_CALIB_PLATE_FAILED`|11|
+|`CONFIGURE_CALIB_OK`|12|
+|`CONFIGURE_CALIB_FAILED`|13|
+|`COMPUTE_CALIB_OK`|14|
+|`COMPUTE_CALIB_FAILED`|15|
+|`VALIDATE_CALIB_OK`|16|
+|`VALIDATE_CALIB_FAILED`|17|
+|`OBJECTS_FOUND`|20|
+|`NO_OBJECTS`|21|
+|`NO_IMAGE_CAPTURED`|22|
+|`EMPTY_ROI`|23|
+|`IMAGE_CAPTURED`|26|
+|`INVALID_LICENSE`|27|
+|`CONFIG_OK`|40|
+|`CONFIG_FAILED`|41|
+|`SAVE_SNAPSHOT_OK`|50|
+|`SAVE_SNAPSHOT_FAILED`|51|
+|`BUILD_BKG_CLOUD_OK`|60|
+|`BUILD_BKG_CLOUD_FAILED`|61|
+|`GET_PICK_POINT_DATA_OK`|70|
+|`GET_PICK_POINT_DATA_FAILED`|71|
+## 3.2. pick-it 로봇 언어 함수
 
 현재 페이지에서는 Hi6 TP 에서 호출되는 pick-it 플러그인 용 job 파일의 함수들을 설명합니다.  
 `Fig a` 처럼 job 파일에서 pick-it 플러그인 용 함수들을 동작시키면서 상태 모니터링이 가능합니다.  
@@ -224,52 +240,125 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
     `Fig b` pick-it f-버튼 화면
 
 2. 입력하려는 함수 선택  
-<img src="../../_assets/06_pickit_cmd_2.png" height=90hv> 
+<img src="../../_assets/06_pickit_cmd_2.png" height=92hv> 
 
     `Fig c` pick-it 플러그인 용 명령어 리스트 화면
 
 3. 함수 선택 시 등록된 인자 값을 설정할 수 있습니다.  
 <img src="../../_assets/07_pickit_cmd_3.png" height=350hv>   
 
-    `Fig d` pick-it 플러그인 용 명령어 호출 화면
+    `Fig d` pick-it 플러그인 용 명령어 호출 화면  
+
+4. `pickit. var` 이라는 부분을 `var` 로 수정해서 사용합니다.   
+<img src="../../_assets/07_pickit_cmd_4.png" height=60hv>   
+수정 후   
+<img src="../../_assets/07_pickit_cmd_5.png" height=62.3hv>    
+    - `v60.30` 부터는 불필요   
+   
 
 <br><br>
 
 ### 3.2.2 pick-it 로봇 명령어 리스트
+---- 
+#### 1. pick-it 프로세서에 요청하는 명령어 리스트 (= pickit API)
+UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시가 됩니다.
 
-로봇 언어 함수는 xhost 기반의 nonblocking 통신 방식이 적용되었습니다.  
-하나의 모듈을 통해 통신 요청이 이루어지므로 반환되는 값이 동일합니다.  
-각 각의 명령어에 대한 응답 상태는 모니터링 창의 `Status` 칸에서 확인 가능합니다.
+- #1. `process_img`  
+  픽잇 프로세서에 `PROCESS_IMAGE` 명령을 보냅니다.  
+  - 인자 값 ) 없음  
+  - 반환 값 ) 
+  `1`: 송신 성공, `-1`: 보내는 데이터에 문제가 있음, `-2`: 소켓이 연결되지 않음, `-3`: 송신 실패
 
-|<br>함수명|&nps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>기능|<br>인자|
-|:---|:---|:---|
-|`is_running`|픽잇 프로세서에 `CHECK_MODE`명령을 보냅니다.<br>정상 응답으로 `ROBOT_MODE`를 답합니다. |`1st`) timeout (= 제한시간) <br>`2nd`) addr_on_timeout (= 타임아웃 시 분기 주소)|
-|`find_cal_plate`|픽잇 프로세서에 `FIND_CALIB_PLATE` 명령을 보냅니다.<br> 정상 응답으로 `FIND_CALIB_PLATE_OK`를 답합니다.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`config_cal`|픽잇 프로세서에 `CONFIGURE_CALIB` 명령을 보냅니다.<br>정상 응답으로 `CONFIGURE_CALIB_OK`를 답합니다.|`1st`) method(= 캘리브레이션 방법) <br> &rightarrow; 단일포즈) 0, 다중포즈) 1<br>`2nd`) camera_mount(= 카메라 위치)<br>&rightarrow; 로봇에 부착) 1, 그 외) 0 <br>`3rd`) timeout<br>`4th`) addr_on_timeout<br>|
-|`compute_cal`|픽잇 프로세서에 `COMPUTE_CALIB` 명령을 보냅니다.<br>정상 응답으로 `COMPUTE_CALIB_OK`를 답합니다.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`validate_cal`|픽잇 프로세서에 `VALIDATE_CALIB` 명령을 보냅니다.<br>정상 응답으로 `VALIDATE_CALIB_OK`를 답합니다.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`capture_img`|픽잇 프로세서에 `CAPTURE_IMAGE` 명령을 보냅니다.<br>정상 응답으로 `IMAGE_CAPTURED`를 답합니다.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`find_objs`|아래처럼 픽잇 프로세서에 명령을 보냅니다.<br>retries가 0일 때는 `LOOK_FOR_OBJECTS`를 보내고<br>0 아닐 때는 `LOOK_FOR_OBJECTS_WITH_RETRIES`을 보냅니다.<br>정상 응답으로 `IMAGE_CAPTURED`를 답합니다.|`1st`) retries(= 반복 횟수)|
-|`process_img`|픽잇 프로세서에 `PROCESS_IMAGE` 명령을 보냅니다.| - |
-|`get_next_obj`|픽잇 프로세서에 `NEXT_OBJECT` 명령을 보냅니다.| - |
-|`configure`|픽잇 프로세서에 `CONFIGURE` 명령을 보냅니다.<br>정상 응답으로 `CONFIG_OK`를 답합니다.|`1st`) setup_id(1 ~ 500)<br>`2nd`) Product file No(1 ~ 500)<br>`3rd`) timeout<br>`4th`) addr_on_timeout|
-|`get_result`|픽잇 프로세서로부터 `OBJECT_FOUND` 응답을 기다립니다. |`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`get_pick_point_data`|픽잇 프로세서에 `GET_PICK_POINT_DATA` 명령을 보냅니다.<br>정상 응답으로 `GET_PICK_POINT_DATA_OK`를 답합니다.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+- #2. `get next object`   
+  픽잇 프로세서에 `NEXT_OBJECT` 명령을 보냅니다. `get_result()`를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.  
+  - 인자 값 ) `timeout`(= 제한시간), `addr_on_timeout`(= 타임아웃 시 분기 주소, ex. 99, error)  
+  - 반환 값 ) `1`: 송신 성공, `-1`: 보내는 데이터에 문제가 있음, `-2`: 소켓이 연결되지 않음, `-3`: 송신 실패
+  
+- #3. `configure`  
+  픽잇 프로세서에 `CONFIGURE` 명령을 보냅니다. 정상 응답으로 `40(CONFIG_OK)` 를 답합니다.     
+  - 인자 값 ) `setup_id`(1-500), `product_id`(1-500), `timeout`, `addr_on_timeout`  
+  - 반환 값 ) `40`: CONFIG_OK, `41`: CONFIG_FAILED, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청실패
 
-<br>
+- #4. `is running`
+  픽잇 프로세서에 `CHECK_MODE`명령을 보냅니다.  
+  - 인자 값 ) `timeout`, `addr_on_timeout`  
+  - 반환 값 ) `0`: ROBOT_MODE, `1`: IDLE_MODE, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패
 
-job 파일에서 상기 함수들의 리턴 값을 변수로 반환 받는 경우  
-해당 변수의 값의 의미는 다음과 같습니다.
+- #5. `find calib plate`  
+  픽잇 프로세서에 `FIND_CALIB_PLATE` 명령을 보냅니다. 정상 응답으로 `10(FIND_CALIB_PLATE_OK)`를 답합니다.  
+  - 인자 값 ) `timeout`, `addr_on_timeout`  
+  - 반환 값 ) `10`: FIND_CALIB_OK, `11`: FIND_CALIB_FAILED, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패
 
-|리턴 값|상태|설명|
-|:---:|:---:|:---|
-|`-1`| `error`| 소켓이 유효하지 않습니다.                 |
-|`-2`| `error`| 소켓이 연결되지 않았습니다.               |
-|`-3`| `error`| 요청하려는 데이터가 없습니다.             |
-|`-4`| `error`| xhost 가 timeout 이 되었습니다.         |
-|`-5`| `error`| 응답한 데이터가 파싱하기 적합하지 않습니다. |
-|`-6`| `error`| 소켓 recv 에러입니다.                   |
-|`-7`| `error`| 데이터를 recv 하는 도중 에러가 발생했습니다.|
-|`-8`| `error`| 요청을 시도하다 에러가 발생했습니다.       |
-| `0`| - |xhost 모드가 `exec_mode` 이거나 응답을 기다리고 있습니다.|
-| `1`| `success`| 실행에 성공하였습니다.|
+- #6. `config calibration`  
+  픽잇 프로세서에 `CONFIGURE_CALIB` 명령을 보냅니다. 정상 응답으로 `12(CONFIGURE_CALIB_OK)`를 답합니다.  
+  - 인자 값 ) `method`(0: 싱글포즈, 1: 멀티포즈), `camera_mount`(1:로봇에 부착, 0: 그 외),`timeout`, `addr_on_timeout`  
+  - 반환 값 ) `12`: CONFIGURE_CALIB_OK, `13`: CONFIGURE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패, `-6`: `method` 또는 `camera_mount` 값이 입력되지 않음
+
+- #7. `compute calibration`  
+  픽잇 프로세서에 `COMPUTE_CALIB` 명령을 보냅니다. 정상 응답으로 `14(COMPUTE_CALIB_OK)`를 답합니다.  
+  - 인자 값 ) `timeout`, `addr_on_timeout`  
+  - 반환 값 ) `14`: COMPUTE_CALIB_OK, `15`: COMPUTE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
+
+- #8. `validate calibration`  
+  픽잇 프로세서에 `VALIDATE_CALIB` 명령을 보냅니다. 정상 응답으로 `16(VALIDATE_CALIB_OK)`를 답합니다.  
+  - 인자 값 ) `timeout`, `addr_on_timeout`  
+  - 반환 값 ) `16`: VALIDATE_CALIB_OK, `17`: VALIDATE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
+
+- #9. `find objects`  
+  retries가 0일 때는 `LOOK_FOR_OBJECTS`를 보내고<br>0 아닐 때는 `LOOK_FOR_OBJECTS_WITH_RETRIES`을 보냅니다. `get_result()`를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.  
+  - 인자 값) `retries`(= 반복 횟수)  
+  - 반환 값) `1`: 송신 성공, `-1`: 유효하지 않은 테이터 타입, `-2`: 소켓 연결 실패, `3`: 송신 실패  
+
+- #10. `capture image`  
+  픽잇 프로세서에 `CAPTURE_IMAGE` 명령을 보냅니다. 정상 응답으로 `IMAGE_CAPTURED`를 답합니다.  
+  - 인자 값) `timeout`, `addr_on_timeout`  
+  - 반환 값) `26`: IMAGE_CAPTURED, `22`: NO_IMAGE_CAPTURED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
+
+- #11. `get pick point`  
+  픽잇 프로세서에 `GET_PICK_POINT_DATA` 명령을 보냅니다. 정상 응답으로 `GET_PICK_POINT_DATA_OK`를 답합니다.  
+  - 인자 값) `timeout`, `addr_on_timeout`  
+  - 반환 값) `70`: GET_PICK_POINT_DATA_OK, `71`: GET_PICK_POINT_DATA_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
+
+
+- #12. `get result`  
+  픽잇 프로세서로부터 `OBJECT_FOUND` 응답을 기다립니다.  
+  - 인자 값 ) `timeout`, `addr_on_timeout`  
+  - 반환 값 ) `20`: OBJECT_FOUND, `21`: NO_OBJECTS, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
+
+- #13. `save_snapshot`  
+  픽잇 프로세서에 `SAVE_SNAPSHOT` 명령을 보냅니다. 정상 응답으로 `50(SAVE_SNAPSHOT_OK)`를 답합니다.  
+  - 인자 값 ) `subfoler`(1~255), `timeout`, `addr_on_timeout`
+  - 반환 값 ) `50`: SAVE_SNAPSHOT_OK, `51`: SAVE_SNAPSHOT_FAILED, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
+ 
+---- 
+
+#### 2. hi6 COM 에 요청하는 명령어 리스트 
+- `debug on`  
+  해당 명령어를 실행하면, TP > `창조정` > `히스토리` 진입 시 pick-it 통신 상태와 관련된 로그가 출력됩니다.  
+  - 인자 값 ) 없음  
+  - 반환 값 ) 없음  
+
+- `debug off`  
+  해당 명령어를 실행하면, TP > `창조정` > `히스토리` 진입 시 pick-it 통신 상태와 관련된 로그가 꺼집니다.  
+  - 인자 값 ) 없음  
+  - 반환 값 ) 없음  
+
+- `get pick pose`
+  현재 설정된 pick pose 값을 문자열로 반환 합니다. 해당 변수는 Pose() 로 타입 변환을 할 수 있습니다.   
+  - 인자 값 ) 없음  
+  - 반환 값 ) 포즈 문자열 ex) '[574.500, 0.0, 931.000, 0.0, 90.00, 0.000, "base", "auto"]'
+
+- `get pick offset`  
+  현재 설정된 pick offset 값을 반환 합니다.   
+  - 인자 값 ) 없음  
+  - 반환 값 ) 숫자 문자열 ex) "0"
+ 
+- `get pick id`  
+  현재 설정된 pick id 값을 반환 합니다.   
+  - 인자 값 ) 없음  
+  - 반환 값 ) 숫자 인트형 ex) 0
+
+- `reconnect`
+  이더넷 연결을 재시도합니다.
+  - 인자 값) 시도 횟수  
+  - 반환 값) `1`: 소켓 오픈 & 연결 성공, `-1`: 소켓 오픈 실패, `-2`: 소켓 연결 실패
