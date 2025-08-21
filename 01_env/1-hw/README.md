@@ -49,12 +49,12 @@
 
         - 제어기 재부팅 진행
      3. 플러그인 쪽 url 수정
-        <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
-        현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
-        문의 : HD현대로보틱스 이동형 연구원 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
-        </div><br>
 
         - pickit 폴더 > ui 폴더 > js 폴더 > display.js 에서 요청하는 영상 스트리밍 서비스 url 수정
+            <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
+            현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
+            문의 : HD현대로보틱스 이동형 연구원 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+            </div><br>
 
             ```python 
             # host ip: 192.168.1.100, port: 8070 이고 서비스에 맞게 쿼리 구성

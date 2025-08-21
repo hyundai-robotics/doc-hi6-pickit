@@ -1,7 +1,9 @@
 ﻿## 1.2 플러그인 설치
 
-> 현재 사전 협의를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.   
-문의 : HD현대로보틱스 이동형 연구원 (donghyeong.lee@hd.com)
+<div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
+현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
+문의 : HD현대로보틱스 이동형 연구원 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+</div><br>
 
 USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.  
 
