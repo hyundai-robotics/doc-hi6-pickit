@@ -37,7 +37,7 @@
 
         - TP > 관리자 모드 진입(R314) > 서비스 > 13: 티치펜던트 네트워크 > 동의 여부 확인 > 하기 내용으로 설정 진행
 
-            <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;">
+            <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;max-width:fit-content;">
             ⚠️ [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
             제어기 간 통신이 불능 상태에 빠집니다. 현장에서 원상 복구가 매우 어렵기 때문에 
             <strong>반드시 아래 지침과 동일하게 설정을 진행해야 합니다.</strong>
@@ -56,9 +56,12 @@
             문의 : HD현대로보틱스 이동형 연구원 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
             </div><br>
 
+            <div style="max-width:fit-content;">
+
             ```python 
             # host ip: 192.168.1.100, port: 8070 이고 서비스에 맞게 쿼리 구성
             var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
             ```
+            </div>
      4. 플러그인 설치
         - [설치 페이지](../2-sw_install/README.md)를 참조하여 3에서 수정한 플러그인을 제어기에 설치

@@ -9,6 +9,8 @@
 
 <br>
 
+<div style="max-width:fit-content;">
+
 |속성|방향|내용|
 |:---|:---|:---|
 |`요청한 명령`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
@@ -18,7 +20,9 @@
 |`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
 |`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
 |`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
-  
+
+</div>
+
 <br><br>
 
 ### 3.1.1 pick-it 명령어 상수
@@ -26,6 +30,8 @@
 다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
 `픽잇으로 요청한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+
+<div style="max-width:fit-content;">
 
 |명령어|값|
 |:---|:---|
@@ -49,11 +55,15 @@
 |`BUILD_BACKGROUND`|60|
 |`GET_PICK_POINT_DATA`|70|
 
+</div>
+
 <br><br>
 
 ### 3.1.2 pick-it 프로세서 상태 상수
 
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+
+<div style="max-width:fit-content;">
 
 |pick-it 프로세서 상태|값|
 |:---|:---|
@@ -62,11 +72,15 @@
 |`CALIBRATION MODE`|1|
 |`IDLE`|2|
 
+</div>
+
 <br><br>
 
 ### 3.1.3 pick-it 응답 상수
 `픽잇이 응답한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+
+<div style="max-width:fit-content;">
 
 |응답|값|
 |:---|:---|
@@ -97,3 +111,5 @@
 |`BUILD_BKG_CLOUD_FAILED`|61|
 |`GET_PICK_POINT_DATA_OK`|70|
 |`GET_PICK_POINT_DATA_FAILED`|71|
+
+</div>
