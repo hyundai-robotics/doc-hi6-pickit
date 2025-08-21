@@ -33,7 +33,7 @@ The main components required for the plugin operation are:
 
    - TP > Enter Administrator Mode (R314) > Service > 13: Teach Pendant Network > Confirm agreement > Proceed with the following settings:
 
-       <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;">
+       <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
        ⚠️ [Caution] Selecting any option other than the ones below will change the TP IP address, 
        causing loss of communication between controllers. Since recovery in the field is very difficult, 
        <strong>you must configure exactly as instructed below.</strong>
@@ -57,10 +57,13 @@ The main components required for the plugin operation are:
        Contact: HD Hyundai Robotics Research Engineer, Donghyeong Lee (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
        </div><br>
 
-       ```python
-       # Example: host IP = 192.168.1.100, port = 8070, construct the query according to the service
-       var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
-       ```
+        <div style="max-width:fit-content;">
+
+        ```python
+        # Example: host IP = 192.168.1.100, port = 8070, construct the query according to the service
+        var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
+        ```
+        </div>
 
      4. Install the plugin  
    - Refer to the [Installation Guide](../2-sw_install/README.md) to install the modified plugin from step 3 on the controller.

@@ -9,6 +9,7 @@ Contact: HD Hyundai Robotics Research Engineer, Donghyeong Lee (<a href="mailto:
 Proceed with installing the plugin through the TP screen using USB.  
 The detailed process is as follows.  
 
+<div style="max-width:fit-content;">
 
 |Step|Contents|
 |---: |:---|
@@ -18,3 +19,5 @@ The detailed process is as follows.
 | `4` | `MAIN` folder > `apps` folder > `paste` |
 | `5` | Reboot Hi6 COM |
 | `6` | `system` > `4: Application parameter` > `25: pickit` |
+
+</div>

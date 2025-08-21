@@ -9,6 +9,8 @@ For more information, see [pick-it official documentation](https://docs.pickit3d
 
 <br>
 
+<div style="max-width:fit-content;">
+
 |Property| Direction | Content|
 |:---|:---|:---|
 |`Command`|Hi6 com &rightarrow; pick-it processor| Indicates a request command. |
@@ -18,13 +20,17 @@ For more information, see [pick-it official documentation](https://docs.pickit3d
 |`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
 |`Pick ID`|Hi6 com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
 |`Remaining Object`|Hi6 com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
-  
+
+</div>
+
 <br>
 
 ### 3.1.1 pick-it command constants
 
 The following are instruction constants used when making requests to the pick-it processor.  
 For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+
+<div style="max-width:fit-content;">
 
 |Command|Value|
 |:---|:---|
@@ -48,11 +54,15 @@ For more information, please refer to [pick-it official documentation](https://d
 |`BUILD_BACKGROUND`|60|
 |`GET_PICK_POINT_DATA`|70|
 
+</div>
+
 <br>
 
 ### 3.1.2 pick-it processor mode constants
 
 For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+
+<div style="max-width:fit-content;">
 
 |Pick-it mode|Value|
 |:---|:---|
@@ -61,11 +71,15 @@ For more information, please refer to [pick-it official documentation](https://d
 |`CALIBRATION MODE`|1|
 |`IDLE`|2|
 
+</div>
+
 <br>
 
 ### 3.1.3 pick-it response constants
 
 For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+
+<div style="max-width:fit-content;">
 
 |Pick-it response|Value|
 |:---|:---|
@@ -92,3 +106,5 @@ For more information, please refer to [pick-it official documentation](https://d
 |`CONNECTED`                  | 98|
 |`DISCONNECTED`               | 99|
 |`UNKNOWN_COMMAND`            |-99|
+
+</div>
