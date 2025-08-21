@@ -1,7 +1,9 @@
 ﻿## 1.2 Installation
 
-> Currently, we provide the plugin only to customers who have received prior approval through consultation.  
-For inquiries: Researcher Donghyeong Lee, HD Hyundai Robotics (donghyeong.lee@hd.com)  
+<div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
+Currently, the plugin is provided only to customers who have obtained prior approval for use.<br>
+Contact: HD Hyundai Robotics Research Engineer, Donghyeong Lee (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+</div><br>
 
 
 Proceed with installing the plugin through the TP screen using USB.  
