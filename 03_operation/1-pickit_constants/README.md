@@ -13,13 +13,13 @@ For more information, see [pick-it official documentation](https://docs.pickit3d
 
 |Property| Direction | Content|
 |:---|:---|:---|
-|`Command`|Hi6 com &rightarrow; pick-it processor| Indicates a request command. |
-|`Connection`|Hi6 com &leftrightarrow; pick-it processor| Indicates the communication connection status between Hi6 com and pick-it processor. |
-|`Payload 1`, `Payload 2`|Hi6 com &leftarrow; pick-it processor| [Refer to pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|Hi6 com &leftarrow; pick-it processor| Indicates a response to a request. |
-|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
-|`Pick ID`|Hi6 com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
-|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
+|`Command`|${cont_model} com &rightarrow; pick-it processor| Indicates a request command. |
+|`Connection`|${cont_model} com &leftrightarrow; pick-it processor| Indicates the communication connection status between ${cont_model} com and pick-it processor. |
+|`Payload 1`, `Payload 2`|${cont_model} com &leftarrow; pick-it processor| [Refer to pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`Status`|${cont_model} com &leftarrow; pick-it processor| Indicates a response to a request. |
+|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
+|`Pick ID`|${cont_model} com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
+|`Remaining Object`|${cont_model} com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
 
 </div>
 

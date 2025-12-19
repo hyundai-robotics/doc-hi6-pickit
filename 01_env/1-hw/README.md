@@ -1,7 +1,7 @@
 ﻿## 1.1 Hardware Configuration
 
 The main components required for the plugin operation are:  
-`Hi6 COM`, `Hi6 TP`, `pick-it processor`, `pick-it camera`, `hub` or `router`  
+`${cont_model} COM`, `${cont_model} TP`, `pick-it processor`, `pick-it camera`, `hub` or `router`  
 
 <br>
 
@@ -12,7 +12,7 @@ The main components required for the plugin operation are:
    <img src="../../_assets/04_hardware_net.png" height=310hv>
 
 2. For other network ranges
-   - You can use the general-purpose LAN port of Hi6 COM for connection.
+   - You can use the general-purpose LAN port of ${cont_model} COM for connection.
    - Example) If the video server host address is 192.168.1.100 and the communication port is 8070:
      1. Configure the gateway of the video server
         - Set the gateway of the video server to match the IP address of the controller you want to connect to.  

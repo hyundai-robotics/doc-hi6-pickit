@@ -4,5 +4,8 @@
     "title": "Hi6 Pick-it Plugin Manual",
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Contents",
-    "tocTitleElements": "[ \"h1\", \"h2\"]"
+    "tocTitleElements": "[ \"h1\", \"h2\"]",
+    "variables": {
+        "cont_model": "Hi6"
+    }
 }
