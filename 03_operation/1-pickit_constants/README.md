@@ -13,13 +13,13 @@
 
 |속성|방향|내용|
 |:---|:---|:---|
-|`요청한 명령`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
-|`연결상태`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
-|`페이로드 1`, `페이로드 2`|Hi6 com &leftarrow; pick-it processor| 요청시 전달하는 [pickit 명령 요청 인자.](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`응답`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
-|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
-|`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
-|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
+|`요청한 명령`|${cont_model} com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
+|`연결상태`|${cont_model} com &leftrightarrow; pick-it processor|${cont_model} com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
+|`페이로드 1`, `페이로드 2`|${cont_model} com &leftarrow; pick-it processor| 요청시 전달하는 [pickit 명령 요청 인자.](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`응답`|${cont_model} com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
+|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
+|`Pick ID`|${cont_model} com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
+|`Remaining Object`|${cont_model} com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
 
 </div>
 

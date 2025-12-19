@@ -1,9 +1,9 @@
-﻿# Hi6 픽잇 플러그인 설명서
+﻿# ${cont_model} 픽잇 플러그인 설명서
 
 {% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
+본 제품 설명서에서 제공되는 정보는 HD현대로보틱스의 자산입니다.
 
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
+HD현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
 
 
 
@@ -23,24 +23,79 @@
 플러그인 동작에 필요한 주요 부품은 다음과 같습니다.  
 `Hi6 COM`, `Hi6 TP`, `pick-it 프로세서`, `pick-it 카메라`,`허브` 또는 `라우터`  
 
-예시1)
+<br>
 
-<img src="../../_assets/04_hardware_net.png" height=310hv>
+
+1. 192.168.2.XX 대역으로 연결하는 경우
+   - 192.168.2 대역은, TP 와 COM 통신에 활용되므로 플러그인에서 2대역을 통해 이미지를 받아올 수 없습니다.
+   - 그럼에도 불구하고 2대역을 활용해야만 하는 경우, 허브를 활용하여 아래와 같이 네트워크를 구성하는 경우, 2대역을 통해 이미지를 받아올 수 있습니다.
+   - HW 구성도<br>
+   <img src="../../_assets/04_hardware_net.png" height=310hv>
 
 <br>
 
-예시2)
-1. 라우터로 pick-it 스트리밍 서버와 Hi6 COM LAN2 연결
-   - pick-it 스트리밍 서버(서브넷 192.168.2.1) - 라우터 - Hi6 COM LAN2 (서브넷 192.168.4.1) 
-  
-2. Hi6 COM 에서 포트포워딩 적용
-   - TP > 엔지니어 모드 진입 (R314) > 2: 제어파라미터 > 9: 네트워크 > 3: 포트포워딩
-   - 프로토콜 TCP/UDP 설정 > 외부: LAN2/8070 > 내부: 192.168.2.77/50004 > 적용 > 재부팅 ## 1.2 플러그인 설치
+2. 그 외 대역의 경우
+   - Hi6 COM 의 범용 LAN 포트를 활용하여 연결할 수 있습니다.
+   - 예제) 영상 서버 호스트 주소가 192.168.1.100 이고, 통신 포트가 8070 인 경우
+     1. 영상 서버의 게이트웨이 설정
+        - 스트리밍을 하는 영상 서버의 게이트웨이를 연결하고자하는 제어기 ip 와 일치시킵니다.  
+        ex) LAN1 에 연결하는 경우, 영상 서버의 게이트웨이 설정은 192.168.1.150 이어야합니다.
 
-> 현재 사전 협의를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.   
-문의 : HD현대로보틱스 이동형 연구원 (donghyeong.lee@hd.com)
+            <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
+            <span>🛠️</span><span>Windows 10 에서 설정하는 경우</span>
+            <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
+                <li>시작 → 네트워크 연결 보기</li>
+                <li>연결된 이더넷 우클릭 → 속성</li>
+                <li>인터넷 프로토콜 버전4 (TCP/IPv4) 선택 → 속성</li>
+                <li>다음 IP 주소 사용(S) 선택</li>
+                <li>IP 주소 / 서브넷 마스크 / 게이트웨이 입력</li>
+            </ol>
+            </div>
+
+
+     2. TP 의 네트워크 설정
+
+        - TP > 관리자 모드 진입(R314) > 서비스 > 13: 티치펜던트 네트워크 > 동의 여부 확인 > 하기 내용으로 설정 진행
+
+            <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;max-width:fit-content;">
+            ⚠️ [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
+            제어기 간 통신이 불능 상태에 빠집니다. 현장에서 원상 복구가 매우 어렵기 때문에 
+            <strong>반드시 아래 지침과 동일하게 설정을 진행해야 합니다.</strong>
+            </div><br>
+
+            - IP: 192.168.2.77
+            - 서브넷마스트: 24
+            - 게이트웨이: 192.168.2.150
+
+        - 제어기 재부팅 진행
+     3. 플러그인 쪽 url 수정
+
+        - pickit 폴더 > ui 폴더 > js 폴더 > display.js 에서 요청하는 영상 스트리밍 서비스 url 수정
+            <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
+            현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
+            문의 : HD현대로보틱스 이동형 연구원 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+            </div><br>
+
+            <div style="max-width:fit-content;">
+
+            ```python 
+            # host ip: 192.168.1.100, port: 8070 이고 서비스에 맞게 쿼리 구성
+            var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
+            ```
+            </div>
+     4. 플러그인 설치
+        - [설치 페이지](../2-sw_install/README.md)를 참조하여 3에서 수정한 플러그인을 제어기에 설치## 1.2 플러그인 설치
+
+<div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
+현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
+문의 : HD현대로보틱스 이동형 연구원 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+</div><br>
 
 USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.  
+
+
+
+<div style="max-width:fit-content;">
 
 |Step|내용|
 |:---: |:---|
@@ -50,13 +105,15 @@ USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
 | `4` | `MAIN` > `apps` > `붙여넣기` |
 | `5` | `제어기 재부팅` |
 | `6` | `시스템` > `5: 응용 파라미터` > `픽잇` |
-## 1.3 네트워크 통신
 
-Hi6 Main 과 pick-it 프로세서는 이더넷 통신 방식을 사용합니다.  
-Hi6 Main 과 pick-it 프로세서의 ip 서브넷 마스크는 1대역 입니다.   
-Hi6 TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.  
+</div>## 1.3 네트워크 통신
+
+${cont_model} Main 과 pick-it 프로세서는 이더넷 통신 방식을 사용합니다.  
+${cont_model} Main 과 pick-it 프로세서의 ip 서브넷 마스크는 1대역 입니다.   
+${cont_model} TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.  
 그 외 상세 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)를 참조하십시오.  
 
+<div style="max-width:fit-content;">
 
 |속성|내용|
 |:----|:----|
@@ -64,6 +121,7 @@ Hi6 TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입니다.
 |`포트`| 5001(TCP) |
 |`바이트 순서`| 네트워크 순서 (big endian) |
 
+</div>
 
 pick-it 카메라 설정은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)를 참조하십시오.  # 2. 미리보기
 
@@ -89,25 +147,35 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 
 `Fig a` 패널 선택 메뉴 화면
 
+<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:11`px; border-radius:6px; max-width:fit-content;">
+⚠️ TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
+</div><br>
+
 <img src="../../_assets/01_panel.png" height=320hv>
 
 `Fig b` 창 분할 시 출력되는 화면
 
+
 <img src="../../_assets/02_expanded.png" height=320hv>
 
 `Fig c` 분할된 화면을 확대했을 때의 화면## 2.2 설정 화면  
+
+<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:11`px; border-radius:6px; max-width:fit-content;">
+⚠️ TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
+</div><br>
 
 
 <img src="../../_assets/03_setup_ui.png" height=330hv>  
 
 `Fig d` 설정 화면 UI
 
-
 설정화면에서는 다음 추가 작업들을 할 수 있습니다.  
 1. pick-it 프로세서 연결에 사용된 `ip` 와 `port`를 입력하고 연결 시 소켓 `타임아웃` 값을 입력 및 변경할 수 있습니다.
 2. `Reconnect` 버튼을 통해, 연결이 끊겼거나, `ip`, `port`가 변경됐을 때 재연결을 할 수 있습니다.
 3. `1.1 창 분할 모니터링 화면` 에서 확인되는 수치들을 동일하게 확인할 수 있습니다.
-4. `확인` 버튼을 통해 현재 `ip`, `port` 정보를 제어기에 저장합니다.  # 3. 플러그인 관련
+4. `확인` 버튼을 통해 현재 `ip`, `port` 정보를 제어기에 저장합니다.  
+
+# 3. 플러그인 관련
 
 해당 섹션에서는 pick-it 플러그인에 적용된 내용들을 다룹니다.  
 pick-it 프로세서에 요청을 보내는 명령어와 관련 에러코드를 확인할 수 있습니다.  
@@ -129,16 +197,20 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 
 <br>
 
+<div style="max-width:fit-content;">
+
 |속성|방향|내용|
 |:---|:---|:---|
-|`요청한 명령`|Hi6 com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
-|`연결상태`|Hi6 com &leftrightarrow; pick-it processor|Hi6 com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
-|`페이로드 1`, `페이로드 2`|Hi6 com &leftarrow; pick-it processor| 요청시 전달하는 [pickit 명령 요청 인자.](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`응답`|Hi6 com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
-|`X,Y,Z,RX,RY,RZ`|Hi6 com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
-|`Pick ID`|Hi6 com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
-|`Remaining Object`|Hi6 com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
-  
+|`요청한 명령`|${cont_model} com &rightarrow; pick-it processor|요청 명령어를 나타냅니다. |
+|`연결상태`|${cont_model} com &leftrightarrow; pick-it processor|${cont_model} com 과 pick-it processor 의 통신 연결 상태를 나타냅니다. |
+|`페이로드 1`, `페이로드 2`|${cont_model} com &leftarrow; pick-it processor| 요청시 전달하는 [pickit 명령 요청 인자.](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`응답`|${cont_model} com &leftarrow; pick-it processor| 요청에 대한 응답을 나타냅니다. |
+|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| pick-it processor 가 판단한 사물의 위치 정보를 나타냅니다. |
+|`Pick ID`|${cont_model} com &leftarrow; pick-it processor| 피킹 대상이 되는 사물의 식별자를 나타냅니다. |  
+|`Remaining Object`|${cont_model} com &leftarrow; pick-it processor| 0이 아닌 경우 검색 가능한 나머지 개체 수가 포함됩니다. |  
+
+</div>
+
 <br><br>
 
 ### 3.1.1 pick-it 명령어 상수
@@ -146,6 +218,8 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 다음은 pick-it 프로세서에 요청 시 사용되는 명령어 상수들입니다.  
 `픽잇으로 요청한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+
+<div style="max-width:fit-content;">
 
 |명령어|값|
 |:---|:---|
@@ -169,11 +243,15 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 |`BUILD_BACKGROUND`|60|
 |`GET_PICK_POINT_DATA`|70|
 
+</div>
+
 <br><br>
 
 ### 3.1.2 pick-it 프로세서 상태 상수
 
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+
+<div style="max-width:fit-content;">
 
 |pick-it 프로세서 상태|값|
 |:---|:---|
@@ -182,11 +260,15 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 |`CALIBRATION MODE`|1|
 |`IDLE`|2|
 
+</div>
+
 <br><br>
 
 ### 3.1.3 pick-it 응답 상수
 `픽잇이 응답한 정보`의 `요청한 명령`에 표시되는 명령어들입니다.  
 자세한 내용은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)를 참조하십시오. 
+
+<div style="max-width:fit-content;">
 
 |응답|값|
 |:---|:---|
@@ -217,9 +299,10 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 |`BUILD_BKG_CLOUD_FAILED`|61|
 |`GET_PICK_POINT_DATA_OK`|70|
 |`GET_PICK_POINT_DATA_FAILED`|71|
-## 3.2. pick-it 로봇 언어 함수
 
-현재 페이지에서는 Hi6 TP 에서 호출되는 pick-it 플러그인 용 job 파일의 함수들을 설명합니다.  
+</div>## 3.2. pick-it 로봇 언어 함수
+
+현재 페이지에서는 ${cont_model} TP 에서 호출되는 pick-it 플러그인 용 job 파일의 함수들을 설명합니다.  
 `Fig a` 처럼 job 파일에서 pick-it 플러그인 용 함수들을 동작시키면서 상태 모니터링이 가능합니다.  
 
 
@@ -253,7 +336,7 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 <img src="../../_assets/07_pickit_cmd_4.png" height=60hv>   
 수정 후   
 <img src="../../_assets/07_pickit_cmd_5.png" height=62.3hv>    
-    - `v60.30` 부터는 불필요   
+    - 추후 수정 예정   
    
 
 <br><br>
@@ -332,7 +415,7 @@ UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시
  
 ---- 
 
-#### 2. hi6 COM 에 요청하는 명령어 리스트 
+#### 2. ${cont_model} COM 에 요청하는 명령어 리스트 
 - `debug on`  
   해당 명령어를 실행하면, TP > `창조정` > `히스토리` 진입 시 pick-it 통신 상태와 관련된 로그가 출력됩니다.  
   - 인자 값 ) 없음  
