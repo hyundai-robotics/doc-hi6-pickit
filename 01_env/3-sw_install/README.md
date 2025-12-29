@@ -1,4 +1,4 @@
-﻿## 1.2 플러그인 설치
+﻿## 1.3 플러그인 설치
 
 <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
 현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
