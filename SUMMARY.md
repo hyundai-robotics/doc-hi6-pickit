@@ -2,9 +2,10 @@
 
 * [0. 저작권](README.md)
 * [1. 환경 구성](01_env/README.md)
-  * [1.1 하드웨어 구성](01_env/1-hw/README.md)
-  * [1.2 플러그인 설치](01_env/2-sw_install/README.md)
-  * [1.3 네트워크 연결](01_env/3-network/README.md)
+  * [1.1 사전 지식](01_env/1-prerequisites/README.md)
+  * [1.2 하드웨어 구성](01_env/2-hw/README.md)
+  * [1.3 플러그인 설치](01_env/3-sw_install/README.md)
+  * [1.4 네트워크 연결](01_env/4-network/README.md)
 * [2. 미리보기](02_preview/README.md)
   * [2.1 창 분할 모니터링 화면](02_preview/1-panel/README.md)
   * [2.2 설정 화면](02_preview/2-setup/README.md)
