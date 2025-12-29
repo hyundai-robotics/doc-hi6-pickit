@@ -2,9 +2,10 @@
 
 * [0. Copyright](README.md)
 * [1. Environment Configuration](01_env/README.md)
-  * [1.1 H/W Configuration](01_env/1-hw/README.md)
-  * [1.2 Installation](01_env/2-sw_install/README.md)
-  * [1.3 Network Configuration](01_env/3-network/README.md)
+  * [1.1 Prerequisites](01_env/1-prerequisites/README.md)
+  * [1.2 H/W Configuration](01_env/2-hw/README.md)
+  * [1.3 Installation](01_env/3-sw_install/README.md)
+  * [1.4 Network Configuration](01_env/4-network/README.md)
 * [2. Preview](02_preview/README.md)
   * [2.1 Monitoring Panel](02_preview/1-panel/README.md)
   * [2.2 Setup Window](02_preview/2-setup/README.md)
