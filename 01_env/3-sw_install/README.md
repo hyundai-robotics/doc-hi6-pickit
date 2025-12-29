@@ -1,4 +1,4 @@
-﻿## 1.2 Installation
+﻿## 1.3 Installation
 
 <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
 Currently, the plugin is provided only to customers who have obtained prior approval for use.<br>

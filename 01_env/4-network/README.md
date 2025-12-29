@@ -1,4 +1,4 @@
-﻿## 1.3 Network Configuration
+﻿## 1.4 Network Configuration
 
 Hi6 Main and pick-it processors use Ethernet communication method.   
 The IP subnet mask of Hi6 Main and pick-it processors is 1 band.   

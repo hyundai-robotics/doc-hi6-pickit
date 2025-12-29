@@ -1,4 +1,4 @@
-﻿## 1.1 Hardware Configuration
+﻿## 1.2 Hardware Configuration
 
 The main components required for the plugin operation are:  
 `Hi6 COM`, `Hi6 TP`, `pick-it processor`, `pick-it camera`, `hub` or `router`  
@@ -66,4 +66,4 @@ The main components required for the plugin operation are:
         </div>
 
      4. Install the plugin  
-   - Refer to the [Installation Guide](../2-sw_install/README.md) to install the modified plugin from step 3 on the controller.
+   - Refer to the [Installation Guide](../3-sw_install/README.md) to install the modified plugin from step 3 on the controller.
