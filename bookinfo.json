@@ -1,11 +1,13 @@
 ﻿{
     "langCode": "en",
-    "series": "Hi6 SDK",
-    "title": "Hi6 Pick-it Plugin Manual",
+    "series": "${cont_model} Controller",
+    "title": "Function Manual - Pick-it Plugin",
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Contents",
     "tocTitleElements": "[ \"h1\", \"h2\"]",
-    "variables": {
-        "cont_model": "Hi6"
-    }
+    "docId": "${cont_model:upper}MULTITASKING_EN_001",
+    "references": [
+        { "rpath" : "doc-hi6-operation/en-tp630" },
+        { "rpath" : "doc-hi6-sdk/en" }
+    ]
 }
