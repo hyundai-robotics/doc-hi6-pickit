@@ -1,11 +1,12 @@
 ﻿{
     "langCode": "ko",
-    "series": "Hi6 SDK",
-    "title": "Hi6 pick-it 플러그인 설명서",
-    "publisher": "HD Hyundai Robotics",
-    "tocTitle": "Contents",
-    "tocTitleElements": "[ \"h1\", \"h2\"]",
-    "variables": {
-        "cont_model": "Hi6"
-    }
+    "series": "${cont_model} 제어기",
+    "title": "기능 설명서 - Pick-it 플러그인",
+    "publisher": "HD현대로보틱스",
+    "tocTitle": "목차",
+    "docId": "${cont_model:upper}PICKIT_KO_001",
+    "references": [
+        { "rpath" : "doc-hi6-operation/ko-tp630" },
+        { "rpath" : "doc-hi6-sdk/ko" }
+    ]
 }
