@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [0. Copyright](README.md)
+* [${cont_model} Controller Function Manual - Pick-it Plugin](README.md)
 * [1. Environment Configuration](01_env/README.md)
   * [1.1 H/W Configuration](01_env/1-hw/README.md)
   * [1.2 Installation](01_env/2-sw_install/README.md)

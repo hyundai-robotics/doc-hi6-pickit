@@ -16,4 +16,4 @@ For further details, please refer to the [pick-it official document](https://doc
 </div>
 
 For pick-it camera setup, you can use the pick-it web interface.  
-Please refer to [pick-it’s official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).
+Please refer to [pick-it's official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).
