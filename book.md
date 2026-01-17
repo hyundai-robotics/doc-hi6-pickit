@@ -1,24 +1,17 @@
-﻿# ${cont_model} 픽잇 플러그인 설명서
+﻿
+[__SOURCE](README.md)
+# ${cont_model} 제어기 기능설명서 - 픽잇 플러그인
 
-{% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 HD현대로보틱스의 자산입니다.
-
-HD현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
-
-
-
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
-
-
-**Copyright ⓒ 2024 by HD Hyundai Robotics**
-{% endhint %}# 1. 환경 구성
+[__SOURCE](01_env/README.md)
+# 1. 환경 구성
 
 해당 페이지는 pick-it 플러그인을 실행하는데 필요한 HW 및 SW 구성을 설명합니다.
 
 - [1.1 하드웨어 구성](./1-hw/README.md)
 - [1.2 플러그인 설치](./2-sw_install/README.md)
-- [1.3 네트워크 통신](./3-network/README.md)## 1.1 하드웨어 구성
+- [1.3 네트워크 통신](./3-network/README.md)
+[__SOURCE](01_env/1-hw/README.md)
+## 1.1 하드웨어 구성
 
 플러그인 동작에 필요한 주요 부품은 다음과 같습니다.  
 `${cont_model} COM`, `${cont_model} TP`, `pick-it 프로세서`, `pick-it 카메라`,`허브` 또는 `라우터`  
@@ -84,7 +77,9 @@ HD현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 �
             ```
             </div>
      4. 플러그인 설치
-        - [설치 페이지](../2-sw_install/README.md)를 참조하여 3에서 수정한 플러그인을 제어기에 설치## 1.2 플러그인 설치
+        - [설치 페이지](../2-sw_install/README.md)를 참조하여 3에서 수정한 플러그인을 제어기에 설치
+[__SOURCE](01_env/2-sw_install/README.md)
+## 1.2 플러그인 설치
 
 <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
 현재 <strong>사전 협의</strong>를 통해 사용 허가를 받은 고객에 대해서만 플러그인을 제공하고 있습니다.<br>
@@ -106,7 +101,9 @@ USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
 | `5` | `제어기 재부팅` |
 | `6` | `시스템` > `5: 응용 파라미터` > `픽잇` |
 
-</div>## 1.3 네트워크 통신
+</div>
+[__SOURCE](01_env/3-network/README.md)
+## 1.3 네트워크 통신
 
 ${cont_model} Main 과 pick-it 프로세서는 이더넷 통신 방식을 사용합니다.  
 ${cont_model} Main 과 pick-it 프로세서의 ip 서브넷 마스크는 1대역 입니다.   
@@ -123,12 +120,16 @@ ${cont_model} TP 와 pick-it 카메라 의 ip 서브넷 마스크는 2대역 입
 
 </div>
 
-pick-it 카메라 설정은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)를 참조하십시오.  # 2. 미리보기
+pick-it 카메라 설정은 [pick-it 공식 문서](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)를 참조하십시오.  
+[__SOURCE](02_preview/README.md)
+# 2. 미리보기
 
 해당 페이지에서는 pick-it 플러그인을 실행할 때 볼 수 있는 대표적인 2가지 UI를 살펴봅니다.  
 
 - [2.1 창 분할 모니터링 화면](./1-panel/README.md)
-- [2.2 설정 화면](./2-setup/README.md)## 2.1 창 분할 모니터링 화면
+- [2.2 설정 화면](./2-setup/README.md)
+[__SOURCE](02_preview/1-panel/README.md)
+## 2.1 창 분할 모니터링 화면
 
 기존 TP UI 기능과 호환되므로, 창 분할 화면, 확대 기능 등을 활용할 수 있습니다.  
 pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분할 화면을 통해 확인할 수 있습니다.  
@@ -158,7 +159,9 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 
 <img src="../../_assets/02_expanded.png" height=320hv>
 
-`Fig c` 분할된 화면을 확대했을 때의 화면## 2.2 설정 화면  
+`Fig c` 분할된 화면을 확대했을 때의 화면
+[__SOURCE](02_preview/2-setup/README.md)
+## 2.2 설정 화면  
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:11`px; border-radius:6px; max-width:fit-content;">
 ⚠️ TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
@@ -175,6 +178,8 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 3. `1.1 창 분할 모니터링 화면` 에서 확인되는 수치들을 동일하게 확인할 수 있습니다.
 4. `확인` 버튼을 통해 현재 `ip`, `port` 정보를 제어기에 저장합니다.  
 
+
+[__SOURCE](03_operation/README.md)
 # 3. 플러그인 관련
 
 해당 섹션에서는 pick-it 플러그인에 적용된 내용들을 다룹니다.  
@@ -186,6 +191,8 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
   - [3.2. pick-it 로봇 언어 함수](./2-job-cmd-api/README.md)
 
 
+
+[__SOURCE](03_operation/1-pickit_constants/README.md)
 ## 3.1. pick-it 프로세서에서 사용되는 상수
 
 현재 페이지는 pick-it 프로세서에 요청하는 명령어와 응답 내용에 대한 것입니다.  
@@ -300,7 +307,9 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 |`GET_PICK_POINT_DATA_OK`|70|
 |`GET_PICK_POINT_DATA_FAILED`|71|
 
-</div>## 3.2. pick-it 로봇 언어 함수
+</div>
+[__SOURCE](03_operation/2-job-cmd-api/README.md)
+## 3.2. pick-it 로봇 언어 함수
 
 현재 페이지에서는 ${cont_model} TP 에서 호출되는 pick-it 플러그인 용 job 파일의 함수들을 설명합니다.  
 `Fig a` 처럼 job 파일에서 pick-it 플러그인 용 함수들을 동작시키면서 상태 모니터링이 가능합니다.  

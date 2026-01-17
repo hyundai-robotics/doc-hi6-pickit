@@ -4,6 +4,7 @@
     "title": "기능 설명서 - Pick-it 플러그인",
     "publisher": "HD현대로보틱스",
     "tocTitle": "목차",
+    "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "docId": "${cont_model:upper}PICKIT_KO_001",
     "references": [
         { "rpath" : "doc-hi6-operation/ko-tp630" },
