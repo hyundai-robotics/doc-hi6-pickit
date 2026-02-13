@@ -1,21 +1,22 @@
-﻿# ${cont_model} Pick-it Plugin Manual
+﻿
+[__SOURCE](README.md)
+# ${cont_model} Controller Function Manual - Pick-it Plugin
 
-{% hint style="warning" %}
-The information provided in this product manual is the property of Hyundai Robotics.
+[__SOURCE](0-about-this-manual/precautions.md)
+# Precautions
 
-It cannot be reproduced or redistributed in part or whole without written consent from Hyundai Robotics, and it cannot be provided to third parties or used for other purposes.
+{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
 
-The manual can change without prior notification.
-
-
-**Copyright ⓒ 2024 by HD Hyundai Robotics**
-{% endhint %}# 1. Environment Configuration
+[__SOURCE](01_env/README.md)
+# 1. Environment Configuration
 
 This page describes the HW and SW configuration required to run the pick-it plugin.
 
 - [1.1 H/W Configuration](./1-hw/README.md)
 - [1.2 Installation](./2-sw_install/README.md)
-- [1.3 Network Configuration](./3-network/README.md)## 1.1 Hardware Configuration
+- [1.3 Network Configuration](./3-network/README.md)
+[__SOURCE](01_env/1-hw/README.md)
+## 1.1 Hardware Configuration
 
 The main components required for the plugin operation are:  
 `${cont_model} COM`, `${cont_model} TP`, `pick-it processor`, `pick-it camera`, `hub` or `router`  
@@ -84,6 +85,8 @@ The main components required for the plugin operation are:
 
      4. Install the plugin  
    - Refer to the [Installation Guide](../2-sw_install/README.md) to install the modified plugin from step 3 on the controller.
+
+[__SOURCE](01_env/2-sw_install/README.md)
 ## 1.2 Installation
 
 <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
@@ -106,7 +109,9 @@ The detailed process is as follows.
 | `5` | Reboot ${cont_model} COM |
 | `6` | `system` > `4: Application parameter` > `25: pickit` |
 
-</div>## 1.3 Network Configuration
+</div>
+[__SOURCE](01_env/3-network/README.md)
+## 1.3 Network Configuration
 
 ${cont_model} Main and pick-it processors use Ethernet communication method.   
 The IP subnet mask of ${cont_model} Main and pick-it processors is 1 band.   
@@ -124,12 +129,16 @@ For further details, please refer to the [pick-it official document](https://doc
 </div>
 
 For pick-it camera setup, you can use the pick-it web interface.  
-Please refer to [pick-it’s official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).# 2. Preview
+Please refer to [pick-it's official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).
+[__SOURCE](02_preview/README.md)
+# 2. Preview
 
 On this page, we will look at two representative UIs that can be seen when using the pick-it plugin.  
 
 - [2.1 Monitoring Panel](./1-panel/README.md)
-- [2.2 Setup Window](./2-setup/README.md)## 2.1 Monitoring Panel
+- [2.2 Setup Window](./2-setup/README.md)
+[__SOURCE](02_preview/1-panel/README.md)
+## 2.1 Monitoring Panel
 
 It is compatible with existing TP UI features, so you can utilize window split screen, zoom functions, etc.  
 You can check the results of the pick-it robot language function operation in real time through the monitoring panel.  
@@ -159,7 +168,9 @@ Repeating the same operation will shrink the zoomed window.
 
 <img src="../../_assets/02_expanded.png" height=320hv>
 
-`Fig c` zoomed monitoring panel## 2.2 Setup Window
+`Fig c` zoomed monitoring panel
+[__SOURCE](02_preview/2-setup/README.md)
+## 2.2 Setup Window
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
 ⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
@@ -178,7 +189,9 @@ You can perform the following additional tasks on the settings screen:
 1. You can enter the `ip` and `port` used when connecting to the pick-it processor, and enter and change the socket `timeout` value when connecting.  
 2. The `Reconnect` button allows you to reconnect if the connection is lost or the `ip` or `port` has changed.
 3. You can check the same values as seen in `2.1 Monitoring Panel`.
-4. Click the `OK` button to save the current `ip` and `port` information to the controller.# 3. Plugin details  
+4. Click the `OK` button to save the current `ip` and `port` information to the controller.
+[__SOURCE](03_operation/README.md)
+# 3. Plugin details  
 
 This section covers content applied to the pick-it plugin.  
 You can check the command that sends a request to the pick-it processor and the related error code.    
@@ -190,6 +203,8 @@ the link to the pick-it official document provided on each page.
   - [3.2. pick-it robot language function](./2-job-cmd-api/README.md)
 
 
+
+[__SOURCE](03_operation/1-pickit_constants/README.md)
 ## 3.1. Constants used in the Pick-it processor
 
 The current page is about the `commands` and `responses` requested to the pick-it processor.  
@@ -299,7 +314,9 @@ For more information, please refer to [pick-it official documentation](https://d
 |`DISCONNECTED`               | 99|
 |`UNKNOWN_COMMAND`            |-99|
 
-</div>## 3.2. Pick-it robot language function
+</div>
+[__SOURCE](03_operation/2-job-cmd-api/README.md)
+## 3.2. Pick-it robot language function
 
 The current page explains the functions of the job file for the pick-it plugin.  
 As shown in `Figure a`, functional operation and status monitoring of the job file are possible at the same time.
