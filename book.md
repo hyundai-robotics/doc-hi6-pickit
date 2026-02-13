@@ -2,6 +2,11 @@
 [__SOURCE](README.md)
 # ${cont_model} 제어기 기능설명서 - 픽잇 플러그인
 
+[__SOURCE](0-about-this-manual/precautions.md)
+# 사전 주의사항
+
+{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/ko/precautions.md" %}
+
 [__SOURCE](01_env/README.md)
 # 1. 환경 구성
 

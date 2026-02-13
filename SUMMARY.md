@@ -1,6 +1,7 @@
 ﻿# Table of contents
 
 * [${cont_model} 제어기 기능설명서 - 픽잇 플러그인](README.md)
+* [사전 주의사항](0-about-this-manual/precautions.md)
 * [1. 환경 구성](01_env/README.md)
   * [1.1 하드웨어 구성](01_env/1-hw/README.md)
   * [1.2 플러그인 설치](01_env/2-sw_install/README.md)
