@@ -1,31 +1,30 @@
-﻿## 2.1 Monitoring Panel
+## 2.1 监控面板
 
-It is compatible with existing TP UI features, so you can utilize window split screen, zoom functions, etc.  
-You can check the results of the pick-it robot language function operation in real time through the monitoring panel.  
-In the `Request to Pickit`  field confirms the command and attribute values requested by the Pickit processor.  
-In the `Response from Pickit` field, you can check the status of the response and additional information.
+它与现有的TP UI功能兼容，因此您可以利用窗口分屏、缩放功能等。  
+您可以通过监控面板实时检查pick-it机器人语言功能操作的结果。  
+在`Request to Pickit`字段中确认Pickit处理器请求的命令和属性值。  
+在`Response from Pickit`字段中，您可以检查响应状态和附加信息。
 
-Here's how to split a window:  
-- `pane layout` > `split` > Click on the split panel on the right. > `pane layout` > `select` > Scroll down and click on `pickit monitoring`.
+以下是如何分割窗口：  
+- `窗格布局 (pane layout)` > `分割 (split)` > 点击右侧的分割面板。 > `窗格布局 (pane layout)` > `选择 (select)` > 向下滚动并点击`pickit monitoring`。
 
-Here's how to zoom a monitoring panel:  
-- Click the `pickit monitoring panel` > Click `shift + esc`  
+以下是如何缩放监控面板：  
+- 点击`pickit monitoring panel` > 点击`shift + esc`  
 
-Repeating the same operation will shrink the zoomed window.  
+重复相同的操作将缩小缩放的窗口。  
 
 <img src="../../_assets/00_panel_select.png" height=320hv>
 
-`Fig a` Selecting pick-it monitoring panel
+`Fig a` 选择pick-it监控面板
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+⚠️ 当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
 </div><br>
-
 
 <img src="../../_assets/01_panel.png" height=320hv>
 
-`Fig b` pick-it monitoring panel
+`Fig b` pick-it监控面板
 
 <img src="../../_assets/02_expanded.png" height=320hv>
 
-`Fig c` zoomed monitoring panel
+`Fig c` 放大的监控面板

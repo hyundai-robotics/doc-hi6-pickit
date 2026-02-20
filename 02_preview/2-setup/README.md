@@ -1,20 +1,20 @@
-﻿## 2.2 Setup Window
+## 2.2 设置窗口
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+⚠️ 从 TP 流式传输屏幕时，内存消耗很高，如果长时间运行，可能会出现意外问题。
 </div><br>
 
-The procedure to enter the plugin settings screen is as follows.
+进入插件设置屏幕的过程如下。
 
-- `System` > `4: Application parameter` > `25: pickit` > 
+- `系统 (System)` > `4: 应用参数 (4: Application parameter)` > `25: pickit` >
 
 <img src="../../_assets/03_setup_ui.png" height=330hv>  
 
-`Fig d` Setup UI
+`Fig d` 设置 UI
 
 
-You can perform the following additional tasks on the settings screen:  
-1. You can enter the `ip` and `port` used when connecting to the pick-it processor, and enter and change the socket `timeout` value when connecting.  
-2. The `Reconnect` button allows you to reconnect if the connection is lost or the `ip` or `port` has changed.
-3. You can check the same values as seen in `2.1 Monitoring Panel`.
-4. Click the `OK` button to save the current `ip` and `port` information to the controller.
+您可以在设置屏幕上执行以下附加任务：  
+1. 您可以输入连接到 pick-it 处理器时使用的 `ip` 和 `port`，并在连接时输入和更改插座的 `timeout` 值。  
+2. `Reconnect` 按钮允许您在连接丢失或 `ip` 或 `port` 更改时重新连接。
+3. 您可以查看与 `2.1 监控面板` 中看到的相同的值。
+4. 单击 `确认 (OK)` 按钮将当前的 `ip` 和 `port` 信息保存到控制器中。

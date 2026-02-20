@@ -1,1 +1,1 @@
-﻿# ${cont_model} Controller Function Manual - Pick-it Plugin
+﻿# ${cont_model} 控制器功能手册 - Pick-it 插件

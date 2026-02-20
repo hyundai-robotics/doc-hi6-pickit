@@ -1,12 +1,10 @@
-﻿# 3. Plugin details  
+# 3. 插件详情  
 
-This section covers content applied to the pick-it plugin.  
-You can check the command that sends a request to the pick-it processor and the related error code.    
-Additionally, you can check the robot language functions applied to the plugin.    
-Detailed information related to the pick-it processor can be found through  
-the link to the pick-it official document provided on each page.  
+本节涵盖应用于 pick-it 插件的内容。  
+您可以检查发送请求到 pick-it 处理器的命令及相关错误代码。  
+此外，您还可以检查应用于该插件的机器人语言功能。  
+与 pick-it 处理器相关的详细信息可以通过  
+每个页面提供的 pick-it 官方文档链接找到。  
 
-  - [3.1. Constants used in the Pick-it processor](./1-pickit_constants/README.md)
-  - [3.2. pick-it robot language function](./2-job-cmd-api/README.md)
-
-
+  - [3.1. 在 Pick-it 处理器中使用的常量](./1-pickit_constants/README.md)
+  - [3.2. pick-it 机器人语言功能](./2-job-cmd-api/README.md)

@@ -1,245 +1,230 @@
 ﻿
-[__SOURCE](README.md)
-# ${cont_model} Controller Function Manual - Pick-it Plugin
-
-[__SOURCE](0-about-this-manual/precautions.md)
-# Precautions
-
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
-
 [__SOURCE](01_env/README.md)
-# 1. Environment Configuration
+# 1. 环境配置
 
-This page describes the HW and SW configuration required to run the pick-it plugin.
+此页面描述了运行 pick-it 插件所需的硬件和软件配置。
 
-- [1.1 H/W Configuration](./1-hw/README.md)
-- [1.2 Installation](./2-sw_install/README.md)
-- [1.3 Network Configuration](./3-network/README.md)
+- [1.1 硬件配置](./1-hw/README.md)
+- [1.2 安装](./2-sw_install/README.md)
+- [1.3 网络配置](./3-network/README.md)
 [__SOURCE](01_env/1-hw/README.md)
-## 1.1 Hardware Configuration
+## 1.1 硬件配置
 
-The main components required for the plugin operation are:  
-`${cont_model} COM`, `${cont_model} TP`, `pick-it processor`, `pick-it camera`, `hub` or `router`  
+插件操作所需的主要组件包括：  
+`${cont_model} COM`、`${cont_model} TP`、`pick-it 处理器`、`pick-it 相机`、`集线器` 或 `路由器`  
 
 <br>
 
-1. When connecting in the 192.168.2.XX range
-   - The 192.168.2 network range is used for communication between the TP and COM. Therefore, the plugin cannot receive images through the 2.x range.
-   - However, if it is absolutely necessary to use the 2.x range, you can still receive images by configuring the network with a hub as shown below.
-   - Hardware configuration diagram<br>
+1. 在 192.168.2.XX 范围内连接时
+   - 192.168.2 网络范围用于 TP 和 COM 之间的通信。因此，插件无法通过 2.x 范围接收图像。
+   - 然而，如果绝对需要使用 2.x 范围，可以通过如下所示的配置使用集线器来接收图像。
+   - 硬件配置图<br>
    <img src="../../_assets/04_hardware_net.png" height=310hv>
 
-2. For other network ranges
-   - You can use the general-purpose LAN port of ${cont_model} COM for connection.
-   - Example) If the video server host address is 192.168.1.100 and the communication port is 8070:
-     1. Configure the gateway of the video server
-        - Set the gateway of the video server to match the IP address of the controller you want to connect to.  
-        ex) When connecting via LAN1, the gateway of the video server must be set to 192.168.1.150.
+2. 对于其他网络范围
+   - 可以使用 ${cont_model} COM 的通用 LAN 端口进行连接。
+   - 示例) 如果视频服务器主机地址是 192.168.1.100，通信端口是 8070：
+     1. 配置视频服务器的网关
+        - 将视频服务器的网关设置为与您要连接的控制器的 IP 地址匹配。  
+        例如) 通过 LAN1 连接时，视频服务器的网关必须设置为 192.168.1.150。
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>When configuring in Windows 10</span>
+            <span>🛠️</span><span>在 Windows 10 中配置时</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
-                <li>Start → View Network Connections</li>
-                <li>Right-click the connected Ethernet → Properties</li>
-                <li>Select Internet Protocol Version 4 (TCP/IPv4) → Properties</li>
-                <li>Select "Use the following IP address"</li>
-                <li>Enter IP Address / Subnet Mask / Gateway</li>
+                <li>开始 → 查看网络连接</li>
+                <li>右键单击已连接的以太网 → 属性</li>
+                <li>选择互联网协议版本 4 (TCP/IPv4) → 属性</li>
+                <li>选择“使用下面的 IP 地址”</li>
+                <li>输入 IP 地址 / 子网掩码 / 网关</li>
             </ol>
             </div>
 
-      2. TP Network Configuration
+      2. TP 网络配置
 
-   - TP > Enter Administrator Mode (R314) > Service > 13: Teach Pendant Network > Confirm agreement > Proceed with the following settings:
+   - TP > 进入管理员模式 (R314) > 服务 > 13: 教学挂件网络 > 确认协议 > 按照以下设置进行操作：
 
        <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
-       ⚠️ [Caution] Selecting any option other than the ones below will change the TP IP address, 
-       causing loss of communication between controllers. Since recovery in the field is very difficult, 
-       <strong>you must configure exactly as instructed below.</strong>
+       ⚠️ [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
+       导致控制器之间的通信丢失。由于现场恢复非常困难， 
+       <strong>您必须严格按照以下指示进行配置。</strong>
        </div><br>
 
        - IP: 192.168.2.77  
-       - Subnet Mask: 24  
-       - Gateway: 192.168.2.150  
+       - 子网掩码: 24  
+       - 网关: 192.168.2.150  
 
-   - Reboot the controller
+   - 重启控制器
 
 
 
-     3. Modify the plugin URL
-
-   - Navigate to: pickit folder > ui folder > js folder > display.js  
-     Update the video streaming service URL accordingly.
+     3. 修改插件 URL
+   - 导航到：pickit 文件夹 > ui 文件夹 > js 文件夹 > display.js  
+     相应地更新视频流服务 URL。
 
        <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
-       Currently, the plugin is provided only to customers who have obtained prior approval for use.<br>
-       Contact: HD Hyundai Robotics Research Engineer, Donghyeong Lee (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+       目前，该插件仅提供给已获得使用批准的客户。<br>
+       联系人：现代重工机器人研究工程师，李东亨 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
        </div><br>
 
         <div style="max-width:fit-content;">
 
         ```python
-        # Example: host IP = 192.168.1.100, port = 8070, construct the query according to the service
+        # 示例：主机 IP = 192.168.1.100，端口 = 8070，按照服务构造查询
         var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
         ```
         </div>
 
-     4. Install the plugin  
-   - Refer to the [Installation Guide](../2-sw_install/README.md) to install the modified plugin from step 3 on the controller.
-
+     4. 安装插件  
+   - 参考 [安装指南](../2-sw_install/README.md) 在控制器上安装第 3 步中的修改插件。
 [__SOURCE](01_env/2-sw_install/README.md)
-## 1.2 Installation
+## 1.2 安装
 
 <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
-Currently, the plugin is provided only to customers who have obtained prior approval for use.<br>
-Contact: HD Hyundai Robotics Research Engineer, Donghyeong Lee (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+目前，插件仅提供给已获得使用许可的客户。<br>
+联系方式：现代重工机器人研究工程师，李东亨 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
 </div><br>
 
-
-Proceed with installing the plugin through the TP screen using USB.  
-The detailed process is as follows.  
+请通过TP屏幕使用USB安装插件。  
+详细过程如下。
 
 <div style="max-width:fit-content;">
 
-|Step|Contents|
+|步骤|内容|
 |---: |:---|
-| `1` | Save the pick-it plug-in program to USB. |
-| `2` | Connect USB to TP. |
-| `3` | `Service` > `5: File manager` > `USB` > `pickit` folder > `copy` |
-| `4` | `MAIN` folder > `apps` folder > `paste` |
-| `5` | Reboot ${cont_model} COM |
-| `6` | `system` > `4: Application parameter` > `25: pickit` |
+| `翻译 (1)` | 将pick-it插件程序保存到USB。 |
+| `翻译 (2)` | 将USB连接到TP。 |
+| `翻译 (3)` | `服务 (Service)` > `5: 文件管理器 (5: File manager)` > `USB` > `pickit`文件夹 > `复制 (copy)` |
+| ` (4)` | `MAIN`文件夹 > `apps`文件夹 > `粘贴 (paste)` |
+| ` (5)` | 重启${cont_model} COM |
+| ` (6)` | `系统 (system)` > `4: 应用参数 (4: Application parameter)` > `25: pickit` |
 
 </div>
 [__SOURCE](01_env/3-network/README.md)
-## 1.3 Network Configuration
+## 1.3 网络配置
 
-${cont_model} Main and pick-it processors use Ethernet communication method.   
-The IP subnet mask of ${cont_model} Main and pick-it processors is 1 band.   
-The IP subnet mask of ${cont_model} TP and pick-it camera is two-band.    
-For further details, please refer to the [pick-it official document](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
+${cont_model} 主处理器和 pick-it 处理器使用以太网通信方法。  
+${cont_model} 主处理器和 pick-it 处理器的 IP 子网掩码为 1 段。  
+${cont_model} TP 和 pick-it 相机的 IP 子网掩码为两段。  
+有关更多详细信息，请参阅 [pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)。
 
 <div style="max-width:fit-content;">
 
-|Property|Contents|
+|属性|内容|
 |:----|:----|
-|`Connection Type`| `TCP/IP Socket` |
-|`Port`| 5001(TCP) |
-|`Byte Order`| Network Order (big endian) |
+|`连接类型 (Connection Type)`| `TCP/IP Socket` |
+|`端口 (Port)`| 5001(TCP) |
+|`字节顺序`| 网络顺序（大端） |
 
 </div>
 
-For pick-it camera setup, you can use the pick-it web interface.  
-Please refer to [pick-it's official documentation](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html).
+对于 pick-it 相机设置，您可以使用 pick-it 网络界面。  
+请参阅 [pick-it 的官方文档](https://docs.pickit3d.com/en/latest/documentation/web-interface/index.html)。
 [__SOURCE](02_preview/README.md)
-# 2. Preview
+# 2. 预览
 
-On this page, we will look at two representative UIs that can be seen when using the pick-it plugin.  
+在此页面上，我们将查看使用 pick-it 插件时可以看到的两个代表性用户界面。  
 
-- [2.1 Monitoring Panel](./1-panel/README.md)
-- [2.2 Setup Window](./2-setup/README.md)
+- [2.1 监控面板](./1-panel/README.md)
+- [2.2 设置窗口](./2-setup/README.md)
 [__SOURCE](02_preview/1-panel/README.md)
-## 2.1 Monitoring Panel
+## 2.1 监控面板
 
-It is compatible with existing TP UI features, so you can utilize window split screen, zoom functions, etc.  
-You can check the results of the pick-it robot language function operation in real time through the monitoring panel.  
-In the `Request to Pickit`  field confirms the command and attribute values requested by the Pickit processor.  
-In the `Response from Pickit` field, you can check the status of the response and additional information.
+它与现有的TP UI功能兼容，因此您可以利用窗口分屏、缩放功能等。  
+您可以通过监控面板实时检查pick-it机器人语言功能操作的结果。  
+在`Request to Pickit`字段中确认Pickit处理器请求的命令和属性值。  
+在`Response from Pickit`字段中，您可以检查响应状态和附加信息。
 
-Here's how to split a window:  
-- `pane layout` > `split` > Click on the split panel on the right. > `pane layout` > `select` > Scroll down and click on `pickit monitoring`.
+以下是如何分割窗口：  
+- `窗格布局 (pane layout)` > `分割 (split)` > 点击右侧的分割面板。 > `窗格布局 (pane layout)` > `选择 (select)` > 向下滚动并点击`pickit monitoring`。
 
-Here's how to zoom a monitoring panel:  
-- Click the `pickit monitoring panel` > Click `shift + esc`  
+以下是如何缩放监控面板：  
+- 点击`pickit monitoring panel` > 点击`shift + esc`  
 
-Repeating the same operation will shrink the zoomed window.  
+重复相同的操作将缩小缩放的窗口。  
 
 <img src="../../_assets/00_panel_select.png" height=320hv>
 
-`Fig a` Selecting pick-it monitoring panel
+`Fig a` 选择pick-it监控面板
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+⚠️ 当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
 </div><br>
-
 
 <img src="../../_assets/01_panel.png" height=320hv>
 
-`Fig b` pick-it monitoring panel
+`Fig b` pick-it监控面板
 
 <img src="../../_assets/02_expanded.png" height=320hv>
 
-`Fig c` zoomed monitoring panel
+`Fig c` 放大的监控面板
 [__SOURCE](02_preview/2-setup/README.md)
-## 2.2 Setup Window
+## 2.2 设置窗口
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+⚠️ 从 TP 流式传输屏幕时，内存消耗很高，如果长时间运行，可能会出现意外问题。
 </div><br>
 
-The procedure to enter the plugin settings screen is as follows.
+进入插件设置屏幕的过程如下。
 
-- `System` > `4: Application parameter` > `25: pickit` > 
+- `系统 (System)` > `4: 应用参数 (4: Application parameter)` > `25: pickit` >
 
 <img src="../../_assets/03_setup_ui.png" height=330hv>  
 
-`Fig d` Setup UI
+`Fig d` 设置 UI
 
 
-You can perform the following additional tasks on the settings screen:  
-1. You can enter the `ip` and `port` used when connecting to the pick-it processor, and enter and change the socket `timeout` value when connecting.  
-2. The `Reconnect` button allows you to reconnect if the connection is lost or the `ip` or `port` has changed.
-3. You can check the same values as seen in `2.1 Monitoring Panel`.
-4. Click the `OK` button to save the current `ip` and `port` information to the controller.
+您可以在设置屏幕上执行以下附加任务：  
+1. 您可以输入连接到 pick-it 处理器时使用的 `ip` 和 `port`，并在连接时输入和更改插座的 `timeout` 值。  
+2. `Reconnect` 按钮允许您在连接丢失或 `ip` 或 `port` 更改时重新连接。
+3. 您可以查看与 `2.1 监控面板` 中看到的相同的值。
+4. 单击 `确认 (OK)` 按钮将当前的 `ip` 和 `port` 信息保存到控制器中。
 [__SOURCE](03_operation/README.md)
-# 3. Plugin details  
+# 3. 插件详情  
 
-This section covers content applied to the pick-it plugin.  
-You can check the command that sends a request to the pick-it processor and the related error code.    
-Additionally, you can check the robot language functions applied to the plugin.    
-Detailed information related to the pick-it processor can be found through  
-the link to the pick-it official document provided on each page.  
+本节涵盖应用于 pick-it 插件的内容。  
+您可以检查发送请求到 pick-it 处理器的命令及相关错误代码。  
+此外，您还可以检查应用于该插件的机器人语言功能。  
+与 pick-it 处理器相关的详细信息可以通过  
+每个页面提供的 pick-it 官方文档链接找到。  
 
-  - [3.1. Constants used in the Pick-it processor](./1-pickit_constants/README.md)
-  - [3.2. pick-it robot language function](./2-job-cmd-api/README.md)
-
-
-
+  - [3.1. 在 Pick-it 处理器中使用的常量](./1-pickit_constants/README.md)
+  - [3.2. pick-it 机器人语言功能](./2-job-cmd-api/README.md)
 [__SOURCE](03_operation/1-pickit_constants/README.md)
-## 3.1. Constants used in the Pick-it processor
+## 3.1. 在 Pick-it 处理器中使用的常量
 
-The current page is about the `commands` and `responses` requested to the pick-it processor.  
-For more information, see [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
+当前页面关于请求 Pick-it 处理器的 `commands` 和 `responses`。  
+有关更多信息，请参阅 [pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)。
 
 <img src="../../_assets/02_expanded.png" height=350hv> 
 
-`Fig a` Zoomed pick-it monitoring panel
+`图 a` 放大 Pick-it 监控面板
 
 <br>
 
 <div style="max-width:fit-content;">
 
-|Property| Direction | Content|
+|属性| 方向 | 内容|
 |:---|:---|:---|
-|`Command`|${cont_model} com &rightarrow; pick-it processor| Indicates a request command. |
-|`Connection`|${cont_model} com &leftrightarrow; pick-it processor| Indicates the communication connection status between ${cont_model} com and pick-it processor. |
-|`Payload 1`, `Payload 2`|${cont_model} com &leftarrow; pick-it processor| [Refer to pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|${cont_model} com &leftarrow; pick-it processor| Indicates a response to a request. |
-|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
-|`Pick ID`|${cont_model} com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
-|`Remaining Object`|${cont_model} com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
+|`命令 (Command)`|${cont_model} com &rightarrow; pick-it processor| 表示请求命令。 |
+|`连接 (Connection)`|${cont_model} com &leftrightarrow; pick-it processor| 表示 ${cont_model} com 和 Pick-it 处理器之间的通信连接状态。 |
+|`有效载荷 1`, `有效载荷 2`|${cont_model} com &leftarrow; pick-it processor| [参见 pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`状态 (Status)`|${cont_model} com &leftarrow; pick-it processor| 表示对请求的响应。 |
+|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| 表示 PickIt 处理器确定的物体位置信息。 |
+|`选择 ID`|${cont_model} com &leftarrow; pick-it processor| 表示从 Pick-it 处理器选择的物体的标识符。 |  
+|`剩余物体`|${cont_model} com &leftarrow; pick-it processor| 如果不为零，则包含可检索的剩余物体数量。 |  
 
 </div>
 
 <br>
 
-### 3.1.1 pick-it command constants
+### 3.1.1 pick-it 命令常量
 
-The following are instruction constants used when making requests to the pick-it processor.  
-For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+以下是请求 Pick-it 处理器时使用的指令常量。  
+有关更多信息，请参阅 [pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)。
 
 <div style="max-width:fit-content;">
 
-|Command|Value|
+|命令|值|
 |:---|:---|
 |`NO_COMMAND`|-1|
 |`CHECK_MODE`|0|
@@ -255,7 +240,7 @@ For more information, please refer to [pick-it official documentation](https://d
 |`NEXT_OBJECT`|30|
 |`CONFIGURE`|40|
 |`SET_CYLINDER_DIM`|41|
-|`SAVE_ACTIVE_SETUP`|42|
+<<<SOURCE_MARKDOWN_START>>>|`SAVE_ACTIVE_SETUP`|42|
 |`SAVE_ACTIVE_PRODUCT`|43|
 |`SAVE_SCENE`|50|
 |`BUILD_BACKGROUND`|60|
@@ -265,30 +250,30 @@ For more information, please refer to [pick-it official documentation](https://d
 
 <br>
 
-### 3.1.2 pick-it processor mode constants
+### 3.1.2 pick-it 处理器模式常量
 
-For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+有关更多信息，请参见 [pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)。
 
 <div style="max-width:fit-content;">
 
-|Pick-it mode|Value|
+|Pick-it 模式|值|
 |:---|:---|
 |`UNDEFINED`| -1|
 |`ROBOT_MODE`|0|
 |`CALIBRATION MODE`|1|
-|`IDLE`|2|
+|`空闲 (IDLE)`|2|
 
 </div>
 
 <br>
 
-### 3.1.3 pick-it response constants
+### 3.1.3 pick-it 响应常量
 
-For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+有关更多信息，请参见 [pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status)。
 
 <div style="max-width:fit-content;">
 
-|Pick-it response|Value|
+|Pick-it 响应|值|
 |:---|:---|
 |`ROBOT_MODE`                 |  0|
 |`IDLE_MODE`                  |  1|
@@ -304,7 +289,7 @@ For more information, please refer to [pick-it official documentation](https://d
 |`NO_OBJECTS`                 | 21|
 |`NO_IMAGE_CAPTURED`          | 22|
 |`EMPTY_ROI`                  | 23|
-|`IMAGE_CAPTURED`             | 26|
+|`IMAGE_CAPTURED`             | 26|<<<SOURCE_MARKDOWN_END>>>
 |`INVALID_LICENSE`            | 27|
 |`CONFIG_OK`                  | 40|
 |`CONFIG_FAILED`              | 41|
@@ -316,85 +301,84 @@ For more information, please refer to [pick-it official documentation](https://d
 
 </div>
 [__SOURCE](03_operation/2-job-cmd-api/README.md)
-## 3.2. Pick-it robot language function
+## 3.2. Pick-it 机器人语言功能
 
-The current page explains the functions of the job file for the pick-it plugin.  
-As shown in `Figure a`, functional operation and status monitoring of the job file are possible at the same time.
-
+当前页面解释了 pick-it 插件的作业文件功能。  
+如 `图 a` 所示，可以同时进行作业文件的功能操作和状态监控。
 
 <img src="../../_assets/01_panel.png" height=350hv> 
 
-`Fig a` Image of the `is_running()` function is executed
+`图 a` `is_running()` 功能执行的图像
 
 <br><br>
 
-### 3.2.1 pick-it f-button commands
+### 3.2.1 pick-it f-button 命令
 
-You can enter the pick-it commands as follows:    
+您可以按如下方式输入 pick-it 命令：
 
-1. Click the `cmd.input` > Check the `f-button` list > Select the `pickit`   
+1. 点击 `命令输入 (cmd.input)` > 检查 `f-button` 列表 > 选择 `pickit`   
 
     <img src="../../_assets/05_pickit_cmd_1.png" height=90hv> 
 
-    `Fig b` pick-it f-button
+    `图 b` pick-it f-button
 
-2. Select the command you want to enter  
+2. 选择您想要输入的命令  
 
     <img src="../../_assets/06_pickit_cmd_2.png" height=90hv> 
 
-    `Fig c` commands for the pick-it plugin
+    `图 c` pick-it 插件的命令
 
-3. When you select the command, registered argument values are displayed.
+3. 当您选择命令时，将显示注册的参数值。
 
     <img src="../../_assets/07_pickit_cmd_3.png" height=350hv>   
     
-    `Fig d` When the execute `is_running()` command.
+    `图 d` 执行 `is_running()` 命令时。
 
 <br><br>
 
-### 3.2.2 pick-it function for the command
+### 3.2.2 针对命令的 pick-it 功能
 
-A more detailed description of the functions used in the aforementioned pick-it command is as follows.  
-Basically, the robot language functions uses an xhost-based nonblocking communication method.    
-Because a communication request is made through one xhost module, the returned value is the same.    
-But you can check the response status for the each command through the `Status` field in the monitoring window.  
+上述 pick-it 命令中使用的功能的更详细描述如下。  
+基本上，机器人语言功能使用基于 xhost 的非阻塞通信方法。    
+由于通过一个 xhost 模块发出通信请求，返回值是相同的。    
+但是，您可以通过监控窗口中的 `状态 (Status)` 字段检查每个命令的响应状态。  
 
 <div style="max-width:fit-content;">
 
-|<br>function|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>operation|<br>arguments|
+|<br>功能|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>操作|<br>参数|
 |:---|:---|:---|
-|`is_running`|Send a `CHECK_MODE` command to the pick-it processor.<br>Reply `ROBOT_MODE` as a normal response. |`1st`) timeout (= timelimit to request) <br>`2nd`) addr_on_timeout (= branch address for the timeout)|
-|`find_cal_plate`|Send a `FIND_CALIB_PLATE` command to the pick-it processor.<br>Reply `FIND_CALIB_PLATE_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`config_cal`|Send a `CONFIGURE_CALIB` command to the pick-it processor.<br>Reply `CONFIGURE_CALIB_OK` as a normal response.|`1st`) method(for calibaration) <br> &rightarrow; single pose) 0, multiple pose) 1<br>`2nd`) camera_mount(= position)<br>&rightarrow; on robot) 1, etc) 0 <br>`3rd`) timeout<br>`4th`) addr_on_timeout<br>|
-|`compute_cal`|Send a `COMPUTE_CALIB` command to the pick-it processor.<br>Reply `COMPUTE_CALIB_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`validate_cal`|Send a `VALIDATE_CALIB` command to the pick-it processor.<br>Reply `VALIDATE_CALIB_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`capture_img`|Send a `CAPTURE_IMAGE` command to the pick-it processor.<br>Reply `IMAGE_CAPTURED` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`find_objs`|If `retries is 0`, then send `LOOK_FOR_OBJECTS` command.<br>Unless, send `LOOK_FOR_OBJECTS_WITH_RETRIES` command.<br>Reply `IMAGE_CAPTURED` as a normal response.|`1st`) retries(= retry counts)|
-|`process_img`|Send a `PROCESS_IMAGE` command to the pick-it processor.| - |
-|`get_next_obj`|Send a `NEXT_OBJECT` command to the pick-it processor.| - |
-|`configure`|Send a `CONFIGURE` command to the pick-it processor.<br>Reply `CONFIG_OK` as a normal response.|`1st`) setup_id(1 ~ 500)<br>`2nd`) Product file No(1 ~ 500)<br>`3rd`) timeout<br>`4th`) addr_on_timeout|
-|`get_result`|Waiting `OBJECT_FOUND` response from the pick-it processor.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`get_pick_point_data`|Send a `GET_PICK_POINT_DATA` command to the pick-it processor.<br>Reply `GET_PICK_POINT_DATA_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+|`is_running`|向 pick-it 处理器发送 `CHECK_MODE` 命令。<br>正常响应为 `ROBOT_MODE`。 |`1st`) 超时 (= 请求的时间限制) <br>`2nd`) 超时的地址 (= 超时的分支地址)|
+|`find_cal_plate`|向 pick-it 处理器发送 `FIND_CALIB_PLATE` 命令。<br>正常响应为 `FIND_CALIB_PLATE_OK`。|`1st`) 超时<br>`2nd`) 超时的地址|
+|`config_cal`|向 pick-it 处理器发送 `CONFIGURE_CALIB` 命令。<br>正常响应为 `CONFIGURE_CALIB_OK`。|`1st`) 方法（用于校准） <br> &rightarrow; 单一姿势) 0, 多重姿势) 1<br>`2nd`) camera_mount（= 位置）<br>&rightarrow; 机器人上) 1，等等) 0 <br>`3rd`) 超时<br>`4th`) 超时的地址<br>|
+|`compute_cal`|向 pick-it 处理器发送 `COMPUTE_CALIB` 命令。<br>回复 `COMPUTE_CALIB_OK` 作为正常响应。|`1st`) 超时<br>`2nd`) 超时地址|
+|`validate_cal`|向 pick-it 处理器发送 `VALIDATE_CALIB` 命令。<br>回复 `VALIDATE_CALIB_OK` 作为正常响应。|`1st`) 超时<br>`2nd`) 超时地址|
+|`capture_img`|向 pick-it 处理器发送 `CAPTURE_IMAGE` 命令。<br>回复 `IMAGE_CAPTURED` 作为正常响应。|`1st`) 超时<br>`2nd`) 超时地址|
+|`find_objs`|如果 `retries is 0`，则发送 `LOOK_FOR_OBJECTS` 命令。<br>否则，发送 `LOOK_FOR_OBJECTS_WITH_RETRIES` 命令。<br>回复 `IMAGE_CAPTURED` 作为正常响应。|`1st`) 重试次数|
+|`process_img`|向 pick-it 处理器发送 `PROCESS_IMAGE` 命令。| - |
+|`get_next_obj`|向 pick-it 处理器发送 `NEXT_OBJECT` 命令。| - |
+|`configure`|向 pick-it 处理器发送 `CONFIGURE` 命令。<br>回复 `CONFIG_OK` 作为正常响应。|`1st`) setup_id(1 ~ 500)<br>`2nd`) 产品文件编号(1 ~ 500)<br>`3rd`) 超时<br>`4th`) 超时地址|
+|`get_result`|等待来自 pick-it 处理器的 `OBJECT_FOUND` 响应。|`1st`) 超时<br>`2nd`) 超时地址|
+|`get_pick_point_data`|向 pick-it 处理器发送 `GET_PICK_POINT_DATA` 命令。<br>回复 `GET_PICK_POINT_DATA_OK` 作为正常响应。|`1st`) 超时<br>`2nd`) 超时地址|
 
 </div>
 
 <br>
 
-The return value of the above functions is as follows:  
+上述函数的返回值如下：  
 
 <div style="max-width:fit-content;">
 
-|Return Value|Status|Description|
+|返回值|状态|描述|
 |:---:|:---:|:---|
-|`-1`| `error`| socket is not valid..                 |
-|`-2`| `error`| socket is not connected.               |
-|`-3`| `error`| data to request is none.           |
-|`-4`| `error`| xhost is timeout.         |
-|`-5`| `error`| responsed data is not proper to parse. |
-|`-6`| `error`| socket recv error.                   |
-|`-7`| `error`| exception for waiting receiving data.|
-|`-8`| `error`| exception for trying request.       |
-| `0`| - |`exec_mode` or `waiting` response.|
-| `1`| `success`|execution success.|
+|`-1`| `错误`| 套接字无效..                 |
+|`-2`| `错误`| 套接字未连接。               |
+|`-3`| `错误`| 没有请求数据。           |
+|`-4`| `错误`| xhost 超时。         |
+|`-5`| `错误`| 响应数据无法解析。 |
+|`-6`| `错误`| 套接字接收错误。                   |
+|`-7`| `错误`| 等待接收数据时出现异常。|
+|`-8`| `错误`| 尝试请求时出现异常。       |
+| `0`| - |`执行模式` 或 `等待` 响应。|
+| `翻译 (1)`| `成功`|执行成功。|
 
 </div>

@@ -1,13 +1,17 @@
 ﻿{
-    "langCode": "en",
-    "series": "${cont_model} Controller",
-    "title": "Function Manual - Pick-it Plugin",
+    "langCode": "zh",
+    "series": "${cont_model} 控制器",
+    "title": "功能手册 - Pick-it 插件",
     "publisher": "HD Hyundai Robotics",
-    "tocTitle": "Contents",
+    "tocTitle": "内容",
     "tocTitleElements": "[ \"h1\", \"h2\"]",
-    "docId": "${cont_model:upper}PICKIT_EN_001",
+    "docId": "${cont_model:upper}PICKIT_ZH_001",
     "references": [
-        { "rpath" : "doc-hi6-operation/en-tp630" },
-        { "rpath" : "doc-hi6-sdk/en" }
+        {
+            "rpath": "doc-hi6-operation/zh-tp630"
+        },
+        {
+            "rpath": "doc-hi6-sdk/zh"
+        }
     ]
 }
