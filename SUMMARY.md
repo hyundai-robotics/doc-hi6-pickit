@@ -1,7 +1,7 @@
 ﻿# Table of contents
 
-          * [${cont_model} 控制器功能手册 - Pick-it 插件](README.md)
-          * [注意事项](0-about-this-manual/precautions.md)
+* [${cont_model} 控制器功能手册 - Pick-it 插件](README.md)
+* [注意事项](0-about-this-manual/precautions.md)
 * [1. 环境配置](01_env/README.md)
   * [1.1 硬件配置](01_env/1-hw/README.md)
   * [1.2 安装](01_env/2-sw_install/README.md)
