@@ -1,4 +1,4 @@
-﻿{
+{
     "langCode": "ko",
     "series": "${cont_model} 제어기",
     "title": "기능 설명서 - Pick-it 플러그인",
@@ -7,7 +7,12 @@
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "docId": "${cont_model:upper}PICKIT_KO_001",
     "references": [
-        { "rpath" : "doc-hi6-operation/ko-tp630" },
-        { "rpath" : "doc-hi6-sdk/ko" }
+        {
+            "title": "Hi6 제어기 조작 설명서 - TP630",
+            "id": "${cont_model:upper}OPTP630_KO"
+        },
+        {
+            "rpath": "doc-hi6-sdk/ko"
+        }
     ]
 }
