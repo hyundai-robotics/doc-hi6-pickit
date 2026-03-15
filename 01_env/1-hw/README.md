@@ -19,7 +19,7 @@ The main components required for the plugin operation are:
         ex) When connecting via LAN1, the gateway of the video server must be set to 192.168.1.150.
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>When configuring in Windows 10</span>
+            <span>When configuring in Windows 10</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
                 <li>Start → View Network Connections</li>
                 <li>Right-click the connected Ethernet → Properties</li>
@@ -34,7 +34,7 @@ The main components required for the plugin operation are:
    - TP > Enter Administrator Mode (R314) > Service > 13: Teach Pendant Network > Confirm agreement > Proceed with the following settings:
 
        <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
-       ⚠️ [Caution] Selecting any option other than the ones below will change the TP IP address, 
+       [Caution] Selecting any option other than the ones below will change the TP IP address, 
        causing loss of communication between controllers. Since recovery in the field is very difficult, 
        <strong>you must configure exactly as instructed below.</strong>
        </div><br>

@@ -18,7 +18,7 @@ Repeating the same operation will shrink the zoomed window.
 `Fig a` Selecting pick-it monitoring panel
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
 </div><br>
 
 

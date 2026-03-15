@@ -5,7 +5,7 @@
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
+{% include file="en/precautions.md" %}
 
 [__SOURCE](01_env/README.md)
 # 1. Environment Configuration
@@ -37,7 +37,7 @@ The main components required for the plugin operation are:
         ex) When connecting via LAN1, the gateway of the video server must be set to 192.168.1.150.
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>When configuring in Windows 10</span>
+            <span>When configuring in Windows 10</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
                 <li>Start → View Network Connections</li>
                 <li>Right-click the connected Ethernet → Properties</li>
@@ -52,7 +52,7 @@ The main components required for the plugin operation are:
    - TP > Enter Administrator Mode (R314) > Service > 13: Teach Pendant Network > Confirm agreement > Proceed with the following settings:
 
        <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
-       ⚠️ [Caution] Selecting any option other than the ones below will change the TP IP address, 
+       [Caution] Selecting any option other than the ones below will change the TP IP address, 
        causing loss of communication between controllers. Since recovery in the field is very difficult, 
        <strong>you must configure exactly as instructed below.</strong>
        </div><br>
@@ -158,7 +158,7 @@ Repeating the same operation will shrink the zoomed window.
 `Fig a` Selecting pick-it monitoring panel
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
 </div><br>
 
 
@@ -169,11 +169,12 @@ Repeating the same operation will shrink the zoomed window.
 <img src="../../_assets/02_expanded.png" height=320hv>
 
 `Fig c` zoomed monitoring panel
+
 [__SOURCE](02_preview/2-setup/README.md)
 ## 2.2 Setup Window
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
+When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
 </div><br>
 
 The procedure to enter the plugin settings screen is as follows.
@@ -190,6 +191,7 @@ You can perform the following additional tasks on the settings screen:
 2. The `Reconnect` button allows you to reconnect if the connection is lost or the `ip` or `port` has changed.
 3. You can check the same values as seen in `2.1 Monitoring Panel`.
 4. Click the `OK` button to save the current `ip` and `port` information to the controller.
+
 [__SOURCE](03_operation/README.md)
 # 3. Plugin details  
 
