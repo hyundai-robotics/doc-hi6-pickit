@@ -18,7 +18,7 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 `Fig a` 패널 선택 메뉴 화면
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:11`px; border-radius:6px; max-width:fit-content;">
-⚠️ TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
+TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
 </div><br>
 
 <img src="../../_assets/01_panel.png" height=320hv>

@@ -40,7 +40,7 @@
         ex) LAN1 에 연결하는 경우, 영상 서버의 게이트웨이 설정은 192.168.1.150 이어야합니다.
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>Windows 10 에서 설정하는 경우</span>
+            <span>Windows 10 에서 설정하는 경우</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
                 <li>시작 → 네트워크 연결 보기</li>
                 <li>연결된 이더넷 우클릭 → 속성</li>
@@ -56,7 +56,7 @@
         - TP > 관리자 모드 진입(R314) > 서비스 > 13: 티치펜던트 네트워크 > 동의 여부 확인 > 하기 내용으로 설정 진행
 
             <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;max-width:fit-content;">
-            ⚠️ [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
+            [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
             제어기 간 통신이 불능 상태에 빠집니다. 현장에서 원상 복구가 매우 어렵기 때문에 
             <strong>반드시 아래 지침과 동일하게 설정을 진행해야 합니다.</strong>
             </div><br>
@@ -83,6 +83,7 @@
             </div>
      4. 플러그인 설치
         - [설치 페이지](../2-sw_install/README.md)를 참조하여 3에서 수정한 플러그인을 제어기에 설치
+
 [__SOURCE](01_env/2-sw_install/README.md)
 ## 1.2 플러그인 설치
 
@@ -154,7 +155,7 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 `Fig a` 패널 선택 메뉴 화면
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:11`px; border-radius:6px; max-width:fit-content;">
-⚠️ TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
+TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
 </div><br>
 
 <img src="../../_assets/01_panel.png" height=320hv>
@@ -165,11 +166,12 @@ pick-it 로봇 언어 함수 동작에 따른 결과를 실시간으로 창 분�
 <img src="../../_assets/02_expanded.png" height=320hv>
 
 `Fig c` 분할된 화면을 확대했을 때의 화면
+
 [__SOURCE](02_preview/2-setup/README.md)
 ## 2.2 설정 화면  
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:11`px; border-radius:6px; max-width:fit-content;">
-⚠️ TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
+TP에서 화면을 송출할 때 메모리 소모가 많아 장시간 켜두는 경우 예상치 못한 문제가 발생할 수 있습니다.
 </div><br>
 
 

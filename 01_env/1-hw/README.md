@@ -22,7 +22,7 @@
         ex) LAN1 에 연결하는 경우, 영상 서버의 게이트웨이 설정은 192.168.1.150 이어야합니다.
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>Windows 10 에서 설정하는 경우</span>
+            <span>Windows 10 에서 설정하는 경우</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
                 <li>시작 → 네트워크 연결 보기</li>
                 <li>연결된 이더넷 우클릭 → 속성</li>
@@ -38,7 +38,7 @@
         - TP > 관리자 모드 진입(R314) > 서비스 > 13: 티치펜던트 네트워크 > 동의 여부 확인 > 하기 내용으로 설정 진행
 
             <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;max-width:fit-content;">
-            ⚠️ [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
+            [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
             제어기 간 통신이 불능 상태에 빠집니다. 현장에서 원상 복구가 매우 어렵기 때문에 
             <strong>반드시 아래 지침과 동일하게 설정을 진행해야 합니다.</strong>
             </div><br>
