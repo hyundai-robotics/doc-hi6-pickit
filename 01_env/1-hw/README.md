@@ -1,4 +1,4 @@
-## 1.1 硬件配置
+﻿## 1.1 硬件配置
 
 插件操作所需的主要组件包括：  
 `${cont_model} COM`、`${cont_model} TP`、`pick-it 处理器`、`pick-it 相机`、`集线器` 或 `路由器`  
@@ -19,12 +19,12 @@
         例如) 通过 LAN1 连接时，视频服务器的网关必须设置为 192.168.1.150。
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>在 Windows 10 中配置时</span>
+            <span>在 Windows 10 中配置时</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
                 <li>开始 → 查看网络连接</li>
                 <li>右键单击已连接的以太网 → 属性</li>
                 <li>选择互联网协议版本 4 (TCP/IPv4) → 属性</li>
-                <li>选择“使用下面的 IP 地址”</li>
+                <li>选择"使用下面的 IP 地址"</li>
                 <li>输入 IP 地址 / 子网掩码 / 网关</li>
             </ol>
             </div>
@@ -34,7 +34,7 @@
    - TP > 进入管理员模式 (R314) > 服务 > 13: 教学挂件网络 > 确认协议 > 按照以下设置进行操作：
 
        <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
-       ⚠️ [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
+       [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
        导致控制器之间的通信丢失。由于现场恢复非常困难， 
        <strong>您必须严格按照以下指示进行配置。</strong>
        </div><br>

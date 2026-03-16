@@ -4,7 +4,7 @@
 [__SOURCE](0-about-this-manual/precautions.md)
 # 注意事项
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/zh/precautions.md" %}
+{% include file="zh/precautions.md" %}
 [__SOURCE](01_env/README.md)
 # 1. 环境配置
 
@@ -35,12 +35,12 @@
         例如) 通过 LAN1 连接时，视频服务器的网关必须设置为 192.168.1.150。
 
             <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>🛠️</span><span>在 Windows 10 中配置时</span>
+            <span>在 Windows 10 中配置时</span>
             <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
                 <li>开始 → 查看网络连接</li>
                 <li>右键单击已连接的以太网 → 属性</li>
                 <li>选择互联网协议版本 4 (TCP/IPv4) → 属性</li>
-                <li>选择“使用下面的 IP 地址”</li>
+                <li>选择"使用下面的 IP 地址"</li>
                 <li>输入 IP 地址 / 子网掩码 / 网关</li>
             </ol>
             </div>
@@ -50,7 +50,7 @@
    - TP > 进入管理员模式 (R314) > 服务 > 13: 教学挂件网络 > 确认协议 > 按照以下设置进行操作：
 
        <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
-       ⚠️ [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
+       [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
        导致控制器之间的通信丢失。由于现场恢复非常困难， 
        <strong>您必须严格按照以下指示进行配置。</strong>
        </div><br>
@@ -82,6 +82,7 @@
 
      4. 安装插件  
    - 参考 [安装指南](../2-sw_install/README.md) 在控制器上安装第 3 步中的修改插件。
+
 [__SOURCE](01_env/2-sw_install/README.md)
 ## 1.2 安装
 
@@ -153,7 +154,7 @@ ${cont_model} TP 和 pick-it 相机的 IP 子网掩码为两段。
 `Fig a` 选择pick-it监控面板
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ 当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
+当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
 </div><br>
 
 <img src="../../_assets/01_panel.png" height=320hv>
@@ -163,11 +164,12 @@ ${cont_model} TP 和 pick-it 相机的 IP 子网掩码为两段。
 <img src="../../_assets/02_expanded.png" height=320hv>
 
 `Fig c` 放大的监控面板
+
 [__SOURCE](02_preview/2-setup/README.md)
 ## 2.2 设置窗口
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ 从 TP 流式传输屏幕时，内存消耗很高，如果长时间运行，可能会出现意外问题。
+从 TP 流式传输屏幕时，内存消耗很高，如果长时间运行，可能会出现意外问题。
 </div><br>
 
 进入插件设置屏幕的过程如下。
@@ -184,6 +186,7 @@ ${cont_model} TP 和 pick-it 相机的 IP 子网掩码为两段。
 2. `Reconnect` 按钮允许您在连接丢失或 `ip` 或 `port` 更改时重新连接。
 3. 您可以查看与 `2.1 监控面板` 中看到的相同的值。
 4. 单击 `确认 (OK)` 按钮将当前的 `ip` 和 `port` 信息保存到控制器中。
+
 [__SOURCE](03_operation/README.md)
 # 3. 插件详情  
 

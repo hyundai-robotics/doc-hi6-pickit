@@ -1,4 +1,4 @@
-## 2.1 监控面板
+﻿## 2.1 监控面板
 
 它与现有的TP UI功能兼容，因此您可以利用窗口分屏、缩放功能等。  
 您可以通过监控面板实时检查pick-it机器人语言功能操作的结果。  
@@ -18,7 +18,7 @@
 `Fig a` 选择pick-it监控面板
 
 <div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-⚠️ 当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
+当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
 </div><br>
 
 <img src="../../_assets/01_panel.png" height=320hv>

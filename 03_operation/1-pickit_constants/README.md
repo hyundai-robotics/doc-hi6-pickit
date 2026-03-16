@@ -1,4 +1,4 @@
-## 3.1. 在 Pick-it 处理器中使用的常量
+﻿## 3.1. 在 Pick-it 处理器中使用的常量
 
 当前页面关于请求 Pick-it 处理器的 `commands` 和 `responses`。  
 有关更多信息，请参阅 [pick-it 官方文档](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)。

@@ -1,4 +1,4 @@
-## 1.2 安装
+﻿## 1.2 安装
 
 <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
 目前，插件仅提供给已获得使用许可的客户。<br>
