@@ -21,27 +21,27 @@
         - 스트리밍을 하는 영상 서버의 게이트웨이를 연결하고자하는 제어기 ip 와 일치시킵니다.  
         ex) LAN1 에 연결하는 경우, 영상 서버의 게이트웨이 설정은 192.168.1.150 이어야합니다.
 
-            <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>Windows 10 에서 설정하는 경우</span>
-            <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
-                <li>시작 → 네트워크 연결 보기</li>
-                <li>연결된 이더넷 우클릭 → 속성</li>
-                <li>인터넷 프로토콜 버전4 (TCP/IPv4) 선택 → 속성</li>
-                <li>다음 IP 주소 사용(S) 선택</li>
-                <li>IP 주소 / 서브넷 마스크 / 게이트웨이 입력</li>
-            </ol>
-            </div>
+            {% hint style="info" %}
+            Windows 10 에서 설정하는 경우  
+
+            1. 시작 → 네트워크 연결 보기
+            2. 연결된 이더넷 우클릭 → 속성
+            3. 인터넷 프로토콜 버전4 (TCP/IPv4) 선택 → 속성
+            4. 다음 IP 주소 사용(S) 선택
+            5. IP 주소 / 서브넷 마스크 / 게이트웨이 입력
+
+            {% endhint %}
 
 
      2. TP 의 네트워크 설정
 
         - TP > 관리자 모드 진입(R314) > 서비스 > 13: 티치펜던트 네트워크 > 동의 여부 확인 > 하기 내용으로 설정 진행
 
-            <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; border-radius:6px;max-width:fit-content;">
+            {% hint style="warning" %}
             [주의] 하기 옵션 외 다른 설정을 선택하면 TP의 IP 주소가 변경되어 
             제어기 간 통신이 불능 상태에 빠집니다. 현장에서 원상 복구가 매우 어렵기 때문에 
-            <strong>반드시 아래 지침과 동일하게 설정을 진행해야 합니다.</strong>
-            </div><br>
+            반드시 아래 지침과 동일하게 설정을 진행해야 합니다.
+            {% endhint %}
 
             - IP: 192.168.2.77
             - 서브넷마스트: 24
