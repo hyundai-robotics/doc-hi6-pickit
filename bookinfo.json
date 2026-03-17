@@ -12,7 +12,7 @@
             "id": "${cont_model:upper}OPTP630_KO"
         },
         {
-            "rpath": "doc-hi6-sdk/ko"
+            "rpath": "doc-${cont_model:lower}-sdk/ko"
         }
     ]
 }
