@@ -1,8 +1,10 @@
 ﻿## 2.2 Setup Window
 
-<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-When streaming the screen from the TP, memory consumption is high, and unexpected issues may occur if it is kept running for a long time.
-</div><br>
+{% hint style="warning" %}
+
+When streaming real-time video for an extended period, the streaming speed may degrade due to high CPU load on the TP, and other issues may occur.
+
+{% endhint %}
 
 The procedure to enter the plugin settings screen is as follows.
 
