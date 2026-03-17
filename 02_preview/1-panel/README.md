@@ -17,9 +17,11 @@
 
 `Fig a` 选择pick-it监控面板
 
-<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
-</div><br>
+{% hint style="warning" %}
+
+长时间进行实时视频流传输时，由于 TP 的 CPU 负载较高，可能会导致流传输速度下降等问题。
+
+{% endhint %}
 
 <img src="../../_assets/01_panel.png" height=320hv>
 

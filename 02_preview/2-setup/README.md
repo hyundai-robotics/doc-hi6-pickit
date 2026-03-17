@@ -1,8 +1,10 @@
 ﻿## 2.2 设置窗口
 
-<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-从 TP 流式传输屏幕时，内存消耗很高，如果长时间运行，可能会出现意外问题。
-</div><br>
+{% hint style="warning" %}
+
+长时间进行实时视频流传输时，由于 TP 的 CPU 负载较高，可能会导致流传输速度下降等问题。
+
+{% endhint %}
 
 进入插件设置屏幕的过程如下。
 

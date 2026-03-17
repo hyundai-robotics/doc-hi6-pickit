@@ -21,67 +21,67 @@
 
 <br>
 
-1. 在 192.168.2.XX 范围内连接时
-   - 192.168.2 网络范围用于 TP 和 COM 之间的通信。因此，插件无法通过 2.x 范围接收图像。
-   - 然而，如果绝对需要使用 2.x 范围，可以通过如下所示的配置使用集线器来接收图像。
-   - 硬件配置图<br>
-   <img src="../../_assets/04_hardware_net.png" height=310hv>
+### a. 在 192.168.2.XX 范围内连接时
+- 192.168.2 网络范围用于 TP 和 COM 之间的通信。因此，插件无法通过 2.x 范围接收图像。  
+- 然而，如果绝对需要使用 2.x 范围，可以通过如下所示的配置使用集线器来接收图像。  
+<img src="../../_assets/04_hardware_net.png" height=310hv>
 
-2. 对于其他网络范围
-   - 可以使用 ${cont_model} COM 的通用 LAN 端口进行连接。
-   - 示例) 如果视频服务器主机地址是 192.168.1.100，通信端口是 8070：
-     1. 配置视频服务器的网关
-        - 将视频服务器的网关设置为与您要连接的控制器的 IP 地址匹配。  
-        例如) 通过 LAN1 连接时，视频服务器的网关必须设置为 192.168.1.150。
+### b. 对于其他网络范围
+- 可以使用 ${cont_model} COM 的通用 LAN 端口进行连接。
+- 示例) 如果视频服务器主机地址是 192.168.1.100，通信端口是 8070：
+#### b-1. 配置视频服务器的网关
+- 将视频服务器的网关设置为与您要连接的控制器的 IP 地址匹配。  
+  例如) 通过 LAN1 连接时，视频服务器的网关必须设置为 192.168.1.150。
 
-            <div style="border:3px solid #0B57D0; background:#E9F2FF; color:#0B2E57; padding:1px 3px; border-radius:10px; max-width:fit-content; rgba(0,0,0,.08);">
-            <span>在 Windows 10 中配置时</span>
-            <ol style="margin:0; padding-left:25px; line-height:1.8; font-size:14px;">
-                <li>开始 → 查看网络连接</li>
-                <li>右键单击已连接的以太网 → 属性</li>
-                <li>选择互联网协议版本 4 (TCP/IPv4) → 属性</li>
-                <li>选择"使用下面的 IP 地址"</li>
-                <li>输入 IP 地址 / 子网掩码 / 网关</li>
-            </ol>
-            </div>
+    {% hint style="info" %}
+    在 Windows 10 中配置时  
 
-      2. TP 网络配置
+    1. 开始 → 查看网络连接
+    2. 右键单击已连接的以太网 → 属性
+    3. 选择互联网协议版本 4 (TCP/IPv4) → 属性
+    4. 选择"使用下面的 IP 地址"
+    5. 输入 IP 地址 / 子网掩码 / 网关
 
-   - TP > 进入管理员模式 (R314) > 服务 > 13: 教学挂件网络 > 确认协议 > 按照以下设置进行操作：
+    {% endhint %}
 
-       <div style="border:2px solid red; background-color:#ffecec; color:#d8000c; padding:12px; font-weight:bold; font-size:14px; max-width:fit-content; border-radius:6px;">
-       [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
-       导致控制器之间的通信丢失。由于现场恢复非常困难， 
-       <strong>您必须严格按照以下指示进行配置。</strong>
-       </div><br>
+#### b-2. TP 网络配置
 
-       - IP: 192.168.2.77  
-       - 子网掩码: 24  
-       - 网关: 192.168.2.150  
+- TP > 进入管理员模式 (R314) > 服务 > 13: 教学挂件网络 > 确认协议 > 按照以下设置进行操作：
 
-   - 重启控制器
+    {% hint style="warning" %}
+    [注意] 选择以下选项之外的任何选项将更改 TP IP 地址， 
+    导致控制器之间的通信丢失。由于现场恢复非常困难， 
+    您必须严格按照以下指示进行配置。  
 
+    - IP: 192.168.2.77  
+    - 子网掩码: 24  
+    - 网关: 192.168.2.150  
+    {% endhint %}
+
+- 重启控制器
 
 
-     3. 修改插件 URL
-   - 导航到：pickit 文件夹 > ui 文件夹 > js 文件夹 > display.js  
-     相应地更新视频流服务 URL。
 
-       <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
-       目前，该插件仅提供给已获得使用批准的客户。<br>
-       联系人：现代重工机器人研究工程师，李东亨 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
-       </div><br>
+#### b-3. 修改插件 URL
 
-        <div style="max-width:fit-content;">
+- 导航到：pickit 文件夹 > ui 文件夹 > js 文件夹 > display.js  
+  相应地更新视频流服务 URL。
 
-        ```python
-        # 示例：主机 IP = 192.168.1.100，端口 = 8070，按照服务构造查询
-        var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
-        ```
-        </div>
+    <div style="border:1px solid #ccc; background-color:#f9f9f9; color:#333; padding:6px 10px; border-radius:4px; max-width:fit-content; font-size:13px; line-height:1.5;">
+    目前，该插件仅提供给已获得使用批准的客户。<br>
+    联系人：现代重工机器人研究工程师，李东亨 (<a href="mailto:donghyeong.lee@hd.com">donghyeong.lee@hd.com</a>)
+    </div><br>
 
-     4. 安装插件  
-   - 参考 [安装指南](../2-sw_install/README.md) 在控制器上安装第 3 步中的修改插件。
+    <div style="max-width:fit-content;">
+
+    ```python
+    # 示例：主机 IP = 192.168.1.100，端口 = 8070，按照服务构造查询
+    var url = "http://192.168.1.100:8070/stream?topic=/pickit/viewer/image_out"
+    ```
+    </div>
+
+#### b-4. 安装插件  
+- 参考 [安装指南](../2-sw_install/README.md) 在控制器上安装第 3 步中的修改插件。
 
 [__SOURCE](01_env/2-sw_install/README.md)
 ## 1.2 安装
@@ -153,9 +153,11 @@ ${cont_model} TP 和 pick-it 相机的 IP 子网掩码为两段。
 
 `Fig a` 选择pick-it监控面板
 
-<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-当从TP流传屏幕时，内存消耗较高，如果长时间运行，可能会出现意外问题。
-</div><br>
+{% hint style="warning" %}
+
+长时间进行实时视频流传输时，由于 TP 的 CPU 负载较高，可能会导致流传输速度下降等问题。
+
+{% endhint %}
 
 <img src="../../_assets/01_panel.png" height=320hv>
 
@@ -168,9 +170,11 @@ ${cont_model} TP 和 pick-it 相机的 IP 子网掩码为两段。
 [__SOURCE](02_preview/2-setup/README.md)
 ## 2.2 设置窗口
 
-<div style="border:2px solid #ff9800; background-color:#fff3e0; color:#e65100; padding:3px; font-weight:bold; font-size:12px; border-radius:6px; max-width:fit-content;">
-从 TP 流式传输屏幕时，内存消耗很高，如果长时间运行，可能会出现意外问题。
-</div><br>
+{% hint style="warning" %}
+
+长时间进行实时视频流传输时，由于 TP 的 CPU 负载较高，可能会导致流传输速度下降等问题。
+
+{% endhint %}
 
 进入插件设置屏幕的过程如下。
 
