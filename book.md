@@ -49,7 +49,7 @@ The main components required for the plugin operation are:
 
 #### b-2. TP Network Configuration
 
-- TP > Enter Administrator Mode (R314) > Service > 13: Teach Pendant Network > Confirm agreement > Proceed with the following settings:
+- After entering Engineer Mode(R314), then navigate to `[F1: Service] - 13: Teach Pendant Network`. Confirm the agreement and proceed with the following settings:
 
     {% hint style="warning" %}
 
@@ -104,10 +104,10 @@ The detailed process is as follows.
 |---: |:---|
 | `1` | Save the pick-it plug-in program to USB. |
 | `2` | Connect USB to TP. |
-| `3` | `Service` > `5: File manager` > `USB` > `pickit` folder > `copy` |
+| `3` | Enter `[F1: Service] - 5: File manager`, then `USB` > `pickit` folder > `copy` |
 | `4` | `MAIN` folder > `apps` folder > `paste` |
 | `5` | Reboot ${cont_model} COM |
-| `6` | `system` > `4: Application parameter` > `25: pickit` |
+| `6` | `[F2: System] - 4: Application parameter - 25: pickit` |
 
 </div>
 [__SOURCE](01_env/3-network/README.md)
@@ -184,7 +184,7 @@ When streaming real-time video for an extended period, the streaming speed may d
 
 The procedure to enter the plugin settings screen is as follows.
 
-- `System` > `4: Application parameter` > `25: pickit` > 
+- `[F2: System] - 4: Application parameter - 25: pickit`
 
 <img src="../../_assets/03_setup_ui.png" height=330hv>  
 
