@@ -8,7 +8,7 @@ When streaming real-time video for an extended period, the streaming speed may d
 
 The procedure to enter the plugin settings screen is as follows.
 
-- `System` > `4: Application parameter` > `25: pickit` > 
+- `[F2: System] - 4: Application parameter - 25: pickit`
 
 <img src="../../_assets/03_setup_ui.png" height=330hv>  
 

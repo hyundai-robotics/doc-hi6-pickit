@@ -31,7 +31,7 @@ The main components required for the plugin operation are:
 
 #### b-2. TP Network Configuration
 
-- TP > Enter Administrator Mode (R314) > Service > 13: Teach Pendant Network > Confirm agreement > Proceed with the following settings:
+- After entering Engineer Mode(R314), then navigate to `[F1: Service] - 13: Teach Pendant Network`. Confirm the agreement and proceed with the following settings:
 
     {% hint style="warning" %}
 

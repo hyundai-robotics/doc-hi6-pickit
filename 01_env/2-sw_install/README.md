@@ -15,9 +15,9 @@ The detailed process is as follows.
 |---: |:---|
 | `1` | Save the pick-it plug-in program to USB. |
 | `2` | Connect USB to TP. |
-| `3` | `Service` > `5: File manager` > `USB` > `pickit` folder > `copy` |
+| `3` | Enter `[F1: Service] - 5: File manager`, then `USB` > `pickit` folder > `copy` |
 | `4` | `MAIN` folder > `apps` folder > `paste` |
 | `5` | Reboot ${cont_model} COM |
-| `6` | `system` > `4: Application parameter` > `25: pickit` |
+| `6` | `[F2: System] - 4: Application parameter - 25: pickit` |
 
 </div>
