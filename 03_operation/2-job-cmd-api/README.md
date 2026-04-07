@@ -35,48 +35,349 @@ After modification
 <br>
 
 ### 3.2.2 pick-it function for the command
+#### 1. List of commands sent to the Pick-it processor (= Pick-it API)
+This is displayed in Requested command under Information requested to Pick-it on the UI screen.
 
-A more detailed description of the functions used in the aforementioned pick-it command is as follows.  
-Basically, the robot language functions uses an xhost-based nonblocking communication method.    
-Because a communication request is made through one xhost module, the returned value is the same.    
-But you can check the response status for the each command through the `Status` field in the monitoring window.  
+<div style="width:630px;">
 
-<div style="max-width:fit-content;">
-
-|<br>function|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>operation|<br>arguments|
-|:---|:---|:---|
-|`is_running`|Send a `CHECK_MODE` command to the pick-it processor.<br>Reply `ROBOT_MODE` as a normal response. |`1st`) timeout (= timelimit to request) <br>`2nd`) addr_on_timeout (= branch address for the timeout)|
-|`find_cal_plate`|Send a `FIND_CALIB_PLATE` command to the pick-it processor.<br>Reply `FIND_CALIB_PLATE_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`config_cal`|Send a `CONFIGURE_CALIB` command to the pick-it processor.<br>Reply `CONFIGURE_CALIB_OK` as a normal response.|`1st`) method(for calibaration) <br> &rightarrow; single pose) 0, multiple pose) 1<br>`2nd`) camera_mount(= position)<br>&rightarrow; on robot) 1, etc) 0 <br>`3rd`) timeout<br>`4th`) addr_on_timeout<br>|
-|`compute_cal`|Send a `COMPUTE_CALIB` command to the pick-it processor.<br>Reply `COMPUTE_CALIB_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`validate_cal`|Send a `VALIDATE_CALIB` command to the pick-it processor.<br>Reply `VALIDATE_CALIB_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`capture_img`|Send a `CAPTURE_IMAGE` command to the pick-it processor.<br>Reply `IMAGE_CAPTURED` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`find_objs`|If `retries is 0`, then send `LOOK_FOR_OBJECTS` command.<br>Unless, send `LOOK_FOR_OBJECTS_WITH_RETRIES` command.<br>Reply `IMAGE_CAPTURED` as a normal response.|`1st`) retries(= retry counts)|
-|`process_img`|Send a `PROCESS_IMAGE` command to the pick-it processor.| - |
-|`get_next_obj`|Send a `NEXT_OBJECT` command to the pick-it processor.| - |
-|`configure`|Send a `CONFIGURE` command to the pick-it processor.<br>Reply `CONFIG_OK` as a normal response.|`1st`) setup_id(1 ~ 500)<br>`2nd`) Product file No(1 ~ 500)<br>`3rd`) timeout<br>`4th`) addr_on_timeout|
-|`get_result`|Waiting `OBJECT_FOUND` response from the pick-it processor.|`1st`) timeout<br>`2nd`) addr_on_timeout|
-|`get_pick_point_data`|Send a `GET_PICK_POINT_DATA` command to the pick-it processor.<br>Reply `GET_PICK_POINT_DATA_OK` as a normal response.|`1st`) timeout<br>`2nd`) addr_on_timeout|
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>process_img</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center; width: 120px;">Description</td>
+      <td>Sends the <code>PROCESS_IMAGE</code> command to the Pick-it processor.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>1</code>: Send success<br><code>-1</code>: Problem with the sent data<br><code>-2</code>: Socket not connected<br><code>-3</code>: Send failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>get next object</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>NEXT_OBJECT</code> command to the Pick-it processor.<br>You can subsequently call <code>get_result()</code> to receive the object detection result.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code> (= Time limit)<br><code>addr_on_timeout</code> (= Branch address on timeout, ex. 99, error)</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>1</code>: Send success<br><code>-1</code>: Problem with the sent data<br><code>-2</code>: Socket not connected<br><code>-3</code>: Send failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>configure</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>CONFIGURE</code> command to the Pick-it processor. Returns <code>40(CONFIG_OK)</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>setup_id</code>(1~500)<br><code>product_id</code>(1~500)<br><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>40</code>: CONFIG_OK<br><code>41</code>: CONFIG_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>is running</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>CHECK_MODE</code> command to the Pick-it processor.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>0</code>: ROBOT_MODE<br><code>1</code>: IDLE_MODE<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>find calib plate</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>FIND_CALIB_PLATE</code> command to the Pick-it processor. Returns <code>10(FIND_CALIB_PLATE_OK)</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>10</code>: FIND_CALIB_OK<br><code>11</code>: FIND_CALIB_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>config calibration</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>CONFIGURE_CALIB</code> command to the Pick-it processor. Returns <code>12(CONFIGURE_CALIB_OK)</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>method</code>(0: Single pose, 1: Multi pose)<br><code>camera_mount</code>(1: Robot-mounted, 0: Others)<br><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>12</code>: CONFIGURE_CALIB_OK<br><code>13</code>: CONFIGURE_CALIB_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed<br><code>-6</code>: <code>method</code> or <code>camera_mount</code> missing</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>compute calibration</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>COMPUTE_CALIB</code> command to the Pick-it processor. Returns <code>14(COMPUTE_CALIB_OK)</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>14</code>: COMPUTE_CALIB_OK<br><code>15</code>: COMPUTE_CALIB_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>validate calibration</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>VALIDATE_CALIB</code> command to the Pick-it processor. Returns <code>16(VALIDATE_CALIB_OK)</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>16</code>: VALIDATE_CALIB_OK<br><code>17</code>: VALIDATE_CALIB_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>find objects</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends <code>LOOK_FOR_OBJECTS</code> if retries is 0, otherwise sends <code>LOOK_FOR_OBJECTS_WITH_RETRIES</code>.<br>You can subsequently call <code>get_result()</code> to receive the object detection result.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>retries</code> (= Number of retries)</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>1</code>: Send success<br><code>-1</code>: Invalid data type<br><code>-2</code>: Socket connection failed<br><code>3</code>: Send failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>capture image</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>CAPTURE_IMAGE</code> command to the Pick-it processor. Returns <code>IMAGE_CAPTURED</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>26</code>: IMAGE_CAPTURED<br><code>22</code>: NO_IMAGE_CAPTURED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>get pick point</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>GET_PICK_POINT_DATA</code> command to the Pick-it processor. Returns <code>GET_PICK_POINT_DATA_OK</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>70</code>: GET_PICK_POINT_DATA_OK<br><code>71</code>: GET_PICK_POINT_DATA_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-4</code>: Timeout<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>get result</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Waits for the <code>OBJECT_FOUND</code> response from the Pick-it processor.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>20</code>: OBJECT_FOUND<br><code>21</code>: NO_OBJECTS<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-5</code>: Request failed</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>save_snapshot</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Sends the <code>SAVE_SNAPSHOT</code> command to the Pick-it processor. Returns <code>50(SAVE_SNAPSHOT_OK)</code> upon successful response.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td><code>subfoler</code>(1~255)<br><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>50</code>: SAVE_SNAPSHOT_OK<br><code>51</code>: SAVE_SNAPSHOT_FAILED<br><code>0</code>: Waiting for response<br><code>-2</code>: Socket error<br><code>-3</code>: No data to send<br><code>-5</code>: Request failed</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
 <br>
 
-The return value of the above functions is as follows:  
+#### 2. List of commands sent to Hi6 COM
 
 <div style="max-width:fit-content;">
 
-|Return Value|Status|Description|
-|:---:|:---:|:---|
-|`-1`| `error`| socket is not valid..                 |
-|`-2`| `error`| socket is not connected.               |
-|`-3`| `error`| data to request is none.           |
-|`-4`| `error`| xhost is timeout.         |
-|`-5`| `error`| responsed data is not proper to parse. |
-|`-6`| `error`| socket recv error.                   |
-|`-7`| `error`| exception for waiting receiving data.|
-|`-8`| `error`| exception for trying request.       |
-| `0`| - |`exec_mode` or `waiting` response.|
-| `1`| `success`|execution success.|
-
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>debug on</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center; width: 120px;">Description</td>
+      <td>Prints logs related to the pick-it communication status when entering TP > <code>창조정</code> > <code>히스토리</code>.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>debug off</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Turns off logs related to the pick-it communication status when entering TP > <code>창조정</code> > <code>히스토리</code>.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>get pick pose</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Returns the currently set pick pose value as a string. It can be type-cast to <code>Pose()</code>.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td>Pose string<br>ex) <code>'[574.500, 0.0, 931.000, 0.0, 90.00, 0.000, "base", "auto"]'</code></td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>get pick offset</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Returns the currently set pick offset value.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td>Number string<br>ex) <code>"0"</code></td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>get pick id</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Returns the currently set pick id value.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td>Integer<br>ex) <code>0</code></td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>reconnect</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+      <td>Retries the Ethernet connection.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+      <td>Number of retries</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+      <td><code>1</code>: Socket open &amp; connection success<br><code>-1</code>: Socket open failed<br><code>-2</code>: Socket connection failed</td>
+    </tr>
+  </tbody>
+</table>
 </div>
