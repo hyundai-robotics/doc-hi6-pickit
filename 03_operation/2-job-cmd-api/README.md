@@ -270,114 +270,114 @@ This is displayed in Requested command under Information requested to Pick-it on
 
 <br>
 
-#### 2. List of commands sent to Hi6 COM
+#### 2. List of commands sent to ${cont_model} COM
 
-<div style="max-width:fit-content;">
-
+<div style="max-width:630px;">
 <table>
-  <tbody>
-    <tr>
-      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
-        <code>debug on</code>
-      </th>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center; width: 120px;">Description</td>
-      <td>Prints logs related to the pick-it communication status when entering TP > <code>창조정</code> > <code>히스토리</code>.</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
-        <code>debug off</code>
-      </th>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
-      <td>Turns off logs related to the pick-it communication status when entering TP > <code>창조정</code> > <code>히스토리</code>.</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
-        <code>get pick pose</code>
-      </th>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
-      <td>Returns the currently set pick pose value as a string. It can be type-cast to <code>Pose()</code>.</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
-      <td>Pose string<br>ex) <code>'[574.500, 0.0, 931.000, 0.0, 90.00, 0.000, "base", "auto"]'</code></td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
-        <code>get pick offset</code>
-      </th>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
-      <td>Returns the currently set pick offset value.</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
-      <td>Number string<br>ex) <code>"0"</code></td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
-        <code>get pick id</code>
-      </th>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
-      <td>Returns the currently set pick id value.</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
-      <td>Integer<br>ex) <code>0</code></td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
-        <code>reconnect</code>
-      </th>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
-      <td>Retries the Ethernet connection.</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
-      <td>Number of retries</td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
-      <td><code>1</code>: Socket open &amp; connection success<br><code>-1</code>: Socket open failed<br><code>-2</code>: Socket connection failed</td>
-    </tr>
-  </tbody>
+    <tbody>
+      <tr>
+        <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+          <code>debug on</code>
+        </th>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center; width: 120px;">Description</td>
+        <td>Prints logs related to the pick-it communication status when entering TP > <code>pane layout</code> > <code>history</code>.</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+          <code>debug off</code>
+        </th>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+        <td>Turns off logs related to the pick-it communication status when entering TP > <code>pane layout</code> > <code>history</code>.</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+          <code>get pick pose</code>
+        </th>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+        <td>Returns the currently set pick pose value as a string. It can be type-cast to <code>Pose()</code>.</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+        <td>Pose string<br>ex) <code>'[574.500, 0.0, 931.000, 0.0, 90.00, 0.000, "base", "auto"]'</code></td>
+      </tr>
+      <tr>
+        <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+          <code>get pick offset</code>
+        </th>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+        <td>Returns the currently set pick offset value.</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+        <td>Number string<br>ex) <code>"0"</code></td>
+      </tr>
+      <tr>
+        <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+          <code>get pick id</code>
+        </th>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+        <td>Returns the currently set pick id value.</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+        <td>Integer<br>ex) <code>0</code></td>
+      </tr>
+      <tr>
+        <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+          <code>reconnect</code>
+        </th>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Description</td>
+        <td>Retries the Ethernet connection.</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Arguments</td>
+        <td>Number of retries</td>
+      </tr>
+      <tr>
+        <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">Return Value</td>
+        <td><code>1</code>: Socket open & connection success<br><code>-1</code>: Socket open failed<br><code>-2</code>: Socket connection failed</td>
+      </tr>
+    </tbody>
 </table>
+
 </div>
