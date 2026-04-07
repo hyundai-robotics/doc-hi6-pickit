@@ -111,9 +111,10 @@ USB를 사용하여 TP 화면을 통해 플러그인 설치를 진행합니다.
 | `3` | `[F1: 서비스] - 5: 파일 관리` 진입 후 `USB` > `pickit 폴더` > `복사` |
 | `4` | `MAIN` > `apps` > `붙여넣기` |
 | `5` | `제어기 재부팅` |
-| `6` | `[F2: 시스템] - 5: 응용 파라미터 - 픽잇` |
+| `6` | `[F2: 시스템] - 4: 응용 파라미터 - 픽잇` |
 
 </div>
+
 [__SOURCE](01_env/3-network/README.md)
 ## 1.3 네트워크 통신
 
@@ -361,7 +362,6 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 <img src="../../_assets/07_pickit_cmd_4.png" height=60hv>   
 수정 후   
 <img src="../../_assets/07_pickit_cmd_5.png" height=62.3hv>    
-    - 추후 수정 예정   
    
 
 <br><br>
@@ -371,102 +371,347 @@ pick-it 프로세서와 연관된 자세한 내용은 페이지 별로 안내된
 #### 1. pick-it 프로세서에 요청하는 명령어 리스트 (= pickit API)
 UI 화면의 `픽잇으로 요청한 정보`에서 `요청한 명령` 에 표시가 됩니다.
 
-- #1. `process_img`  
-  픽잇 프로세서에 `PROCESS_IMAGE` 명령을 보냅니다.  
-  - 인자 값 ) 없음  
-  - 반환 값 ) 
-  `1`: 송신 성공, `-1`: 보내는 데이터에 문제가 있음, `-2`: 소켓이 연결되지 않음, `-3`: 송신 실패
+<div style="width:630px;">
 
-- #2. `get next object`   
-  픽잇 프로세서에 `NEXT_OBJECT` 명령을 보냅니다. `get_result()`를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.  
-  - 인자 값 ) `timeout`(= 제한시간), `addr_on_timeout`(= 타임아웃 시 분기 주소, ex. 99, error)  
-  - 반환 값 ) `1`: 송신 성공, `-1`: 보내는 데이터에 문제가 있음, `-2`: 소켓이 연결되지 않음, `-3`: 송신 실패
-  
-- #3. `configure`  
-  픽잇 프로세서에 `CONFIGURE` 명령을 보냅니다. 정상 응답으로 `40(CONFIG_OK)` 를 답합니다.     
-  - 인자 값 ) `setup_id`(1-500), `product_id`(1-500), `timeout`, `addr_on_timeout`  
-  - 반환 값 ) `40`: CONFIG_OK, `41`: CONFIG_FAILED, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청실패
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>process_img</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center; width: 120px;">설명</td>
+      <td>픽잇 프로세서에 <code>PROCESS_IMAGE</code> 명령을 보냅니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>1</code>: 송신 성공<br><code>-1</code>: 보내는 데이터에 문제가 있음<br><code>-2</code>: 소켓이 연결되지 않음<br><code>-3</code>: 송신 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>get next object</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>NEXT_OBJECT</code> 명령을 보냅니다.<br><code>get_result()</code>를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code>(= 제한시간)<br><code>addr_on_timeout</code>(= 타임아웃 시 분기 주소, ex. 99, error)</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>1</code>: 송신 성공<br><code>-1</code>: 보내는 데이터에 문제가 있음<br><code>-2</code>: 소켓이 연결되지 않음<br><code>-3</code>: 송신 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>configure</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>CONFIGURE</code> 명령을 보냅니다. 정상 응답 시 <code>40(CONFIG_OK)</code>을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>setup_id</code>(1~500)<br><code>product_id</code>(1~500)<br><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>40</code>: CONFIG_OK<br><code>41</code>: CONFIG_FAILED<br><code>0</code>: 응답 대기중<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>is running</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>CHECK_MODE</code> 명령을 보냅니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>0</code>: ROBOT_MODE<br><code>1</code>: IDLE_MODE<br><code>0</code>: 응답 대기중<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>find calib plate</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>FIND_CALIB_PLATE</code> 명령을 보냅니다. 정상 응답 시 <code>10(FIND_CALIB_PLATE_OK)</code>을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>10</code>: FIND_CALIB_OK<br><code>11</code>: FIND_CALIB_FAILED<br><code>0</code>: 응답 대기중<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>config calibration</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>CONFIGURE_CALIB</code> 명령을 보냅니다. 정상 응답 시 <code>12(CONFIGURE_CALIB_OK)</code>을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>method</code>(0: 싱글포즈, 1: 멀티포즈)<br><code>camera_mount</code>(1: 로봇 부착, 0: 그 외)<br><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>12</code>: CONFIGURE_CALIB_OK<br><code>13</code>: CONFIGURE_CALIB_FAILED<br><code>0</code>: 응답 대기<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패<br><code>-6</code>: <code>method</code> 또는 <code>camera_mount</code> 미입력</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>compute calibration</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>COMPUTE_CALIB</code> 명령을 보냅니다. 정상 응답 시 <code>14(COMPUTE_CALIB_OK)</code>을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>14</code>: COMPUTE_CALIB_OK<br><code>15</code>: COMPUTE_CALIB_FAILED<br><code>0</code>: 응답 대기<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>validate calibration</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>VALIDATE_CALIB</code> 명령을 보냅니다. 정상 응답 시 <code>16(VALIDATE_CALIB_OK)</code>을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>16</code>: VALIDATE_CALIB_OK<br><code>17</code>: VALIDATE_CALIB_FAILED<br><code>0</code>: 응답 대기<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>find objects</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>retries가 0일 때는 <code>LOOK_FOR_OBJECTS</code>를 보내고, 0 아닐 때는 <code>LOOK_FOR_OBJECTS_WITH_RETRIES</code>을 보냅니다.<br><code>get_result()</code>를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>retries</code>(= 반복 횟수)</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>1</code>: 송신 성공<br><code>-1</code>: 유효하지 않은 데이터 타입<br><code>-2</code>: 소켓 연결 실패<br><code>3</code>: 송신 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>capture image</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>CAPTURE_IMAGE</code> 명령을 보냅니다. 정상 응답 시 <code>IMAGE_CAPTURED</code>를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>26</code>: IMAGE_CAPTURED<br><code>22</code>: NO_IMAGE_CAPTURED<br><code>0</code>: 응답 대기<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>get pick point</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>GET_PICK_POINT_DATA</code> 명령을 보냅니다. 정상 응답 시 <code>GET_PICK_POINT_DATA_OK</code>를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>70</code>: GET_PICK_POINT_DATA_OK<br><code>71</code>: GET_PICK_POINT_DATA_FAILED<br><code>0</code>: 응답 대기<br><code>-2</code>: 소켓 에러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-4</code>: 타임아웃<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>get result</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서로부터 <code>OBJECT_FOUND</code> 응답을 기다립니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>20</code>: OBJECT_FOUND<br><code>21</code>: NO_OBJECTS<br><code>0</code>: 응답 대기 중<br><code>-2</code>: 소켓 애러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-5</code>: 요청 실패</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+         <code>save_snapshot</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>픽잇 프로세서에 <code>SAVE_SNAPSHOT</code> 명령을 보냅니다. 정상 응답 시 <code>50(SAVE_SNAPSHOT_OK)</code>을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td><code>subfoler</code>(1~255)<br><code>timeout</code><br><code>addr_on_timeout</code></td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>50</code>: SAVE_SNAPSHOT_OK<br><code>51</code>: SAVE_SNAPSHOT_FAILED<br><code>0</code>: 응답 대기 중<br><code>-2</code>: 소켓 애러<br><code>-3</code>: 보낼 데이터가 없음<br><code>-5</code>: 요청 실패</td>
+    </tr>
+  </tbody>
+</table>
 
-- #4. `is running`
-  픽잇 프로세서에 `CHECK_MODE`명령을 보냅니다.  
-  - 인자 값 ) `timeout`, `addr_on_timeout`  
-  - 반환 값 ) `0`: ROBOT_MODE, `1`: IDLE_MODE, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패
+</div>
 
-- #5. `find calib plate`  
-  픽잇 프로세서에 `FIND_CALIB_PLATE` 명령을 보냅니다. 정상 응답으로 `10(FIND_CALIB_PLATE_OK)`를 답합니다.  
-  - 인자 값 ) `timeout`, `addr_on_timeout`  
-  - 반환 값 ) `10`: FIND_CALIB_OK, `11`: FIND_CALIB_FAILED, `0`: 응답 대기중, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패
-
-- #6. `config calibration`  
-  픽잇 프로세서에 `CONFIGURE_CALIB` 명령을 보냅니다. 정상 응답으로 `12(CONFIGURE_CALIB_OK)`를 답합니다.  
-  - 인자 값 ) `method`(0: 싱글포즈, 1: 멀티포즈), `camera_mount`(1:로봇에 부착, 0: 그 외),`timeout`, `addr_on_timeout`  
-  - 반환 값 ) `12`: CONFIGURE_CALIB_OK, `13`: CONFIGURE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패, `-6`: `method` 또는 `camera_mount` 값이 입력되지 않음
-
-- #7. `compute calibration`  
-  픽잇 프로세서에 `COMPUTE_CALIB` 명령을 보냅니다. 정상 응답으로 `14(COMPUTE_CALIB_OK)`를 답합니다.  
-  - 인자 값 ) `timeout`, `addr_on_timeout`  
-  - 반환 값 ) `14`: COMPUTE_CALIB_OK, `15`: COMPUTE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
-
-- #8. `validate calibration`  
-  픽잇 프로세서에 `VALIDATE_CALIB` 명령을 보냅니다. 정상 응답으로 `16(VALIDATE_CALIB_OK)`를 답합니다.  
-  - 인자 값 ) `timeout`, `addr_on_timeout`  
-  - 반환 값 ) `16`: VALIDATE_CALIB_OK, `17`: VALIDATE_CALIB_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
-
-- #9. `find objects`  
-  retries가 0일 때는 `LOOK_FOR_OBJECTS`를 보내고<br>0 아닐 때는 `LOOK_FOR_OBJECTS_WITH_RETRIES`을 보냅니다. `get_result()`를 이어서 호출하여 object 찾기 결과를 받아올 수 있습니다.  
-  - 인자 값) `retries`(= 반복 횟수)  
-  - 반환 값) `1`: 송신 성공, `-1`: 유효하지 않은 테이터 타입, `-2`: 소켓 연결 실패, `3`: 송신 실패  
-
-- #10. `capture image`  
-  픽잇 프로세서에 `CAPTURE_IMAGE` 명령을 보냅니다. 정상 응답으로 `IMAGE_CAPTURED`를 답합니다.  
-  - 인자 값) `timeout`, `addr_on_timeout`  
-  - 반환 값) `26`: IMAGE_CAPTURED, `22`: NO_IMAGE_CAPTURED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
-
-- #11. `get pick point`  
-  픽잇 프로세서에 `GET_PICK_POINT_DATA` 명령을 보냅니다. 정상 응답으로 `GET_PICK_POINT_DATA_OK`를 답합니다.  
-  - 인자 값) `timeout`, `addr_on_timeout`  
-  - 반환 값) `70`: GET_PICK_POINT_DATA_OK, `71`: GET_PICK_POINT_DATA_FAILED, `0`: 응답 대기, `-2`: 소켓 에러, `-3`: 보낼 데이터가 없음, `-4`: 타임아웃, `-5`: 요청 실패  
-
-
-- #12. `get result`  
-  픽잇 프로세서로부터 `OBJECT_FOUND` 응답을 기다립니다.  
-  - 인자 값 ) `timeout`, `addr_on_timeout`  
-  - 반환 값 ) `20`: OBJECT_FOUND, `21`: NO_OBJECTS, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
-
-- #13. `save_snapshot`  
-  픽잇 프로세서에 `SAVE_SNAPSHOT` 명령을 보냅니다. 정상 응답으로 `50(SAVE_SNAPSHOT_OK)`를 답합니다.  
-  - 인자 값 ) `subfoler`(1~255), `timeout`, `addr_on_timeout`
-  - 반환 값 ) `50`: SAVE_SNAPSHOT_OK, `51`: SAVE_SNAPSHOT_FAILED, `0`: 응답 대기 중, `-2`: 소켓 애러, `-3`: 보낼 데이터가 없음, `-5`: 요청 실패
- 
 ---- 
 
 #### 2. ${cont_model} COM 에 요청하는 명령어 리스트 
-- `debug on`  
-  해당 명령어를 실행하면, TP > `창조정` > `히스토리` 진입 시 pick-it 통신 상태와 관련된 로그가 출력됩니다.  
-  - 인자 값 ) 없음  
-  - 반환 값 ) 없음  
 
-- `debug off`  
-  해당 명령어를 실행하면, TP > `창조정` > `히스토리` 진입 시 pick-it 통신 상태와 관련된 로그가 꺼집니다.  
-  - 인자 값 ) 없음  
-  - 반환 값 ) 없음  
+<div style="width:630px;">
 
-- `get pick pose`
-  현재 설정된 pick pose 값을 문자열로 반환 합니다. 해당 변수는 Pose() 로 타입 변환을 할 수 있습니다.   
-  - 인자 값 ) 없음  
-  - 반환 값 ) 포즈 문자열 ex) '[574.500, 0.0, 931.000, 0.0, 90.00, 0.000, "base", "auto"]'
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>debug on</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center; width: 120px;">설명</td>
+      <td>TP > <code>창조정</code> > <code>히스토리</code> 진입 시 pick-it 통신 상태와 관련된 로그를 출력합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>debug off</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>TP > <code>창조정</code> > <code>히스토리</code> 진입 시 pick-it 통신 상태와 관련된 로그를 끕니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>get pick pose</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>현재 설정된 pick pose 값을 문자열로 반환합니다. <code>Pose()</code>로 타입 변환이 가능합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td>포즈 문자열<br>ex) <code>'[574.500, 0.0, 931.000, 0.0, 90.00, 0.000, "base", "auto"]'</code></td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>get pick offset</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>현재 설정된 pick offset 값을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td>숫자 문자열<br>ex) <code>"0"</code></td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>get pick id</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>현재 설정된 pick id 값을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td>숫자 인트형<br>ex) <code>0</code></td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #f1f5f9; text-align: left; padding: 10px; border-top: 3px solid #cbd5e1;">
+        <code>reconnect</code>
+      </th>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">설명</td>
+      <td>이더넷 연결을 재시도합니다.</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">인자 값</td>
+      <td>시도 횟수</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; font-weight: bold; background-color: #f8fafc; text-align: center;">반환 값</td>
+      <td><code>1</code>: 소켓 오픈 및 연결 성공<br><code>-1</code>: 소켓 오픈 실패<br><code>-2</code>: 소켓 연결 실패</td>
+    </tr>
+  </tbody>
+</table>
 
-- `get pick offset`  
-  현재 설정된 pick offset 값을 반환 합니다.   
-  - 인자 값 ) 없음  
-  - 반환 값 ) 숫자 문자열 ex) "0"
- 
-- `get pick id`  
-  현재 설정된 pick id 값을 반환 합니다.   
-  - 인자 값 ) 없음  
-  - 반환 값 ) 숫자 인트형 ex) 0
-
-- `reconnect`
-  이더넷 연결을 재시도합니다.
-  - 인자 값) 시도 횟수  
-  - 반환 값) `1`: 소켓 오픈 & 연결 성공, `-1`: 소켓 오픈 실패, `-2`: 소켓 연결 실패
+</div>
