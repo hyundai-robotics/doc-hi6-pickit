@@ -295,33 +295,38 @@ For more information, please refer to [pick-it official documentation](https://d
 
 <div style="max-width:fit-content;">
 
-|Pick-it response|Value|
+|응답|값|
 |:---|:---|
-|`ROBOT_MODE`                 |  0|
-|`IDLE_MODE`                  |  1|
-|`FIND_CALIB_PLATE_OK`        | 10|
-|`FIND_CALIB_PLATE_FAILED`    | 11|
-|`CONFIGURE_CALIB_OK`         | 12|
-|`CONFIGURE_CALIB_FAILED`     | 13|
-|`COMPUTE_CALIB_OK`           | 14|
-|`COMPUTE_CALIB_FAILED`       | 15|
-|`VALIDATE_CALIB_OK`          | 16|
-|`VALIDATE_CALIB_FAILED`      | 17|
-|`OBJECTS_FOUND`              | 20|
-|`NO_OBJECTS`                 | 21|
-|`NO_IMAGE_CAPTURED`          | 22|
-|`EMPTY_ROI`                  | 23|
-|`IMAGE_CAPTURED`             | 26|
-|`INVALID_LICENSE`            | 27|
-|`CONFIG_OK`                  | 40|
-|`CONFIG_FAILED`              | 41|
-|`GET_PICK_POINT_DATA_OK`     | 70|
-|`GET_PICK_POINT_DATA_FAILED` | 71|
-|`CONNECTED`                  | 98|
-|`DISCONNECTED`               | 99|
-|`UNKNOWN_COMMAND`            |-99|
+|`UNKNOWN_COMMAND`|-99|
+|`ROBOT_MODE`|0|
+|`IDLE_MODE`|1|
+|`SHUTDOWN_REQUEST_ACCEPT`|5|
+|`SHUTDOWN_REQUEST_REJECTED`|6|
+|`FIND_CALIB_PLATE_OK`|10|
+|`FIND_CALIB_PLATE_FAILED`|11|
+|`CONFIGURE_CALIB_OK`|12|
+|`CONFIGURE_CALIB_FAILED`|13|
+|`COMPUTE_CALIB_OK`|14|
+|`COMPUTE_CALIB_FAILED`|15|
+|`VALIDATE_CALIB_OK`|16|
+|`VALIDATE_CALIB_FAILED`|17|
+|`OBJECTS_FOUND`|20|
+|`NO_OBJECTS`|21|
+|`NO_IMAGE_CAPTURED`|22|
+|`EMPTY_ROI`|23|
+|`IMAGE_CAPTURED`|26|
+|`INVALID_LICENSE`|27|
+|`CONFIG_OK`|40|
+|`CONFIG_FAILED`|41|
+|`SAVE_SNAPSHOT_OK`|50|
+|`SAVE_SNAPSHOT_FAILED`|51|
+|`BUILD_BKG_CLOUD_OK`|60|
+|`BUILD_BKG_CLOUD_FAILED`|61|
+|`GET_PICK_POINT_DATA_OK`|70|
+|`GET_PICK_POINT_DATA_FAILED`|71|
 
 </div>
+
 [__SOURCE](03_operation/2-job-cmd-api/README.md)
 ## 3.2. Pick-it robot language function
 
@@ -333,31 +338,31 @@ As shown in `Figure a`, functional operation and status monitoring of the job fi
 
 `Fig a` Image of the `is_running()` function is executed
 
-<br><br>
+<br>
 
 ### 3.2.1 pick-it f-button commands
 
-You can enter the pick-it commands as follows:    
+In the screen shown in `Fig a`, you can enter commands using a click-based interface by following these steps:
 
-1. Click the `cmd.input` > Check the `f-button` list > Select the `pickit`   
+1. Click `cmd.input` > check the f-button list > click `pickit`.
+<img src="../../_assets/05_pickit_cmd_1.png" style="width: 400px;">  
+`Fig b` pick-it f-button screen
 
-    <img src="../../_assets/05_pickit_cmd_1.png" height=90hv> 
+2. Select the function you wish to enter.
+<img src="../../_assets/06_pickit_cmd_2.png" style="width: 400px;">  
+`Fig c` Command list screen for the pick-it plugin
 
-    `Fig b` pick-it f-button
+3. When a function is selected, you can configure its registered parameter values.  
+<img src="../../_assets/07_pickit_cmd_3.png" style="width: fit-content;">  
+`Fig d` Command invocation screen for the Pick-it plugin
 
-2. Select the command you want to enter  
+4. Modify the `pickit. var` part to `var` before use.  
+Before modification  
+<img src="../../_assets/07_pickit_cmd_4.png" style="width: fit-content;">  
+After modification  
+<img src="../../_assets/07_pickit_cmd_5.png" style="width: fit-content;">  
 
-    <img src="../../_assets/06_pickit_cmd_2.png" height=90hv> 
-
-    `Fig c` commands for the pick-it plugin
-
-3. When you select the command, registered argument values are displayed.
-
-    <img src="../../_assets/07_pickit_cmd_3.png" height=350hv>   
-    
-    `Fig d` When the execute `is_running()` command.
-
-<br><br>
+<br>
 
 ### 3.2.2 pick-it function for the command
 
