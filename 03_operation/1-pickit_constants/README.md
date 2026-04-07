@@ -81,30 +81,34 @@ For more information, please refer to [pick-it official documentation](https://d
 
 <div style="max-width:fit-content;">
 
-|Pick-it response|Value|
+|응답|값|
 |:---|:---|
-|`ROBOT_MODE`                 |  0|
-|`IDLE_MODE`                  |  1|
-|`FIND_CALIB_PLATE_OK`        | 10|
-|`FIND_CALIB_PLATE_FAILED`    | 11|
-|`CONFIGURE_CALIB_OK`         | 12|
-|`CONFIGURE_CALIB_FAILED`     | 13|
-|`COMPUTE_CALIB_OK`           | 14|
-|`COMPUTE_CALIB_FAILED`       | 15|
-|`VALIDATE_CALIB_OK`          | 16|
-|`VALIDATE_CALIB_FAILED`      | 17|
-|`OBJECTS_FOUND`              | 20|
-|`NO_OBJECTS`                 | 21|
-|`NO_IMAGE_CAPTURED`          | 22|
-|`EMPTY_ROI`                  | 23|
-|`IMAGE_CAPTURED`             | 26|
-|`INVALID_LICENSE`            | 27|
-|`CONFIG_OK`                  | 40|
-|`CONFIG_FAILED`              | 41|
-|`GET_PICK_POINT_DATA_OK`     | 70|
-|`GET_PICK_POINT_DATA_FAILED` | 71|
-|`CONNECTED`                  | 98|
-|`DISCONNECTED`               | 99|
-|`UNKNOWN_COMMAND`            |-99|
+|`UNKNOWN_COMMAND`|-99|
+|`ROBOT_MODE`|0|
+|`IDLE_MODE`|1|
+|`SHUTDOWN_REQUEST_ACCEPT`|5|
+|`SHUTDOWN_REQUEST_REJECTED`|6|
+|`FIND_CALIB_PLATE_OK`|10|
+|`FIND_CALIB_PLATE_FAILED`|11|
+|`CONFIGURE_CALIB_OK`|12|
+|`CONFIGURE_CALIB_FAILED`|13|
+|`COMPUTE_CALIB_OK`|14|
+|`COMPUTE_CALIB_FAILED`|15|
+|`VALIDATE_CALIB_OK`|16|
+|`VALIDATE_CALIB_FAILED`|17|
+|`OBJECTS_FOUND`|20|
+|`NO_OBJECTS`|21|
+|`NO_IMAGE_CAPTURED`|22|
+|`EMPTY_ROI`|23|
+|`IMAGE_CAPTURED`|26|
+|`INVALID_LICENSE`|27|
+|`CONFIG_OK`|40|
+|`CONFIG_FAILED`|41|
+|`SAVE_SNAPSHOT_OK`|50|
+|`SAVE_SNAPSHOT_FAILED`|51|
+|`BUILD_BKG_CLOUD_OK`|60|
+|`BUILD_BKG_CLOUD_FAILED`|61|
+|`GET_PICK_POINT_DATA_OK`|70|
+|`GET_PICK_POINT_DATA_FAILED`|71|
 
 </div>
