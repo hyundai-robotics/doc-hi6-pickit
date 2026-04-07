@@ -34,7 +34,6 @@
 <img src="../../_assets/07_pickit_cmd_4.png" height=60hv>   
 수정 후   
 <img src="../../_assets/07_pickit_cmd_5.png" height=62.3hv>    
-    - 추후 수정 예정   
    
 
 <br><br>
