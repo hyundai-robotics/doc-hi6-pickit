@@ -2,10 +2,18 @@
 [__SOURCE](README.md)
 # ${cont_model} Controller Function Manual - Pick-it Plugin
 
+[__SOURCE](0-about-this-manual/README.md)
+# About the Manual
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
 {% include file="en/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# Safety Cautions
+
+{% include file="en/safety-notice.md" %}
 
 [__SOURCE](01_env/README.md)
 # 1. Environment Configuration

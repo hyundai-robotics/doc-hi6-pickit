@@ -1,7 +1,9 @@
 ﻿# Table of contents
 
 * [${cont_model} Controller Function Manual - Pick-it Plugin](README.md)
-* [Precautions](0-about-this-manual/precautions.md)
+* [About the Manual](0-about-this-manual/README.md)
+  * [Precautions](0-about-this-manual/precautions.md)
+  * [Safety Cautions](0-about-this-manual/safety-notice.md)
 * [1. Environment Configuration](01_env/README.md)
   * [1.1 H/W Configuration](01_env/1-hw/README.md)
   * [1.2 Installation](01_env/2-sw_install/README.md)
