@@ -1,38 +1,38 @@
-﻿## 3.1. Constants used in the Pick-it processor
+## 3.1. 在 Pick-it 处理器中使用的常量
 
-The current page is about the `commands` and `responses` requested to the pick-it processor.  
-For more information, see [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface).
+当前页面介绍了请求给 Pick-it 处理器的 `commands` 和 `responses`。  
+有关更多信息，请参见 [pick-it 官方文档](https://docs.pickit3d.com/zh/latest/robots/robot-brands/socket_communication.html#pickit-socket-interface)。
 
 <img src="../../_assets/02_expanded.png" height=350hv> 
 
-`Fig a` Zoomed pick-it monitoring panel
+`图 a` 放大后的 Pick-it 监控面板
 
 <br>
 
 <div style="max-width:fit-content;">
 
-|Property| Direction | Content|
+|属性| 方向 | 内容|
 |:---|:---|:---|
-|`Command`|${cont_model} com &rightarrow; pick-it processor| Indicates a request command. |
-|`Connection`|${cont_model} com &leftrightarrow; pick-it processor| Indicates the communication connection status between ${cont_model} com and pick-it processor. |
-|`Payload 1`, `Payload 2`|${cont_model} com &leftarrow; pick-it processor| [Refer to pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-message) |
-|`Status`|${cont_model} com &leftarrow; pick-it processor| Indicates a response to a request. |
-|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| Indicates the location information of the object determined by the PickIt processor. |
-|`Pick ID`|${cont_model} com &leftarrow; pick-it processor| Indicates the identifier of the object to select from pick-it processor. |  
-|`Remaining Object`|${cont_model} com &leftarrow; pick-it processor| If non-zero, contains the remaining number of objects that can be retrieved. |  
+|`指令值 (Command)`|${cont_model} com &rightarrow; pick-it processor| 表示请求命令。 |
+|`连接 (Connection)`|${cont_model} com &leftrightarrow; pick-it processor| 表示 ${cont_model} com 和 Pick-it 处理器之间的通信连接状态。 |
+|`Payload 1`, `Payload 2`|${cont_model} com &leftarrow; pick-it processor| [参见 pick-it 官方文档](https://docs.pickit3d.com/zh/latest/robots/robot-brands/socket_communication.html#response-message) |
+|`状态 (Status)`|${cont_model} com &leftarrow; pick-it processor| 表示对请求的响应。 |
+|`X,Y,Z,RX,RY,RZ`|${cont_model} com &leftarrow; pick-it processor| 表示 PickIt 处理器确定的物体位置信息。 |
+|`Pick ID`|${cont_model} com &leftarrow; pick-it processor| 表示从 Pick-it 处理器中选择的物体标识符。 |  
+|`剩余物体 (Remaining Object)`|${cont_model} com &leftarrow; pick-it processor| 如果不为零，包含可检索的剩余物体数量。 |  
 
 </div>
 
 <br>
 
-### 3.1.1 pick-it command constants
+### 3.1.1 Pick-it 命令常量
 
-The following are instruction constants used when making requests to the pick-it processor.  
-For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+以下是请求 Pick-it 处理器时使用的指令常量。  
+有关更多信息，请参见 [pick-it 官方文档](https://docs.pickit3d.com/zh/latest/robots/robot-brands/socket_communication.html#response-status)。
 
 <div style="max-width:fit-content;">
 
-|Command|Value|
+|命令|值|
 |:---|:---|
 |`NO_COMMAND`|-1|
 |`CHECK_MODE`|0|
@@ -58,30 +58,30 @@ For more information, please refer to [pick-it official documentation](https://d
 
 <br>
 
-### 3.1.2 pick-it processor mode constants
+### 3.1.2 Pick-it 处理器模式常量
 
-For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+有关更多信息，请参见 [pick-it 官方文档](https://docs.pickit3d.com/zh/latest/robots/robot-brands/socket_communication.html#response-status)。
 
 <div style="max-width:fit-content;">
 
-|Pick-it mode|Value|
+|Pick-it 模式|值|
 |:---|:---|
 |`UNDEFINED`| -1|
 |`ROBOT_MODE`|0|
 |`CALIBRATION MODE`|1|
-|`IDLE`|2|
+|`空闲 (IDLE)`|2|
 
 </div>
 
 <br>
 
-### 3.1.3 pick-it response constants
+### 3.1.3 Pick-it 响应常量
 
-For more information, please refer to [pick-it official documentation](https://docs.pickit3d.com/en/latest/robots/robot-brands/socket_communication.html#response-status).
+有关更多信息，请参见 [pick-it 官方文档](https://docs.pickit3d.com/zh/latest/robots/robot-brands/socket_communication.html#response-status)。
 
 <div style="max-width:fit-content;">
 
-|응답|값|
+|响应|值|
 |:---|:---|
 |`UNKNOWN_COMMAND`|-99|
 |`ROBOT_MODE`|0|
